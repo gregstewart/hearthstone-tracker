@@ -4,7 +4,8 @@
   "description": "A electron based Hearthstone tracker",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/gregstewart/hearthstone-tracker/issues"
   },
-  "homepage": "https://github.com/gregstewart/hearthstone-tracker#readme"
+  "homepage": "https://github.com/gregstewart/hearthstone-tracker#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.2"
+  }
 }
