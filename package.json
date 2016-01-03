@@ -1,0 +1,23 @@
+{
+  "name": "hearthstone-tracker",
+  "version": "0.0.1",
+  "description": "A electron based Hearthstone tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gregstewart/hearthstone-tracker.git"
+  },
+  "keywords": [
+    "hearthstone",
+    "tracker"
+  ],
+  "author": "Greg Stewart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gregstewart/hearthstone-tracker/issues"
+  },
+  "homepage": "https://github.com/gregstewart/hearthstone-tracker#readme"
+}
