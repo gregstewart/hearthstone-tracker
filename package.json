@@ -2,7 +2,7 @@
   "name": "hearthstone-tracker",
   "version": "0.0.1",
   "description": "A electron based Hearthstone tracker",
-  "main": "index.js",
+  "main": "bootstrap-babel.js",
   "scripts": {
     "test": "npm test",
     "start": "electron ."
@@ -23,5 +23,9 @@
   "homepage": "https://github.com/gregstewart/hearthstone-tracker#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.2"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13"
   }
 }

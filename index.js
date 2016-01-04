@@ -1,11 +1,9 @@
-'use strict';
+import app from 'app';
+import BrowserWindow from 'browser-window';
 
-var app = require('app');
-var BrowserWindow = require('browser-window');
+let mainWindow = null;
 
-var mainWindow = null;
-
-app.on('ready', function() {  
+app.on('ready', () => {
   mainWindow = new BrowserWindow({
       height: 600,
       width: 800
