@@ -1,0 +1,602 @@
+{ cardName: 'Old Murk-Eye',
+  entityId: 48,
+  cardId: 'EX1_062',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Old Murk-Eye has moved from undefined undefined to FRIENDLY HAND
+{ cardName: 'Wild Pyromancer',
+  entityId: 53,
+  cardId: 'NEW1_020',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Wild Pyromancer has moved from undefined undefined to FRIENDLY HAND
+{ cardName: 'Murloc Knight',
+  entityId: 59,
+  cardId: 'AT_076',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Murloc Knight has moved from undefined undefined to FRIENDLY HAND
+{ cardName: 'Consecration',
+  entityId: 61,
+  cardId: 'CS2_093',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Consecration has moved from undefined undefined to FRIENDLY HAND
+{ cardName: 'Alleria Windrunner',
+  entityId: 64,
+  cardId: 'HERO_05a',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero)' }
+Alleria Windrunner has moved from undefined undefined to OPPOSING PLAY (Hero)
+{ cardName: 'Steady Shot',
+  entityId: 65,
+  cardId: 'DS1h_292_H1',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero Power)' }
+Steady Shot has moved from undefined undefined to OPPOSING PLAY (Hero Power)
+{ cardName: 'Uther Lightbringer',
+  entityId: 66,
+  cardId: 'HERO_04',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero)' }
+Uther Lightbringer has moved from undefined undefined to FRIENDLY PLAY (Hero)
+Game started!
+=======================
+[ { name: 'artaios', id: 2, team: 'FRIENDLY' },
+  { name: 'DsEvocare', id: 1, team: 'OPPOSING' } ]
+{ cardName: 'Reinforce',
+  entityId: 67,
+  cardId: 'CS2_101',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero Power)' }
+Reinforce has moved from undefined undefined to FRIENDLY PLAY (Hero Power)
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+The Coin has moved from undefined undefined to FRIENDLY HAND
+{ cardName: 'Hammer of Wrath',
+  entityId: 47,
+  cardId: 'CS2_094',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Hammer of Wrath has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Consecration',
+  entityId: 61,
+  cardId: 'CS2_093',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'DECK' }
+Consecration has moved from FRIENDLY HAND to FRIENDLY DECK
+{ cardName: 'Equality',
+  entityId: 41,
+  cardId: 'EX1_619',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Equality has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Wild Pyromancer',
+  entityId: 53,
+  cardId: 'NEW1_020',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'DECK' }
+Wild Pyromancer has moved from FRIENDLY HAND to FRIENDLY DECK
+{ cardName: 'Webspinner',
+  entityId: 29,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Webspinner has moved from OPPOSING HAND to OPPOSING PLAY
+{ cardName: 'Murloc Warleader',
+  entityId: 51,
+  cardId: 'EX1_507',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Murloc Warleader has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Truesilver Champion',
+  entityId: 60,
+  cardId: 'CS2_097',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Truesilver Champion has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Silver Hand Recruit',
+  entityId: 69,
+  cardId: 'CS2_101t',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Silver Hand Recruit has moved from undefined undefined to FRIENDLY PLAY
+{ cardName: 'Webspinner',
+  entityId: 29,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Webspinner has moved from OPPOSING PLAY to OPPOSING GRAVEYARD
+{ cardName: 'Silver Hand Recruit',
+  entityId: 69,
+  cardId: 'CS2_101t',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Silver Hand Recruit has moved from FRIENDLY PLAY to FRIENDLY GRAVEYARD
+{ cardName: 'Webspinner',
+  entityId: 4,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Webspinner has moved from OPPOSING HAND to OPPOSING PLAY
+{ cardName: 'Lay on Hands',
+  entityId: 34,
+  cardId: 'EX1_354',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Lay on Hands has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+The Coin has moved from FRIENDLY HAND to undefined undefined
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+The Coin has moved from undefined undefined to FRIENDLY GRAVEYARD
+{ cardName: 'Murloc Knight',
+  entityId: 59,
+  cardId: 'AT_076',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Murloc Knight has moved from FRIENDLY HAND to FRIENDLY PLAY
+{ cardName: 'Eaglehorn Bow',
+  entityId: 25,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Weapon)' }
+Eaglehorn Bow has moved from OPPOSING HAND to OPPOSING PLAY (Weapon)
+{ cardName: 'Webspinner',
+  entityId: 4,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Webspinner has moved from OPPOSING PLAY to OPPOSING GRAVEYARD
+{ cardName: 'Murloc Knight',
+  entityId: 59,
+  cardId: 'AT_076',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Murloc Knight has moved from FRIENDLY PLAY to FRIENDLY GRAVEYARD
+{ cardName: 'Wild Pyromancer',
+  entityId: 53,
+  cardId: 'NEW1_020',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Wild Pyromancer has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Old Murk-Eye',
+  entityId: 48,
+  cardId: 'EX1_062',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Old Murk-Eye has moved from FRIENDLY HAND to FRIENDLY PLAY
+{ cardName: 'Bear Trap',
+  entityId: 30,
+  cardId: 'AT_060',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: undefined,
+  toZone: undefined }
+Bear Trap has moved from OPPOSING SECRET to undefined undefined
+{ cardName: 'Ironfur Grizzly',
+  entityId: 72,
+  cardId: 'CS2_125',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Ironfur Grizzly has moved from undefined undefined to OPPOSING PLAY
+{ cardName: 'Upgraded',
+  entityId: 73,
+  cardId: 'EX1_536e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Upgraded has moved from undefined undefined to undefined undefined
+{ cardName: 'Bear Trap',
+  entityId: 30,
+  cardId: 'AT_060',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Bear Trap has moved from OPPOSING SECRET to OPPOSING GRAVEYARD
+{ cardName: 'Tundra Rhino',
+  entityId: 70,
+  cardId: 'DS1_178',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Tundra Rhino has moved from OPPOSING HAND to OPPOSING PLAY
+{ cardName: 'Charge',
+  entityId: 74,
+  cardId: 'DS1_178e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Charge has moved from undefined undefined to undefined undefined
+{ cardName: 'Charge',
+  entityId: 75,
+  cardId: 'DS1_178e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Charge has moved from undefined undefined to undefined undefined
+{ cardName: 'Old Murk-Eye',
+  entityId: 48,
+  cardId: 'EX1_062',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Old Murk-Eye has moved from FRIENDLY PLAY to FRIENDLY GRAVEYARD
+{ cardName: 'Bluegill Warrior',
+  entityId: 58,
+  cardId: 'CS2_173',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Bluegill Warrior has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Equality',
+  entityId: 41,
+  cardId: 'EX1_619',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+Equality has moved from FRIENDLY HAND to undefined undefined
+{ cardName: 'Equality',
+  entityId: 41,
+  cardId: 'EX1_619',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Equality has moved from undefined undefined to FRIENDLY GRAVEYARD
+{ cardName: 'Bluegill Warrior',
+  entityId: 58,
+  cardId: 'CS2_173',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Bluegill Warrior has moved from FRIENDLY HAND to FRIENDLY PLAY
+{ cardName: 'Ironfur Grizzly',
+  entityId: 72,
+  cardId: 'CS2_125',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Ironfur Grizzly has moved from OPPOSING PLAY to OPPOSING GRAVEYARD
+{ cardName: 'Bluegill Warrior',
+  entityId: 58,
+  cardId: 'CS2_173',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Bluegill Warrior has moved from FRIENDLY PLAY to FRIENDLY GRAVEYARD
+{ cardName: 'Savannah Highmane',
+  entityId: 31,
+  cardId: 'EX1_534',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Savannah Highmane has moved from OPPOSING HAND to OPPOSING PLAY
+{ cardName: 'Charge',
+  entityId: 78,
+  cardId: 'DS1_178e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Charge has moved from undefined undefined to undefined undefined
+{ cardName: 'Shielded Minibot',
+  entityId: 52,
+  cardId: 'GVG_058',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Shielded Minibot has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Wild Pyromancer',
+  entityId: 53,
+  cardId: 'NEW1_020',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Wild Pyromancer has moved from FRIENDLY HAND to FRIENDLY PLAY
+{ cardName: 'Truesilver Champion',
+  entityId: 60,
+  cardId: 'CS2_097',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Weapon)' }
+Truesilver Champion has moved from FRIENDLY HAND to FRIENDLY PLAY (Weapon)
+{ cardName: 'Tundra Rhino',
+  entityId: 70,
+  cardId: 'DS1_178',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Tundra Rhino has moved from OPPOSING PLAY to OPPOSING GRAVEYARD
+{ cardName: 'Eaglehorn Bow',
+  entityId: 25,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY (Weapon)',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Eaglehorn Bow has moved from OPPOSING PLAY (Weapon) to OPPOSING GRAVEYARD
+{ cardName: 'Wild Pyromancer',
+  entityId: 53,
+  cardId: 'NEW1_020',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Wild Pyromancer has moved from FRIENDLY PLAY to FRIENDLY GRAVEYARD
+{ cardName: 'Houndmaster',
+  entityId: 13,
+  cardId: 'DS1_070',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Houndmaster has moved from OPPOSING HAND to OPPOSING PLAY
+{ cardName: 'Master\'s Presence',
+  entityId: 79,
+  cardId: 'DS1_070o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Master's Presence has moved from undefined undefined to undefined undefined
+{ cardName: 'Animal Companion',
+  entityId: 33,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+Animal Companion has moved from OPPOSING HAND to undefined undefined
+{ cardName: 'Leokk',
+  entityId: 80,
+  cardId: 'NEW1_033',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+Leokk has moved from undefined undefined to OPPOSING PLAY
+{ cardName: 'Animal Companion',
+  entityId: 33,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Animal Companion has moved from undefined undefined to OPPOSING GRAVEYARD
+{ cardName: 'Eye In The Sky',
+  entityId: 81,
+  cardId: 'NEW1_033o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Eye In The Sky has moved from undefined undefined to undefined undefined
+{ cardName: 'Eye In The Sky',
+  entityId: 82,
+  cardId: 'NEW1_033o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+Eye In The Sky has moved from undefined undefined to undefined undefined
+{ cardName: 'Truesilver Champion',
+  entityId: 46,
+  cardId: 'CS2_097',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Truesilver Champion has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Murloc Warleader',
+  entityId: 51,
+  cardId: 'EX1_507',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+Murloc Warleader has moved from FRIENDLY HAND to FRIENDLY PLAY
+{ cardName: 'Hammer of Wrath',
+  entityId: 47,
+  cardId: 'CS2_094',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+Hammer of Wrath has moved from FRIENDLY HAND to undefined undefined
+{ cardName: 'Acolyte of Pain',
+  entityId: 39,
+  cardId: 'EX1_007',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+Acolyte of Pain has moved from FRIENDLY DECK to FRIENDLY HAND
+{ cardName: 'Hammer of Wrath',
+  entityId: 47,
+  cardId: 'CS2_094',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Hammer of Wrath has moved from undefined undefined to FRIENDLY GRAVEYARD
+{ cardName: 'Houndmaster',
+  entityId: 13,
+  cardId: 'DS1_070',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+Houndmaster has moved from OPPOSING PLAY to OPPOSING GRAVEYARD
+Game ended!
+=======================
+[ { name: 'artaios', id: 2, team: 'FRIENDLY', status: 'LOST' },
+  { name: 'DsEvocare', id: 1, team: 'OPPOSING', status: 'WON' } ]
+{ cardName: 'Uther Lightbringer',
+  entityId: 66,
+  cardId: 'HERO_04',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY (Hero)',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Uther Lightbringer has moved from FRIENDLY PLAY (Hero) to FRIENDLY GRAVEYARD
+{ cardName: 'Truesilver Champion',
+  entityId: 60,
+  cardId: 'CS2_097',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY (Weapon)',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+Truesilver Champion has moved from FRIENDLY PLAY (Weapon) to FRIENDLY GRAVEYARD
