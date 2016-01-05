@@ -60,21 +60,22 @@ ScreenPrinting=false
 LogLevel=1
 FilePrinting=false
 ConsolePrinting=true
-ScreenPrinting=false`
+ScreenPrinting=false`;
 
   createFile(pathToLogFile, contents, (error) => {
     if (error) {
+      /*eslint-disable no-console */ 
       console.log(error);
     }
   });
-}
+};
 
 app.on('ready', () => {
   createLogFile();
 
   mainWindow = new BrowserWindow({
-      height: 600,
-      width: 800
+    height: 600,
+    width: 800
   });
 
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');

@@ -1,3 +1,4 @@
+/*eslint-disable no-console */ 
 var LogWatcher = require('hearthstone-log-watcher');
 var logWatcher = new LogWatcher();
 
