@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import parsePlayer from '../app/scripts/parse-player';
 import isMyHero from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
+import hasWon from '../app/scripts/win-condition';
 
 describe('Parse HS log file', () => {
   describe('on game start', () => {
@@ -67,6 +68,26 @@ describe('Parse HS log file', () => {
         expect(findClass('Anduin Wrynn')).to.equal('Priest');
         expect(findClass('Gul\'dan')).to.equal('Warlock');
         expect(findClass('Malfurion Stormrage')).to.equal('Druid');
+      });
+    });
+  });
+
+  //TODO: zone-change;
+
+  describe('on game end', () => {
+    describe('win condition', () => {
+      it('returns a win', () => {
+        let sample = [ { name: 'artaios', id: 2, team: 'FRIENDLY', status: 'WON' },
+        { name: 'Poopfist', id: 1, team: 'OPPOSING', status: 'LOST' } ];
+
+        expect(hasWon(parsePlayer(sample))).to.be.true;
+      });
+
+      it('returns a loss', () => {
+        let sample = [ { name: 'artaios', id: 2, team: 'FRIENDLY', status: 'LOST' },
+        { name: 'Poopfist', id: 1, team: 'OPPOSING', status: 'WON' } ];
+
+        expect(hasWon(parsePlayer(sample))).to.be.false;
       });
     });
   });
