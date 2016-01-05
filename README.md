@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/gregstewart/hearthstone-tracker.svg?style=svg)](https://circleci.com/gh/gregstewart/hearthstone-tracker)
+
 # hearthstone-tracker
 An electron based Hearthstone tracker
 
