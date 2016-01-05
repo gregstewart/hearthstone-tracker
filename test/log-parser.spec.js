@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import parsePlayer from '../app/scripts/parse-player';
+import parseFriendlyPlayer from '../app/scripts/parse-friendly-player';
 import isMyHero from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
 import hasWon from '../app/scripts/win-condition';
@@ -9,7 +9,7 @@ describe('Parse HS log file', () => {
     it('returns the friendly player', () => {
       let sample = [ { name: 'artaios', id: 2, team: 'FRIENDLY' },
         { name: 'Poopfist', id: 1, team: 'OPPOSING' } ];
-      let friendly = parsePlayer(sample);
+      let friendly = parseFriendlyPlayer(sample);
 
       expect(friendly).to.deep.equal(sample[0]);
     });
@@ -80,14 +80,14 @@ describe('Parse HS log file', () => {
         let sample = [ { name: 'artaios', id: 2, team: 'FRIENDLY', status: 'WON' },
         { name: 'Poopfist', id: 1, team: 'OPPOSING', status: 'LOST' } ];
 
-        expect(hasWon(parsePlayer(sample))).to.be.true;
+        expect(hasWon(parseFriendlyPlayer(sample))).to.be.true;
       });
 
       it('returns a loss', () => {
         let sample = [ { name: 'artaios', id: 2, team: 'FRIENDLY', status: 'LOST' },
         { name: 'Poopfist', id: 1, team: 'OPPOSING', status: 'WON' } ];
 
-        expect(hasWon(parsePlayer(sample))).to.be.false;
+        expect(hasWon(parseFriendlyPlayer(sample))).to.be.false;
       });
     });
   });
