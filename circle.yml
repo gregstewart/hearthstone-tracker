@@ -1,3 +1,11 @@
 machine:
   node:
     version: 4.1.2
+
+general:
+  artifacts:
+    - $CIRCLE_TEST_REPORTS
+
+test:
+  override:
+    - NODE_ENV=test ./node_modules/.bin/mocha --recursive --compilers js:babel-register --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/junit/results.xml
