@@ -17,12 +17,12 @@ class ListComponent extends React.Component {
 }
 
 ListComponent.propTypes = {
-  data: React.PropTypes.shape({
+  data: React.PropTypes.arrayOf(React.PropTypes.shape({
     id: React.PropTypes.number.isRequired,
     label: React.PropTypes.string,
     text: React.PropTypes.string,
     map: React.PropTypes.func
-  })
+  }))
 };
 
 export default ListComponent;

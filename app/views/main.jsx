@@ -10,11 +10,12 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-  data: React.PropTypes.shape({
+  data: React.PropTypes.arrayOf(React.PropTypes.shape({
     id: React.PropTypes.number.isRequired,
     label: React.PropTypes.string,
-    text: React.PropTypes.string
-  })
+    text: React.PropTypes.string,
+    map: React.PropTypes.func
+  }))
 };
 
 export default Main;
