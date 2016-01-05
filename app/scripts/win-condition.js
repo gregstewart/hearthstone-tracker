@@ -1,5 +1,5 @@
-const WIN_CONDITION = 'WON'
+const WIN_CONDITION = 'WON';
 
 export default function (player) {
-    return player.status === WIN_CONDITION;
+  return player.status === WIN_CONDITION;
 }
