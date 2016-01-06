@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import parseFriendlyPlayer from '../app/scripts/parse-friendly-player';
-import isMyHero from '../app/scripts/is-my-hero';
+import {isMyHero, isHeroCard} from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
 import hasWon from '../app/scripts/win-condition';
 
@@ -14,7 +14,33 @@ describe('Parse HS log file', () => {
       expect(friendly).to.deep.equal(sample[0]);
     });
 
-    describe('find my hero', () => {
+    describe('find hero', () => {
+      it('is a hero card', () => {
+        let sample = { cardName: 'Rexxar',
+          entityId: 64,
+          cardId: 'FOO_05',
+          playerId: 1,
+          fromTeam: undefined,
+          fromZone: undefined,
+          toTeam: 'OPPOSING',
+          toZone: 'PLAY (Hero)' };
+
+        expect(isHeroCard(sample)).to.be.false;
+      });
+
+      it('is not a hero card, card ID does not match pattern', () => {
+        let sample = { cardName: 'Houndmaster',
+          entityId: 13,
+          cardId: 'DS1_070',
+          playerId: 1,
+          fromTeam: 'OPPOSING',
+          fromZone: 'PLAY',
+          toTeam: 'OPPOSING',
+          toZone: 'GRAVEYARD' };
+
+        expect(isHeroCard(sample)).to.be.false;
+      });
+
       it('is my hero\'s card', () => {
         let sample = { cardName: 'Uther Lightbringer',
           entityId: 66,
@@ -32,19 +58,6 @@ describe('Parse HS log file', () => {
         let sample = { cardName: 'Rexxar',
           entityId: 64,
           cardId: 'HERO_05',
-          playerId: 1,
-          fromTeam: undefined,
-          fromZone: undefined,
-          toTeam: 'OPPOSING',
-          toZone: 'PLAY (Hero)' };
-
-        expect(isMyHero(sample)).to.be.false;
-      });
-
-      it('is not a hero, card ID does not match pattern', () => {
-        let sample = { cardName: 'Rexxar',
-          entityId: 64,
-          cardId: 'FOO_05',
           playerId: 1,
           fromTeam: undefined,
           fromZone: undefined,

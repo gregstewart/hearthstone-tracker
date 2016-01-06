@@ -14,6 +14,10 @@ const isInHeroZone = (toZone) => {
   return toZone && toZone === HERO_ZONE;
 };
 
-export default function (card) {
-  return belongsToFriendlyTeam(card.toTeam) && hasHeroPattern(card.cardId) && isInHeroZone(card.toZone);
+export function isMyHero (card) {
+  return belongsToFriendlyTeam(card.toTeam) && isHeroCard(card);
+}
+
+export function isHeroCard (card) {
+  return hasHeroPattern(card.cardId) && isInHeroZone(card.toZone);
 }
