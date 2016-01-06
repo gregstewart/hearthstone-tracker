@@ -37,6 +37,7 @@
     "babel-register": "^6.3.13",
     "create-file": "^1.0.1",
     "hearthstone-log-watcher": "^3.0.1",
+    "lodash": "^3.10.1",
     "react": "^0.14.5",
     "react-dom": "^0.14.5"
   },
