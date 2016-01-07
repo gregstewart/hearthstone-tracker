@@ -18,7 +18,7 @@ var dataStructure = {
 };
 var database = [];
 
-logWatcher.on('game-start', function (data) {
+logWatcher.on('game-start', function () {
   console.log('Game started!');
   console.log('=======================');
   // console.log(data);
