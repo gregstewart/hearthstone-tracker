@@ -21,3 +21,10 @@ export function isMyHero (card) {
 export function isHeroCard (card) {
   return hasHeroPattern(card.cardId) && isInHeroZone(card.toZone);
 }
+
+export function extractPlayerDetails (card) {
+  return {
+    team: card.toTeam,
+    id: card.playerId
+  };
+}

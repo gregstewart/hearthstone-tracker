@@ -6,6 +6,16 @@ const isFriendly = (element) => {
   return false;
 };
 
-export default function (players) {
+export function parseFriendlyPlayer (players) {
   return players.find(isFriendly);
+}
+
+export function parseFriendlyPlayerById (players, id) {
+  return players.find((element) => {
+    if (element.id === id) {
+      return element;
+    }
+
+    return false;
+  });
 }

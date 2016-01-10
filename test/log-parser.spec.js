@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import parseFriendlyPlayer from '../app/scripts/parse-friendly-player';
-import {isMyHero, isHeroCard} from '../app/scripts/is-my-hero';
+import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../app/scripts/parse-friendly-player';
+import {isMyHero, isHeroCard, extractPlayerDetails} from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
 import hasWon from '../app/scripts/win-condition';
 
@@ -86,6 +86,32 @@ describe('Parse HS log file', () => {
   });
 
   //TODO: zone-change;
+  describe('on zone change', () => {
+    // TODO: Add test and code for handling the scenario where the start event
+    // is not fired and we have to figure who we are ourselves from the hero cards
+    // means we should adopt a different data structure
+    it('returns identifiable player properties for a hero card', () => {
+      const sample = { cardName: 'Uther Lightbringer',
+        entityId: 66,
+        cardId: 'HERO_04',
+        playerId: 2,
+        fromTeam: undefined,
+        fromZone: undefined,
+        toTeam: 'FRIENDLY',
+        toZone: 'PLAY (Hero)' };
+      const expected = {team: 'FRIENDLY', id: 2};
+
+      expect(extractPlayerDetails(sample)).to.deep.equal(expected);
+    });
+
+    it('returns a friendly player by the ID', () => {
+      let sample = [ { name: 'artaios', id: 2 },
+        { name: 'Poopfist', id: 1 } ];
+
+      expect(parseFriendlyPlayerById(sample, 2)).to.deep.equal(sample[0]);
+    });
+  });
+
 
   describe('on game end', () => {
     describe('win condition', () => {
@@ -101,6 +127,20 @@ describe('Parse HS log file', () => {
         { name: 'Poopfist', id: 1, team: 'OPPOSING', status: 'WON' } ];
 
         expect(hasWon(parseFriendlyPlayer(sample))).to.be.false;
+      });
+
+      // TODO: This is the result when the game start event has not fired
+      // We loose the team key.
+      // [ { name: 'Teknow', id: 2, status: 'LOST' },
+      //   { name: 'artaios', id: 1, status: 'WON' } ]
+      describe('missing team key', () => {
+        it('returns a win', () => {
+          const expected = {team: 'FRIENDLY', id: 1};
+          const sampleOutcome = [ { name: 'Teknow', id: 2, status: 'LOST' },
+            { name: 'artaios', id: 1, status: 'WON' } ];
+
+          expect(hasWon(parseFriendlyPlayerById(sampleOutcome, expected.id))).to.be.true;
+        });
       });
     });
   });
