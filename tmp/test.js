@@ -18,17 +18,27 @@ var dataStructure = {
 };
 var database = [];
 
-logWatcher.on('game-start', function () {
+// { cardName: 'Rexxar',
+//   entityId: 66,
+//   cardId: 'HERO_05',
+//   playerId: 2,
+//   fromTeam: undefined,
+//   fromZone: undefined,
+//   toTeam: 'FRIENDLY',
+//   toZone: 'PLAY (Hero)',
+//   id: 1452388407333 }
+
+logWatcher.on('game-start', function (data) {
   console.log('Game started!');
   console.log('=======================');
-  // console.log(data);
+  console.log(data);
   dataStructure.matchId = Date.now();
 });
 
 logWatcher.on('game-over', function (data) {
   console.log('Game ended!');
   console.log('=======================');
-  // console.log(data);
+  console.log(data);
   recordOutcome(data, logMatch);
   // console.log(dataStructure);
   logMatch = [];

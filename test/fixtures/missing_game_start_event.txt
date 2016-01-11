@@ -1,0 +1,973 @@
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 38,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Piloted Shredder',
+  entityId: 44,
+  cardId: 'GVG_096',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 51,
+  cardId: 'EX1_538',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Rexxar',
+  entityId: 64,
+  cardId: 'HERO_05',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Steady Shot',
+  entityId: 65,
+  cardId: 'DS1h_292',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero Power)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Rexxar',
+  entityId: 66,
+  cardId: 'HERO_05',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Steady Shot',
+  entityId: 67,
+  cardId: 'DS1h_292',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero Power)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 52,
+  cardId: 'FP1_011',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 51,
+  cardId: 'EX1_538',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'DECK' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kill Command',
+  entityId: 46,
+  cardId: 'EX1_539',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 52,
+  cardId: 'FP1_011',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 19,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Quick Shot',
+  entityId: 57,
+  cardId: 'BRM_013',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 27,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 59,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 38,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Leokk',
+  entityId: 69,
+  cardId: 'NEW1_033',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 38,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Glaivezooka',
+  entityId: 25,
+  cardId: 'GVG_043',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Weapon)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Glaivezooka',
+  entityId: 71,
+  cardId: 'GVG_043e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 52,
+  cardId: 'FP1_011',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 27,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Captain\'s Parrot',
+  entityId: 72,
+  cardId: 'NEW1_016',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 60,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 60,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 21,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Leokk',
+  entityId: 69,
+  cardId: 'NEW1_033',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 21,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 17,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 19,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 60,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 34,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Captain\'s Parrot',
+  entityId: 72,
+  cardId: 'NEW1_016',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kill Command',
+  entityId: 46,
+  cardId: 'EX1_539',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kill Command',
+  entityId: 46,
+  cardId: 'EX1_539',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 7,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Furious Howl',
+  entityId: 75,
+  cardId: 'DS1_175o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Glaivezooka',
+  entityId: 25,
+  cardId: 'GVG_043',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY (Weapon)',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Captain\'s Parrot',
+  entityId: 72,
+  cardId: 'NEW1_016',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kill Command',
+  entityId: 33,
+  cardId: 'EX1_539',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kill Command',
+  entityId: 33,
+  cardId: 'EX1_539',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 45,
+  cardId: 'EX1_611',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 45,
+  cardId: 'EX1_611',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 45,
+  cardId: 'EX1_611',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'SECRET' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Piloted Shredder',
+  entityId: 44,
+  cardId: 'GVG_096',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 7,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 45,
+  cardId: 'EX1_611',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'SECRET',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 24,
+  cardId: 'DS1_070',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Master\'s Presence',
+  entityId: 76,
+  cardId: 'DS1_070o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Savannah Highmane',
+  entityId: 41,
+  cardId: 'EX1_534',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Quick Shot',
+  entityId: 57,
+  cardId: 'BRM_013',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Quick Shot',
+  entityId: 57,
+  cardId: 'BRM_013',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 17,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Leokk',
+  entityId: 69,
+  cardId: 'NEW1_033',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 14,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Piloted Shredder',
+  entityId: 44,
+  cardId: 'GVG_096',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 14,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'SECRET',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 7,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Scavenging Hyena',
+  entityId: 77,
+  cardId: 'EX1_531',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Furious Howl',
+  entityId: 79,
+  cardId: 'DS1_175o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Piloted Shredder',
+  entityId: 35,
+  cardId: 'GVG_096',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 59,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 34,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 82,
+  cardId: 'NEW1_032',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 34,
+  cardId: 'NEW1_031',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kel\'Thuzad',
+  entityId: 32,
+  cardId: 'FP1_013',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 24,
+  cardId: 'DS1_070',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 82,
+  cardId: 'NEW1_032',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 7,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Well Fed',
+  entityId: 84,
+  cardId: 'EX1_531e',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Scavenging Hyena',
+  entityId: 77,
+  cardId: 'EX1_531',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 85,
+  cardId: 'DS1_070',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 86,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Scavenging Hyena',
+  entityId: 87,
+  cardId: 'EX1_531',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Furious Howl',
+  entityId: 88,
+  cardId: 'DS1_175o',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Explosive Trap',
+  entityId: 61,
+  cardId: 'EX1_610',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Explosive Trap',
+  entityId: 61,
+  cardId: 'EX1_610',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Explosive Trap',
+  entityId: 61,
+  cardId: 'EX1_610',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'SECRET' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Savannah Highmane',
+  entityId: 41,
+  cardId: 'EX1_534',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Leokk',
+  entityId: 69,
+  cardId: 'NEW1_033',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Houndmaster',
+  entityId: 59,
+  cardId: 'DS1_070',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Kel\'Thuzad',
+  entityId: 32,
+  cardId: 'FP1_013',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Explosive Trap',
+  entityId: 61,
+  cardId: 'EX1_610',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'SECRET',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Timber Wolf',
+  entityId: 86,
+  cardId: 'DS1_175',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Scavenging Hyena',
+  entityId: 87,
+  cardId: 'EX1_531',
+  playerId: 1,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Game ended!
+=======================
+[ { name: 'artaios', id: 2, status: 'LOST' },
+  { name: 'Musashi73', id: 1, status: 'WON' } ]
+=======================
+Zone changed!
+=======================
+{ cardName: 'Rexxar',
+  entityId: 66,
+  cardId: 'HERO_05',
+  playerId: 2,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY (Hero)',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }

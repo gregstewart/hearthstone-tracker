@@ -1,0 +1,923 @@
+=======================
+Zone changed!
+=======================
+{ cardName: 'Eaglehorn Bow',
+  entityId: 13,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Dr. Boom',
+  entityId: 19,
+  cardId: 'GVG_110',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 31,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Rexxar',
+  entityId: 64,
+  cardId: 'HERO_05',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Steady Shot',
+  entityId: 65,
+  cardId: 'DS1h_292',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Hero Power)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Thrall',
+  entityId: 66,
+  cardId: 'HERO_02',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero)' }
+=======================
+Game started!
+=======================
+[ { name: 'zam', id: 2, team: 'OPPOSING' },
+  { name: 'artaios', id: 1, team: 'FRIENDLY' } ]
+=======================
+Zone changed!
+=======================
+{ cardName: 'Totemic Call',
+  entityId: 67,
+  cardId: 'CS2_049',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY (Hero Power)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 6,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Dr. Boom',
+  entityId: 19,
+  cardId: 'GVG_110',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'DECK' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 25,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Eaglehorn Bow',
+  entityId: 13,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'DECK' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 32,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 32,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Earth Shock',
+  entityId: 61,
+  cardId: 'EX1_245',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Earth Shock',
+  entityId: 61,
+  cardId: 'EX1_245',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 32,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Knife Juggler',
+  entityId: 14,
+  cardId: 'NEW1_019',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'The Coin',
+  entityId: 68,
+  cardId: 'GAME_005',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Brann Bronzebeard',
+  entityId: 58,
+  cardId: 'LOE_077',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 27,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 31,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 69,
+  cardId: 'NEW1_032',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 31,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Tuskarr Totemic',
+  entityId: 40,
+  cardId: 'AT_046',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Vitality Totem',
+  entityId: 70,
+  cardId: 'GVG_039',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Healing Totem',
+  entityId: 71,
+  cardId: 'NEW1_009',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Brann Bronzebeard',
+  entityId: 58,
+  cardId: 'LOE_077',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 16,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 16,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 16,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'SECRET' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Vitality Totem',
+  entityId: 70,
+  cardId: 'GVG_039',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Tuskarr Totemic',
+  entityId: 40,
+  cardId: 'AT_046',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 16,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'SECRET',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Wrath of Air Totem',
+  entityId: 72,
+  cardId: 'CS2_052',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Earth Shock',
+  entityId: 34,
+  cardId: 'EX1_245',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Earth Shock',
+  entityId: 34,
+  cardId: 'EX1_245',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 69,
+  cardId: 'NEW1_032',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ironbeak Owl',
+  entityId: 21,
+  cardId: 'CS2_203',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ironbeak Owl',
+  entityId: 21,
+  cardId: 'CS2_203',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 6,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 6,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'SECRET' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ancient Watcher',
+  entityId: 54,
+  cardId: 'EX1_045',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Searing Totem',
+  entityId: 73,
+  cardId: 'CS2_050',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 23,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Knife Juggler',
+  entityId: 14,
+  cardId: 'NEW1_019',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 25,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 74,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 75,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 76,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 77,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 25,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Searing Totem',
+  entityId: 73,
+  cardId: 'CS2_050',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Fire Elemental',
+  entityId: 57,
+  cardId: 'CS2_042',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Knife Juggler',
+  entityId: 14,
+  cardId: 'NEW1_019',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Eaglehorn Bow',
+  entityId: 13,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 23,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 78,
+  cardId: 'NEW1_032',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Animal Companion',
+  entityId: 23,
+  cardId: 'NEW1_031',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Mad Scientist',
+  entityId: 27,
+  cardId: 'FP1_004',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ironbeak Owl',
+  entityId: 46,
+  cardId: 'CS2_203',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ancient Watcher',
+  entityId: 54,
+  cardId: 'EX1_045',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Freezing Trap',
+  entityId: 6,
+  cardId: 'EX1_611',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'SECRET',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Stoneclaw Totem',
+  entityId: 79,
+  cardId: 'CS2_051',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ancient Watcher',
+  entityId: 43,
+  cardId: 'EX1_045',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Misha',
+  entityId: 78,
+  cardId: 'NEW1_032',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 28,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Stoneclaw Totem',
+  entityId: 79,
+  cardId: 'CS2_051',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 76,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Fire Elemental',
+  entityId: 57,
+  cardId: 'CS2_042',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 77,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'PLAY',
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Ironbeak Owl',
+  entityId: 46,
+  cardId: 'CS2_203',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 28,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: undefined,
+  toZone: undefined }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 80,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 81,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Hound',
+  entityId: 82,
+  cardId: 'EX1_538t',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Unleash the Hounds',
+  entityId: 28,
+  cardId: 'EX1_538',
+  playerId: 1,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'FRIENDLY',
+  toZone: 'GRAVEYARD' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Eaglehorn Bow',
+  entityId: 13,
+  cardId: 'EX1_536',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'HAND',
+  toTeam: 'FRIENDLY',
+  toZone: 'PLAY (Weapon)' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Tuskarr Totemic',
+  entityId: 40,
+  cardId: 'AT_046',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'HAND',
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Stoneclaw Totem',
+  entityId: 83,
+  cardId: 'CS2_051',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Searing Totem',
+  entityId: 84,
+  cardId: 'CS2_050',
+  playerId: 2,
+  fromTeam: undefined,
+  fromZone: undefined,
+  toTeam: 'OPPOSING',
+  toZone: 'PLAY' }
+=======================
+Zone changed!
+=======================
+{ cardName: 'Webspinner',
+  entityId: 15,
+  cardId: 'FP1_011',
+  playerId: 1,
+  fromTeam: 'FRIENDLY',
+  fromZone: 'DECK',
+  toTeam: 'FRIENDLY',
+  toZone: 'HAND' }
+=======================
+Game ended!
+=======================
+[ { name: 'zam', id: 2, team: 'OPPOSING', status: 'LOST' },
+  { name: 'artaios', id: 1, team: 'FRIENDLY', status: 'WON' } ]
+=======================
+Zone changed!
+=======================
+{ cardName: 'Thrall',
+  entityId: 66,
+  cardId: 'HERO_02',
+  playerId: 2,
+  fromTeam: 'OPPOSING',
+  fromZone: 'PLAY (Hero)',
+  toTeam: 'OPPOSING',
+  toZone: 'GRAVEYARD' }
