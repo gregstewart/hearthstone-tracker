@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst } from '../src/match-data-manipulation';
+import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst } from '../../src/match-data-manipulation';
 
 describe('Match data actions', () => {
   let logMatch, dataStructure, database;
