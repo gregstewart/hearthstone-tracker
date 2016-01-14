@@ -11,7 +11,11 @@ describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData;
   before(() => {
     sandbox = sinon.sandbox.create();
-    let watcher = new LogWatcher();
+    const options = {
+      logFile: './test/fixtures/Player.log',
+      configFile: './test/fixtures/log.config'
+    }
+    let watcher = new LogWatcher(options);
 
     logWatcher = dataLogger(watcher);
     sandbox.spy(logWatcher, "on");

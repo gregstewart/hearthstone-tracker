@@ -6,7 +6,6 @@ describe('Match data actions', () => {
   let logMatch, dataStructure, database;
 
   beforeEach(() => {
-    logMatch = [];
     dataStructure = {
       matchId: "",
       for: "",
@@ -21,7 +20,7 @@ describe('Match data actions', () => {
     it('sets a match id', () => {
       expect(dataStructure.matchId).to.be.empty;
       dataStructure = setMatchId(dataStructure);
-      expect(dataStructure.matchId).to.be.a('number');
+      expect(dataStructure.matchId).to.be.a.number;
     });
   });
 
