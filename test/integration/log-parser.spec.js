@@ -14,7 +14,7 @@ describe('Parse HS log file', () => {
     const options = {
       logFile: './test/fixtures/Player.log',
       configFile: './test/fixtures/log.config'
-    }
+    };
     let watcher = new LogWatcher(options);
 
     logWatcher = dataLogger(watcher);
