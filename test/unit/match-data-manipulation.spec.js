@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst } from '../../src/match-data-manipulation';
+import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst, setPlayerId } from '../../src/match-data-manipulation';
 
 describe('Match data actions', () => {
   let logMatch, dataStructure, database;
@@ -37,6 +37,13 @@ describe('Match data actions', () => {
       expect(dataStructure.against).to.be.empty;
       dataStructure = setAgainst(dataStructure, value);
       expect(dataStructure.against).to.equal(value);
+    });
+
+    it('sets a player id', () => {
+      const value = 'Fee';
+      expect(dataStructure.playerId).to.be.empty;
+      dataStructure = setPlayerId(dataStructure, value);
+      expect(dataStructure.playerId).to.equal(value);
     });
   });
 

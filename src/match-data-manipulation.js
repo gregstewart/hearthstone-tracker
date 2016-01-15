@@ -7,8 +7,11 @@ export const recordOutcome = (database, dataStructure) => {
 
 export const resetData = () => {
   const logMatch = [];
+  // TODO: case to be made whereby we turn the for and against values into object
+  // { playerName: 'foo', playerId: 1}
   const dataStructure = {
     matchId: "",
+    playerId: "",
     for: "",
     against: "",
     log: [],
@@ -25,6 +28,11 @@ export const setMatchId = (dataStructure) => {
 
 export const setWinCondition = (dataStructure, hasWon) => {
   dataStructure.hasWon = hasWon;
+  return dataStructure;
+};
+
+export const setPlayerId = (dataStructure, id) => {
+  dataStructure.playerId = id;
   return dataStructure;
 };
 

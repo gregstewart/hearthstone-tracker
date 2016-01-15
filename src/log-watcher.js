@@ -1,13 +1,16 @@
 // import LogWatcher from 'hearthstone-log-watcher';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst } from './match-data-manipulation';
-import {parseFriendlyPlayer} from '../app/scripts/parse-friendly-player';
+import {setWinCondition, recordOutcome, setMatchId, setFor, setAgainst, setPlayerId} from './match-data-manipulation';
+import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../app/scripts/parse-friendly-player';
 import {isMyHero, isHeroCard} from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
 import hasWon from '../app/scripts/win-condition';
 
+// TODO: case to be made whereby we turn the for and against values into object
+// { playerName: 'foo', playerId: 1}
 let dataStructure = {
   matchId: "",
+  playerId: "",
   for: "",
   against: "",
   log: [],
@@ -23,17 +26,26 @@ const setHeroValues = (data) => {
     } else {
       dataStructure = setAgainst(dataStructure, findClass(data.cardName));
     }
+    dataStructure = setPlayerId(dataStructure, data.playerId);
   }
   return dataStructure;
 };
 
 export function dataLogger (logWatcher) {
+
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
   });
 
   logWatcher.on('game-over', (data) => {
-    dataStructure = setWinCondition(dataStructure, hasWon(parseFriendlyPlayer(data)));
+    var winCondition;
+    if(!dataStructure.matchId) {
+      dataStructure = setMatchId(dataStructure);
+      winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
+    } else {
+      winCondition = hasWon(parseFriendlyPlayer(data));
+    }
+    dataStructure = setWinCondition(dataStructure, winCondition);
     database = recordOutcome(database, dataStructure);
     // let { logMatch, dataStructure } = resetData();
   });

@@ -146,6 +146,7 @@ describe('Parse HS log file', () => {
     });
 
     it('returns a database with a complete record for the match', () => {
+      const OFF_SET = 3;
       const applyData = () => {
         return new Promise((resolve) => {
           logData.map((element) => {
@@ -159,127 +160,153 @@ describe('Parse HS log file', () => {
         expect(getDatabase()[0].matchId).to.be.a.number;
         expect(getDatabase()[0].for).to.equal('Hunter');
         expect(getDatabase()[0].against).to.equal('Shaman');
-        expect(getDatabase()[0].log.length).to.equal(logData.length-3);
+        expect(getDatabase()[0].log.length).to.equal(logData.length-OFF_SET);
         expect(getDatabase()[0].hasWon).to.be.true;
+      }).catch((err) => {
+        /*eslint no-console:0*/
+        console.log(err);
       });
     });
   });
 
-  describe('We have a bad parse', () => {
+  describe('We have a parse with a missing start event', () => {
     beforeEach(() => {
-      const log = [
-        { event: 'zone-change'},
-        { cardName: 'Animal Companion',
+      logData = [
+        { event: 'zone-change',
+        data: { cardName: 'Animal Companion',
           entityId: 38,
           cardId: 'NEW1_031',
           playerId: 2,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'FRIENDLY',
-          toZone: 'HAND' },
-        { event: 'zone-change'},
-        { cardName: 'Piloted Shredder',
+          toZone: 'HAND' }},
+        { event: 'zone-change',
+        data: { cardName: 'Piloted Shredder',
           entityId: 44,
           cardId: 'GVG_096',
           playerId: 2,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'FRIENDLY',
-          toZone: 'HAND' },
-        { event: 'zone-change'},
-        { cardName: 'Unleash the Hounds',
+          toZone: 'HAND' }},
+        { event: 'zone-change',
+        data: { cardName: 'Unleash the Hounds',
           entityId: 51,
           cardId: 'EX1_538',
           playerId: 2,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'FRIENDLY',
-          toZone: 'HAND' },
-        { event: 'zone-change'},
-        { cardName: 'Rexxar',
+          toZone: 'HAND' }},
+        { event: 'zone-change',
+        data: { cardName: 'Rexxar',
           entityId: 64,
           cardId: 'HERO_05',
           playerId: 1,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'OPPOSING',
-          toZone: 'PLAY (Hero)' },
-        { event: 'zone-change'},
-        { cardName: 'Steady Shot',
+          toZone: 'PLAY (Hero)' }},
+        { event: 'zone-change',
+        data: { cardName: 'Steady Shot',
           entityId: 65,
           cardId: 'DS1h_292',
           playerId: 1,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'OPPOSING',
-          toZone: 'PLAY (Hero Power)' },
-        { event: 'zone-change'},
-        { cardName: 'Rexxar',
+          toZone: 'PLAY (Hero Power)'}},
+        { event: 'zone-change',
+        data: { cardName: 'Rexxar',
           entityId: 66,
           cardId: 'HERO_05',
           playerId: 2,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'FRIENDLY',
-          toZone: 'PLAY (Hero)' },
-        { event: 'zone-change'},
-        { cardName: 'Steady Shot',
+          toZone: 'PLAY (Hero)' }},
+        { event: 'zone-change',
+        data: { cardName: 'Steady Shot',
           entityId: 67,
           cardId: 'DS1h_292',
           playerId: 2,
           fromTeam: undefined,
           fromZone: undefined,
           toTeam: 'FRIENDLY',
-          toZone: 'PLAY (Hero Power)' },
-        { event: 'zone-change'},
-        { cardName: 'Webspinner',
+          toZone: 'PLAY (Hero Power)' }},
+        { event: 'zone-change',
+        data: { cardName: 'Webspinner',
           entityId: 52,
           cardId: 'FP1_011',
           playerId: 2,
           fromTeam: 'FRIENDLY',
           fromZone: 'DECK',
           toTeam: 'FRIENDLY',
-          toZone: 'HAND' },
-        { event: 'zone-change'},
-        { cardName: 'Unleash the Hounds',
+          toZone: 'HAND' }},
+        { event: 'zone-change',
+        data: { cardName: 'Unleash the Hounds',
           entityId: 51,
           cardId: 'EX1_538',
           playerId: 2,
           fromTeam: 'FRIENDLY',
           fromZone: 'HAND',
           toTeam: 'FRIENDLY',
-          toZone: 'DECK' },
-        { event: 'zone-change'},
-        { cardName: 'Kill Command',
+          toZone: 'DECK' }},
+        { event: 'zone-change',
+        data: {cardName: 'Kill Command',
           entityId: 46,
           cardId: 'EX1_539',
           playerId: 2,
           fromTeam: 'FRIENDLY',
           fromZone: 'DECK',
           toTeam: 'FRIENDLY',
-          toZone: 'HAND' },
-        { event: 'zone-change'},
-        { cardName: 'Webspinner',
+          toZone: 'HAND' }},
+        { event: 'zone-change',
+        data: { cardName: 'Webspinner',
           entityId: 52,
           cardId: 'FP1_011',
           playerId: 2,
           fromTeam: 'FRIENDLY',
           fromZone: 'HAND',
           toTeam: 'FRIENDLY',
-          toZone: 'PLAY' },
-        { event: 'game-ended'},
-        [ { name: 'artaios', id: 2, status: 'LOST' },
-          { name: 'Musashi73', id: 1, status: 'WON' } ],
-        { event: 'zone-change'},
-        { cardName: 'Rexxar',
+          toZone: 'PLAY' }},
+        { event: 'game-over',
+        data: [ { name: 'artaios', id: 2, status: 'LOST' },
+          { name: 'Musashi73', id: 1, status: 'WON' } ]},
+        { event: 'zone-change',
+        data: { cardName: 'Rexxar',
           entityId: 66,
           cardId: 'HERO_05',
           playerId: 2,
           fromTeam: 'FRIENDLY',
           fromZone: 'PLAY (Hero)',
           toTeam: 'FRIENDLY',
-          toZone: 'GRAVEYARD' }
+          toZone: 'GRAVEYARD' }}
       ];
+    });
+
+    it('returns a database with a complete record for the match', () => {
+      const OFF_SET = 2;
+      const applyData = () => {
+        return new Promise((resolve) => {
+          logData.map((element) => {
+            logWatcher.emit(element.event, element.data);
+          });
+          return resolve();
+        });
+      };
+
+      applyData().then(() => {
+        expect(getDatabase()[0].matchId).to.be.a.number;
+        expect(getDatabase()[0].for).to.equal('Hunter');
+        expect(getDatabase()[0].against).to.equal('Hunter');
+        expect(getDatabase()[0].log.length).to.equal(logData.length-OFF_SET);
+        expect(getDatabase()[0].hasWon).to.be.false;
+      }).catch((err) => {
+        /*eslint no-console:0*/
+        console.log(err);
+      });
     });
   });
 });
