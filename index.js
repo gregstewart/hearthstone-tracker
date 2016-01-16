@@ -1,7 +1,8 @@
 import app from 'app';
 import BrowserWindow from 'browser-window';
+import LogWatcher from 'hearthstone-log-watcher';
 
-import {createLogFile} from './src/init';
+import {dataLogger} from './src/log-watcher';
 
 let mainWindow = null;
 
@@ -13,9 +14,9 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  //TODO: verify this is needed, hs log wather module may well do this already
-  createLogFile();
-
+  let watcher = new LogWatcher();
+  let logWatcher = dataLogger(watcher);
+  logWatcher.start();
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800
