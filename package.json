@@ -9,6 +9,10 @@
     "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.2 --out=builds/"
   },
+  "pre-push": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/gregstewart/hearthstone-tracker.git"
@@ -33,6 +37,7 @@
     "eslint-plugin-react": "^3.14.0",
     "mocha": "^2.3.4",
     "mocha-junit-reporter": "^1.9.1",
+    "pre-push": "^0.1.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0"
   },
