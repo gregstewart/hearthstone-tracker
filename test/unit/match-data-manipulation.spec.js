@@ -79,9 +79,8 @@ describe('Match data actions', () => {
         log: logMatch,
         hasWon: true
       };
-      let { logMatch, dataStructure } = resetData();
+      let dataStructure = resetData();
 
-      expect(logMatch).to.be.empty;
       expect(dataStructure.matchId).to.be.empty;
       expect(dataStructure.for).to.be.empty;
       expect(dataStructure.against).to.be.empty;
