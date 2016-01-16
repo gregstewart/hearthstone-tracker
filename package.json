@@ -6,7 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register",
     "start": "electron .",
-    "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx"
+    "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
+    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.2 --out=builds/"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "babel-eslint": "^4.1.6",
     "bluebird": "^3.1.1",
     "chai": "^3.4.1",
+    "electron-packager": "^5.2.0",
     "electron-prebuilt": "^0.36.2",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.14.0",
