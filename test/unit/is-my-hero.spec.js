@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import {isMyHero, isHeroCard, extractPlayerDetails} from '../../app/scripts/is-my-hero';
+import {isMyHero, isHeroCard, extractPlayerDetails} from '../../src/is-my-hero';
 
 describe('Find hero', () => {
   it('is a hero card', () => {

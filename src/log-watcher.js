@@ -1,10 +1,10 @@
 // import LogWatcher from 'hearthstone-log-watcher';
 
 import {setWinCondition, recordOutcome, setMatchId, setFor, setAgainst, setPlayerId, resetData} from './match-data-manipulation';
-import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../app/scripts/parse-friendly-player';
-import {isMyHero, isHeroCard} from '../app/scripts/is-my-hero';
-import findClass from '../app/scripts/find-class';
-import hasWon from '../app/scripts/win-condition';
+import {parseFriendlyPlayer, parseFriendlyPlayerById} from './parse-friendly-player';
+import {isMyHero, isHeroCard} from './is-my-hero';
+import findClass from './find-class';
+import hasWon from './win-condition';
 
 // TODO: case to be made whereby we turn the for and against values into object
 // { playerName: 'foo', playerId: 1}

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../../app/scripts/parse-friendly-player';
+import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../../src/parse-friendly-player';
 
 describe('Parse Friendly Player', () => {
   it('returns the friendly player', () => {
