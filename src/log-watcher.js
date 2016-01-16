@@ -1,6 +1,6 @@
 // import LogWatcher from 'hearthstone-log-watcher';
 
-import {setWinCondition, recordOutcome, setMatchId, setFor, setAgainst, setPlayerId} from './match-data-manipulation';
+import {setWinCondition, recordOutcome, setMatchId, setFor, setAgainst, setPlayerId, resetData} from './match-data-manipulation';
 import {parseFriendlyPlayer, parseFriendlyPlayerById} from '../app/scripts/parse-friendly-player';
 import {isMyHero, isHeroCard} from '../app/scripts/is-my-hero';
 import findClass from '../app/scripts/find-class';
@@ -47,7 +47,8 @@ export function dataLogger (logWatcher) {
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
     database = recordOutcome(database, dataStructure);
-    // let { logMatch, dataStructure } = resetData();
+    // TODO: switch to immutable data and renable this
+    // dataStructure = resetData();
   });
 
   logWatcher.on('zone-change', (data) => {
