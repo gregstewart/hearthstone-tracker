@@ -49,7 +49,6 @@ export function dataLogger (logWatcher) {
     database = recordOutcome(database, dataStructure);
     // TODO: switch to immutable data and renable this
     dataStructure = resetData();
-    console.log(database);
   });
 
   logWatcher.on('zone-change', (data) => {
