@@ -8,9 +8,11 @@
     "start": "electron .",
     "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.4 --out=builds/",
-    "postinstall": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
+    "rebuild:push": "npm rebuild leveldown",
+    "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
   },
   "pre-push": [
+    "rebuild:push",
     "lint",
     "test"
   ],
