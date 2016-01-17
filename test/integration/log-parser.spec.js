@@ -9,7 +9,7 @@ import Promise from 'bluebird';
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
-describe.only('Parse HS log file', () => {
+describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData, db;
   before(() => {
     sandbox = sinon.sandbox.create();
@@ -40,7 +40,7 @@ describe.only('Parse HS log file', () => {
       logData = goodParse;
     });
 
-    it('returns a database with a complete record for the match', () => {
+    it('returns a database with a complete record for the match', (done) => {
       const OFF_SET = 3;
       const applyData = () => {
         return new Promise((resolve) => {
@@ -60,8 +60,10 @@ describe.only('Parse HS log file', () => {
         expect(row.against).to.equal('Shaman');
         expect(row.log.length).to.equal(logData.length-OFF_SET);
         expect(row.hasWon).to.be.true;
+        done();
       }).catch((err) => {
         expect(err).to.be.undefined;
+        done();
       });
     });
   });
@@ -71,8 +73,8 @@ describe.only('Parse HS log file', () => {
       logData = missingStartEventParse;
     });
 
-    it('returns a database with a complete record for the match', () => {
-      const OFF_SET = 1;
+    it('returns a database with a complete record for the match', (done) => {
+      const OFF_SET = 2;
       const applyData = () => {
         return new Promise((resolve) => {
           logData.map((element) => {
@@ -82,9 +84,7 @@ describe.only('Parse HS log file', () => {
         });
       };
 
-      applyData().catch((err) => {
-        expect(err).to.be.undefined;
-      }).then(() => {
+      applyData().then(() => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
         let row = result.rows[1].doc;
@@ -93,6 +93,10 @@ describe.only('Parse HS log file', () => {
         expect(row.against).to.equal('Hunter');
         expect(row.log.length).to.equal(logData.length-OFF_SET);
         expect(row.hasWon).to.be.false;
+        done();
+      }).catch((err) => {
+        expect(err).to.be.undefined;
+        done();
       });
     });
   });
