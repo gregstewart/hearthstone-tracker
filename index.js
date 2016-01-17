@@ -10,7 +10,7 @@ import debug from 'debug';
 let mainWindow = null;
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
-  main: debug('HT')
+  main: debug('HT:main')
 };
 
 

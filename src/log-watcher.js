@@ -22,7 +22,7 @@ let database = [];
 
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
-  main: debug('HS')
+  main: debug('HT:LV')
 };
 
 
@@ -48,13 +48,14 @@ export function dataLogger (logWatcher, db) {
 
   logWatcher.on('game-over', (data) => {
     var winCondition;
-    if(!dataStructure.matchId) {
+    if(!dataStructure._id) {
       log.main('no game start event');
       log.main(data);
       log.main(parseFriendlyPlayerById(data, dataStructure.playerId));
       log.main(hasWon(parseFriendlyPlayerById(data, dataStructure.playerId)));
       dataStructure = setMatchId(dataStructure);
       winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
+
     } else {
       log.main('game started event');
       log.main(parseFriendlyPlayer(data));
@@ -62,6 +63,7 @@ export function dataLogger (logWatcher, db) {
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
+    log.main(dataStructure);
     db.put(dataStructure)
       .then(() => {
         // TODO: switch to immutable data and renable this
