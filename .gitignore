@@ -2,6 +2,7 @@
 logs
 *.log
 builds
+*-leveldb
 
 # Runtime data
 pids

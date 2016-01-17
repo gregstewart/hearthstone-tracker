@@ -1,6 +1,7 @@
 import LogWatcher from 'hearthstone-log-watcher';
+import PouchDBWithLevelDB from 'pouchdb';
 import {goodParse, missingStartEventParse} from '../fixtures/data-parses';
-import {dataLogger, getDatabase} from '../../src/log-watcher';
+import {dataLogger} from '../../src/log-watcher';
 
 import chai from 'chai';
 import sinon from 'sinon';
@@ -8,8 +9,8 @@ import Promise from 'bluebird';
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
-describe('Parse HS log file', () => {
-  let logWatcher, sandbox, logData;
+describe.only('Parse HS log file', () => {
+  let logWatcher, sandbox, logData, db;
   before(() => {
     sandbox = sinon.sandbox.create();
     const options = {
@@ -18,12 +19,20 @@ describe('Parse HS log file', () => {
     };
     let watcher = new LogWatcher(options);
 
-    logWatcher = dataLogger(watcher);
+    db = new PouchDBWithLevelDB('test-leveldb');
+    logWatcher = dataLogger(watcher, db);
+
     sandbox.spy(logWatcher, "on");
+    sandbox.spy(db, "put");
   });
 
   after(() => {
     sandbox.restore();
+    new PouchDBWithLevelDB('test-leveldb').destroy().then(function () {
+      // database destroyed
+    }).catch(function (err) {
+      // error occurred
+    });
   });
 
   describe('We have a good parse', () => {
@@ -43,11 +52,14 @@ describe('Parse HS log file', () => {
       };
 
       applyData().then(() => {
-        expect(getDatabase()[0].matchId).to.be.a.number;
-        expect(getDatabase()[0].for).to.equal('Hunter');
-        expect(getDatabase()[0].against).to.equal('Shaman');
-        expect(getDatabase()[0].log.length).to.equal(logData.length-OFF_SET);
-        expect(getDatabase()[0].hasWon).to.be.true;
+        return db.allDocs({include_docs: true});
+      }).then((result) => {
+        let row = result.rows[0].doc;
+        expect(row.matchId).to.be.a.number;
+        expect(row.for).to.equal('Hunter');
+        expect(row.against).to.equal('Shaman');
+        expect(row.log.length).to.equal(logData.length-OFF_SET);
+        expect(row.hasWon).to.be.true;
       }).catch((err) => {
         expect(err).to.be.undefined;
       });
@@ -73,11 +85,14 @@ describe('Parse HS log file', () => {
       applyData().catch((err) => {
         expect(err).to.be.undefined;
       }).then(() => {
-        expect(getDatabase()[1].matchId).to.be.a.number;
-        expect(getDatabase()[1].for).to.equal('Hunter');
-        expect(getDatabase()[1].against).to.equal('Hunter');
-        expect(getDatabase()[1].log.length).to.equal(logData.length-OFF_SET);
-        expect(getDatabase()[1].hasWon).to.be.false;
+        return db.allDocs({include_docs: true});
+      }).then((result) => {
+        let row = result.rows[1].doc;
+        expect(row.matchId).to.be.a.number;
+        expect(row.for).to.equal('Hunter');
+        expect(row.against).to.equal('Hunter');
+        expect(row.log.length).to.equal(logData.length-OFF_SET);
+        expect(row.hasWon).to.be.false;
       });
     });
   });

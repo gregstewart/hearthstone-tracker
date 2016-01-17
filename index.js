@@ -1,10 +1,18 @@
 import app from 'app';
 import BrowserWindow from 'browser-window';
 import LogWatcher from 'hearthstone-log-watcher';
+import PouchDBWithLevelDB from 'pouchdb';
 
 import {dataLogger} from './src/log-watcher';
 
+import debug from 'debug';
+
 let mainWindow = null;
+// Define some debug logging functions for easy and readable debug messages.
+let log = {
+  main: debug('HT')
+};
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -14,8 +22,25 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
+  let db = new PouchDBWithLevelDB('hearthstone-tracker-leveldb');
+  db.info().then(function (info) {
+    debug(info);
+  });
+
+  let changes = db.changes({
+    since: 'now',
+    live: true,
+    include_docs: true
+  }).on('change', (change) => {
+    log.main(change);
+  }).on('complete', (info) => {
+    log.main(info);
+  }).on('error', (err) => {
+    log.main(err);
+  });
+
   let watcher = new LogWatcher();
-  let logWatcher = dataLogger(watcher);
+  let logWatcher = dataLogger(watcher, db);
   logWatcher.start();
   mainWindow = new BrowserWindow({
     height: 600,
@@ -31,5 +56,6 @@ app.on('ready', () => {
     // when you should delete the corresponding element.
     mainWindow = null;
     logWatcher.stop();
+    changes.cancel();
   });
 });
