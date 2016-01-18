@@ -28,6 +28,7 @@ let log = {
 
 //TODO: should live somewhere else;
 const setHeroValues = (data) => {
+  //TODO: write a test to cover the issue resolved in commit 8fcc506  
   if (isHeroCard(data)) {
     if (isMyHero(data)) {
       dataStructure = setFor(dataStructure, findClass(data.cardName));
