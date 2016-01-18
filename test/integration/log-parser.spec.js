@@ -1,6 +1,7 @@
 import LogWatcher from 'hearthstone-log-watcher';
+import PouchDBWithLevelDB from 'pouchdb';
 import {goodParse, missingStartEventParse} from '../fixtures/data-parses';
-import {dataLogger, getDatabase} from '../../src/log-watcher';
+import {dataLogger} from '../../src/log-watcher';
 
 import chai from 'chai';
 import sinon from 'sinon';
@@ -9,7 +10,7 @@ chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
 describe('Parse HS log file', () => {
-  let logWatcher, sandbox, logData;
+  let logWatcher, sandbox, logData, db;
   before(() => {
     sandbox = sinon.sandbox.create();
     const options = {
@@ -18,12 +19,20 @@ describe('Parse HS log file', () => {
     };
     let watcher = new LogWatcher(options);
 
-    logWatcher = dataLogger(watcher);
+    db = new PouchDBWithLevelDB('test-leveldb');
+    logWatcher = dataLogger(watcher, db);
+
     sandbox.spy(logWatcher, "on");
+    sandbox.spy(db, "put");
   });
 
   after(() => {
     sandbox.restore();
+    new PouchDBWithLevelDB('test-leveldb').destroy().then(function () {
+      // database destroyed
+    }).catch(function (err) {
+      // error occurred
+    });
   });
 
   describe('We have a good parse', () => {
@@ -31,7 +40,7 @@ describe('Parse HS log file', () => {
       logData = goodParse;
     });
 
-    it('returns a database with a complete record for the match', () => {
+    it('returns a database with a complete record for the match', (done) => {
       const OFF_SET = 3;
       const applyData = () => {
         return new Promise((resolve) => {
@@ -43,13 +52,18 @@ describe('Parse HS log file', () => {
       };
 
       applyData().then(() => {
-        expect(getDatabase()[0].matchId).to.be.a.number;
-        expect(getDatabase()[0].for).to.equal('Hunter');
-        expect(getDatabase()[0].against).to.equal('Shaman');
-        expect(getDatabase()[0].log.length).to.equal(logData.length-OFF_SET);
-        expect(getDatabase()[0].hasWon).to.be.true;
+        return db.allDocs({include_docs: true});
+      }).then((result) => {
+        let row = result.rows[0].doc;
+        expect(row.matchId).to.be.a.number;
+        expect(row.for).to.equal('Hunter');
+        expect(row.against).to.equal('Shaman');
+        expect(row.log.length).to.equal(logData.length-OFF_SET);
+        expect(row.hasWon).to.be.true;
+        done();
       }).catch((err) => {
         expect(err).to.be.undefined;
+        done();
       });
     });
   });
@@ -59,8 +73,8 @@ describe('Parse HS log file', () => {
       logData = missingStartEventParse;
     });
 
-    it('returns a database with a complete record for the match', () => {
-      const OFF_SET = 1;
+    it('returns a database with a complete record for the match', (done) => {
+      const OFF_SET = 2;
       const applyData = () => {
         return new Promise((resolve) => {
           logData.map((element) => {
@@ -70,14 +84,19 @@ describe('Parse HS log file', () => {
         });
       };
 
-      applyData().catch((err) => {
+      applyData().then(() => {
+        return db.allDocs({include_docs: true});
+      }).then((result) => {
+        let row = result.rows[1].doc;
+        expect(row.matchId).to.be.a.number;
+        expect(row.for).to.equal('Hunter');
+        expect(row.against).to.equal('Hunter');
+        expect(row.log.length).to.equal(logData.length-OFF_SET);
+        expect(row.hasWon).to.be.false;
+        done();
+      }).catch((err) => {
         expect(err).to.be.undefined;
-      }).then(() => {
-        expect(getDatabase()[1].matchId).to.be.a.number;
-        expect(getDatabase()[1].for).to.equal('Hunter');
-        expect(getDatabase()[1].against).to.equal('Hunter');
-        expect(getDatabase()[1].log.length).to.equal(logData.length-OFF_SET);
-        expect(getDatabase()[1].hasWon).to.be.false;
+        done();
       });
     });
   });

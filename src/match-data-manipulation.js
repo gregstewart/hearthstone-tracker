@@ -9,7 +9,7 @@ export const resetData = () => {
   // TODO: case to be made whereby we turn the for and against values into object
   // { playerName: 'foo', playerId: 1}
   const dataStructure = {
-    matchId: "",
+    _id: "",
     playerId: "",
     for: "",
     against: "",
@@ -21,7 +21,7 @@ export const resetData = () => {
 };
 
 export const setMatchId = (dataStructure) => {
-  dataStructure.matchId = Date.now();
+  dataStructure._id = Date.now().toString();
   return dataStructure;
 };
 

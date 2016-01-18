@@ -7,7 +7,7 @@ describe('Match data actions', () => {
 
   beforeEach(() => {
     dataStructure = {
-      matchId: "",
+      _id: "",
       for: "",
       against: "",
       log: [],
@@ -18,9 +18,9 @@ describe('Match data actions', () => {
 
   describe('at the started of a game', () => {
     it('sets a match id', () => {
-      expect(dataStructure.matchId).to.be.empty;
+      expect(dataStructure._id).to.be.empty;
       dataStructure = setMatchId(dataStructure);
-      expect(dataStructure.matchId).to.be.a.number;
+      expect(dataStructure._id).to.be.a.number;
     });
   });
 
