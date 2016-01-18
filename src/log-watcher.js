@@ -31,10 +31,10 @@ const setHeroValues = (data) => {
   if (isHeroCard(data)) {
     if (isMyHero(data)) {
       dataStructure = setFor(dataStructure, findClass(data.cardName));
+      dataStructure = setPlayerId(dataStructure, data.playerId);
     } else {
       dataStructure = setAgainst(dataStructure, findClass(data.cardName));
     }
-    dataStructure = setPlayerId(dataStructure, data.playerId);
   }
   return dataStructure;
 };
@@ -55,7 +55,6 @@ export function dataLogger (logWatcher, db) {
       log.main(hasWon(parseFriendlyPlayerById(data, dataStructure.playerId)));
       dataStructure = setMatchId(dataStructure);
       winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
-
     } else {
       log.main('game started event');
       log.main(parseFriendlyPlayer(data));
