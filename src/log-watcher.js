@@ -46,7 +46,7 @@ const fixStartTime = (dataStructure) => {
   dataStructure.startTime = dataStructure.log[0].id;
 
   return dataStructure;
-}
+};
 
 export function dataLogger (logWatcher, db) {
 
