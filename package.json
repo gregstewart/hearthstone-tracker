@@ -8,7 +8,7 @@
     "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "rebuild:push": "npm rebuild leveldown",
-    "security:check": "node_modules/.bin/check",
+    "security:check": "node_modules/.bin/nsp check",
     "start": "electron .",
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register"
   },
