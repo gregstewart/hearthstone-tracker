@@ -9,14 +9,21 @@ export const resetData = () => {
   // TODO: case to be made whereby we turn the for and against values into object
   // { playerName: 'foo', playerId: 1}
   const dataStructure = {
-    _id: "",
-    startTime: "",
-    endTime: "",
-    playerId: "",
-    for: "",
-    against: "",
+    _id: '',
+    startTime: '',
+    endTime: '',
+    for: {
+      name: '',
+      id: '',
+      class: ''
+    },
+    against: {
+      name: '',
+      id: '',
+      class: ''
+    },
     log: [],
-    hasWon: ""
+    hasWon: ''
   };
 
   return dataStructure;
@@ -42,22 +49,37 @@ export const setWinCondition = (dataStructure, hasWon) => {
   return dataStructure;
 };
 
-export const setPlayerId = (dataStructure, id) => {
-  dataStructure.playerId = id;
+export const setForPlayerId = (dataStructure, id) => {
+  dataStructure.for.id = id;
+  return dataStructure;
+};
+
+export const setAgainstPlayerId = (dataStructure, id) => {
+  dataStructure.against.id = id;
+  return dataStructure;
+};
+
+export const setForPlayerName = (dataStructure, name) => {
+  dataStructure.for.name = name;
+  return dataStructure;
+};
+
+export const setAgainstPlayerName = (dataStructure, name) => {
+  dataStructure.against.name = name;
+  return dataStructure;
+};
+
+export const setForClass = (dataStructure, value) => {
+  dataStructure.for.class = value;
+  return dataStructure;
+};
+
+export const setAgainstClass = (dataStructure, value) => {
+  dataStructure.against.class = value;
   return dataStructure;
 };
 
 export const logMatchData = (dataStructure, logMatch) => {
   dataStructure.log = logMatch;
-  return dataStructure;
-};
-
-export const setFor = (dataStructure, value) => {
-  dataStructure.for = value;
-  return dataStructure;
-};
-
-export const setAgainst = (dataStructure, value) => {
-  dataStructure.against = value;
   return dataStructure;
 };

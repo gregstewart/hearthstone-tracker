@@ -1,7 +1,8 @@
 // import LogWatcher from 'hearthstone-log-watcher';
 
-import {setWinCondition, setMatchId, setFor, setAgainst, setPlayerId, resetData, setStartTime, setEndTime} from './match-data-manipulation';
-import {parseFriendlyPlayer, parseFriendlyPlayerById} from './parse-friendly-player';
+import {setWinCondition, setMatchId, setForPlayerId, setAgainstPlayerId, setForClass,
+  setAgainstClass, setForPlayerName, setAgainstPlayerName, resetData, setStartTime, setEndTime} from './match-data-manipulation';
+import {parseFriendlyPlayer, parsePlayerById, extractPlayerName} from './parse-friendly-player';
 import {isMyHero, isHeroCard} from './is-my-hero';
 import findClass from './find-class';
 import hasWon from './win-condition';
@@ -12,11 +13,18 @@ import debug from 'debug';
 // { playerName: 'foo', playerId: 1}
 let dataStructure = {
   _id: "",
-  playerId: "",
   startTime: "",
   endTime: "",
-  for: "",
-  against: "",
+  for: {
+    name: '',
+    id: '',
+    class: ''
+  },
+  against: {
+    name: '',
+    id: '',
+    class: ''
+  },
   log: [],
   hasWon: ""
 };
@@ -33,10 +41,11 @@ const setHeroValues = (data) => {
   //TODO: write a test to cover the issue resolved in commit 8fcc506
   if (isHeroCard(data)) {
     if (isMyHero(data)) {
-      dataStructure = setFor(dataStructure, findClass(data.cardName));
-      dataStructure = setPlayerId(dataStructure, data.playerId);
+      dataStructure = setForClass(dataStructure, findClass(data.cardName));
+      dataStructure = setForPlayerId(dataStructure, data.playerId);
     } else {
-      dataStructure = setAgainst(dataStructure, findClass(data.cardName));
+      dataStructure = setAgainstClass(dataStructure, findClass(data.cardName));
+      dataStructure = setAgainstPlayerId(dataStructure, data.playerId);
     }
   }
   return dataStructure;
@@ -62,11 +71,11 @@ export function dataLogger (logWatcher, db) {
     if(!dataStructure._id) {
       log.main('no game start event');
       log.main(data);
-      log.main(parseFriendlyPlayerById(data, dataStructure.playerId));
-      log.main(hasWon(parseFriendlyPlayerById(data, dataStructure.playerId)));
+      log.main(parsePlayerById(data, dataStructure.for.id));
+      log.main(hasWon(parsePlayerById(data, dataStructure.for.id)));
       dataStructure = setMatchId(dataStructure);
       dataStructure = fixStartTime(dataStructure);
-      winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
+      winCondition = hasWon(parsePlayerById(data, dataStructure.for.id));
     } else {
       log.main('game started event');
       log.main(parseFriendlyPlayer(data));
@@ -74,6 +83,8 @@ export function dataLogger (logWatcher, db) {
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
+    dataStructure = setForPlayerName(dataStructure, extractPlayerName(data, dataStructure.for.id));
+    dataStructure = setAgainstPlayerName(dataStructure, extractPlayerName(data, dataStructure.against.id));
     dataStructure = setEndTime(dataStructure);
     log.main(dataStructure);
     db.put(dataStructure)

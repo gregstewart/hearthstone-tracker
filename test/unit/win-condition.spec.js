@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import {parseFriendlyPlayerById} from '../../src/parse-friendly-player';
+import {parsePlayerById} from '../../src/parse-friendly-player';
 import hasWon from '../../src/win-condition';
 
 describe('Win condition', () => {
@@ -28,7 +28,7 @@ describe('Win condition', () => {
       const sampleOutcome = [ { name: 'Teknow', id: 2, status: 'LOST' },
         { name: 'artaios', id: 1, status: 'WON' } ];
 
-      expect(hasWon(parseFriendlyPlayerById(sampleOutcome, expected.id))).to.be.true;
+      expect(hasWon(parsePlayerById(sampleOutcome, expected.id))).to.be.true;
     });
   });
 });

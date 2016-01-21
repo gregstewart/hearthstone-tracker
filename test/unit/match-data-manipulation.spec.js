@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst, setPlayerId, setStartTime, setEndTime } from '../../src/match-data-manipulation';
+import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId,
+  setForClass, setAgainstClass, setAgainstPlayerId, setForPlayerId,
+  setForPlayerName, setAgainstPlayerName, setStartTime, setEndTime } from '../../src/match-data-manipulation';
 
 describe('Match data actions', () => {
   let logMatch, dataStructure, database;
@@ -10,8 +12,16 @@ describe('Match data actions', () => {
       _id: "",
       startTime: "",
       endTime: "",
-      for: "",
-      against: "",
+      for: {
+        name: '',
+        id: '',
+        class: ''
+      },
+      against: {
+        name: '',
+        id: '',
+        class: ''
+      },
       log: [],
       hasWon: ""
     };
@@ -33,25 +43,32 @@ describe('Match data actions', () => {
   });
 
   describe('during the game', () => {
-    it('sets a for value', () => {
+    it('sets a for class', () => {
       const value = 'Foo';
-      expect(dataStructure.for).to.be.empty;
-      dataStructure = setFor(dataStructure, value);
-      expect(dataStructure.for).to.equal(value);
+      expect(dataStructure.for.class).to.be.empty;
+      dataStructure = setForClass(dataStructure, value);
+      expect(dataStructure.for.class).to.equal(value);
     });
 
-    it('sets a against value', () => {
+    it('sets a against class', () => {
       const value = 'Fee';
-      expect(dataStructure.against).to.be.empty;
-      dataStructure = setAgainst(dataStructure, value);
-      expect(dataStructure.against).to.equal(value);
+      expect(dataStructure.against.class).to.be.empty;
+      dataStructure = setAgainstClass(dataStructure, value);
+      expect(dataStructure.against.class).to.equal(value);
     });
 
-    it('sets a player id', () => {
+    it('sets for player id', () => {
       const value = 'Fee';
-      expect(dataStructure.playerId).to.be.empty;
-      dataStructure = setPlayerId(dataStructure, value);
-      expect(dataStructure.playerId).to.equal(value);
+      expect(dataStructure.for.id).to.be.empty;
+      dataStructure = setForPlayerId(dataStructure, value);
+      expect(dataStructure.for.id).to.equal(value);
+    });
+
+    it('sets against player id', () => {
+      const value = 'Fox';
+      expect(dataStructure.against.id).to.be.empty;
+      dataStructure = setAgainstPlayerId(dataStructure, value);
+      expect(dataStructure.against.id).to.equal(value);
     });
   });
 
@@ -75,6 +92,20 @@ describe('Match data actions', () => {
       expect(dataStructure.log).to.deep.equal(matchData);
     });
 
+    it('records the friendly player name', () => {
+      const value = 'Flox';
+      expect(dataStructure.for.name).to.be.empty;
+      dataStructure = setForPlayerName(dataStructure, value);
+      expect(dataStructure.for.name).to.equal(value);
+    });
+
+    it('records the opponent player name', () => {
+      const value = 'Fox';
+      expect(dataStructure.against.name).to.be.empty;
+      dataStructure = setAgainstPlayerName(dataStructure, value);
+      expect(dataStructure.against.name).to.equal(value);
+    });
+
     it('captures the whole dataStructure in the database not as a reference', () => {
       let data = { id: 1};
       expect(database).to.be.empty;
@@ -88,16 +119,18 @@ describe('Match data actions', () => {
       logMatch = [{}, {}, {}];
       dataStructure = {
         _id: 1,
-        for: "Fee",
-        against: "Foo",
+        for: {},
+        against: {},
         log: logMatch,
         hasWon: true
       };
       let dataStructure = resetData();
 
       expect(dataStructure._id).to.be.empty;
-      expect(dataStructure.for).to.be.empty;
-      expect(dataStructure.against).to.be.empty;
+      expect(dataStructure.for.id).to.be.empty;
+      expect(dataStructure.for.class).to.be.empty;
+      expect(dataStructure.against.id).to.be.empty;
+      expect(dataStructure.against.class).to.be.empty;
       expect(dataStructure.log).to.be.empty;
       expect(dataStructure.hasWon).to.be.empty;
     });

@@ -10,7 +10,7 @@ export function parseFriendlyPlayer (players) {
   return players.find(isFriendly);
 }
 
-export function parseFriendlyPlayerById (players, id) {
+export function parsePlayerById (players, id) {
   return players.find((element) => {
     if (element.id === id) {
       return element;
@@ -18,4 +18,9 @@ export function parseFriendlyPlayerById (players, id) {
 
     return false;
   });
+}
+
+export function extractPlayerName (players, id) {
+  let player = parsePlayerById(players, id);
+  return player.name;
 }
