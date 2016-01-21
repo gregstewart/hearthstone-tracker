@@ -38,6 +38,7 @@
     "electron-prebuilt": "0.36.4",
     "eslint": "1.10.3",
     "eslint-plugin-react": "3.14.0",
+    "memdown": "^1.1.1",
     "mocha": "2.3.4",
     "mocha-junit-reporter": "1.9.1",
     "pre-push": "0.1.1",

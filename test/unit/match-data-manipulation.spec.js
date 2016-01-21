@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst, setPlayerId } from '../../src/match-data-manipulation';
+import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId, setFor, setAgainst, setPlayerId, setStartTime, setEndTime } from '../../src/match-data-manipulation';
 
 describe('Match data actions', () => {
   let logMatch, dataStructure, database;
@@ -8,6 +8,8 @@ describe('Match data actions', () => {
   beforeEach(() => {
     dataStructure = {
       _id: "",
+      startTime: "",
+      endTime: "",
       for: "",
       against: "",
       log: [],
@@ -21,6 +23,12 @@ describe('Match data actions', () => {
       expect(dataStructure._id).to.be.empty;
       dataStructure = setMatchId(dataStructure);
       expect(dataStructure._id).to.be.a.number;
+    });
+
+    it('sets a match start time', () => {
+      expect(dataStructure.startTime).to.be.empty;
+      dataStructure = setStartTime(dataStructure);
+      expect(dataStructure.startTime).to.be.a.number;
     });
   });
 
@@ -52,6 +60,12 @@ describe('Match data actions', () => {
       expect(dataStructure.hasWon).to.be.empty;
       dataStructure = setWinCondition(dataStructure, true);
       expect(dataStructure.hasWon).to.be.true;
+    });
+
+    it('records match end time', () => {
+      expect(dataStructure.endTime).to.be.empty;
+      dataStructure = setEndTime(dataStructure);
+      expect(dataStructure.endTime).to.be.a.number;
     });
 
     it('records match data', () => {

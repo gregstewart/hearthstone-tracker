@@ -1,6 +1,6 @@
 // import LogWatcher from 'hearthstone-log-watcher';
 
-import {setWinCondition, setMatchId, setFor, setAgainst, setPlayerId, resetData} from './match-data-manipulation';
+import {setWinCondition, setMatchId, setFor, setAgainst, setPlayerId, resetData, setStartTime, setEndTime} from './match-data-manipulation';
 import {parseFriendlyPlayer, parseFriendlyPlayerById} from './parse-friendly-player';
 import {isMyHero, isHeroCard} from './is-my-hero';
 import findClass from './find-class';
@@ -13,6 +13,8 @@ import debug from 'debug';
 let dataStructure = {
   _id: "",
   playerId: "",
+  startTime: "",
+  endTime: "",
   for: "",
   against: "",
   log: [],
@@ -28,7 +30,7 @@ let log = {
 
 //TODO: should live somewhere else;
 const setHeroValues = (data) => {
-  //TODO: write a test to cover the issue resolved in commit 8fcc506  
+  //TODO: write a test to cover the issue resolved in commit 8fcc506
   if (isHeroCard(data)) {
     if (isMyHero(data)) {
       dataStructure = setFor(dataStructure, findClass(data.cardName));
@@ -40,10 +42,17 @@ const setHeroValues = (data) => {
   return dataStructure;
 };
 
+const fixStartTime = (dataStructure) => {
+  dataStructure.startTime = dataStructure.log[0].id;
+
+  return dataStructure;
+}
+
 export function dataLogger (logWatcher, db) {
 
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
+    dataStructure = setStartTime(dataStructure);
     log.main('game start: %s', dataStructure._id);
   });
 
@@ -55,6 +64,7 @@ export function dataLogger (logWatcher, db) {
       log.main(parseFriendlyPlayerById(data, dataStructure.playerId));
       log.main(hasWon(parseFriendlyPlayerById(data, dataStructure.playerId)));
       dataStructure = setMatchId(dataStructure);
+      dataStructure = fixStartTime(dataStructure);
       winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
     } else {
       log.main('game started event');
@@ -63,6 +73,7 @@ export function dataLogger (logWatcher, db) {
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
+    dataStructure = setEndTime(dataStructure);
     log.main(dataStructure);
     db.put(dataStructure)
       .then(() => {

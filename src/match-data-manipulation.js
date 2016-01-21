@@ -10,6 +10,8 @@ export const resetData = () => {
   // { playerName: 'foo', playerId: 1}
   const dataStructure = {
     _id: "",
+    startTime: "",
+    endTime: "",
     playerId: "",
     for: "",
     against: "",
@@ -22,6 +24,16 @@ export const resetData = () => {
 
 export const setMatchId = (dataStructure) => {
   dataStructure._id = Date.now().toString();
+  return dataStructure;
+};
+
+export const setStartTime = (dataStructure) => {
+  dataStructure.startTime = Date.now();
+  return dataStructure;
+};
+
+export const setEndTime = (dataStructure) => {
+  dataStructure.endTime = Date.now();
   return dataStructure;
 };
 
