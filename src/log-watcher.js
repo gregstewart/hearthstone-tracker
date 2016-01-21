@@ -42,6 +42,7 @@ const setHeroValues = (data) => {
   return dataStructure;
 };
 
+//TODO: write a test to cover this
 const fixStartTime = (dataStructure) => {
   dataStructure.startTime = dataStructure.log[0].id;
 
