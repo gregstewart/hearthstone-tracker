@@ -4,12 +4,13 @@
   "description": "A electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register",
-    "start": "electron .",
-    "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.4 --out=builds/",
+    "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
+    "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "rebuild:push": "npm rebuild leveldown",
-    "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
+    "security:check": "node_modules/.bin/check",
+    "start": "electron .",
+    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register"
   },
   "pre-push": [
     "rebuild:push",
@@ -40,6 +41,7 @@
     "eslint-plugin-react": "3.14.0",
     "mocha": "2.3.4",
     "mocha-junit-reporter": "1.9.1",
+    "nsp": "^2.2.0",
     "pre-push": "0.1.1",
     "sinon": "1.17.2",
     "sinon-chai": "2.8.0"
