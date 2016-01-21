@@ -87,7 +87,7 @@ describe('Match data actions', () => {
     it('resets our data structures', () => {
       logMatch = [{}, {}, {}];
       dataStructure = {
-        matchId: 1,
+        _id: 1,
         for: "Fee",
         against: "Foo",
         log: logMatch,
@@ -95,7 +95,7 @@ describe('Match data actions', () => {
       };
       let dataStructure = resetData();
 
-      expect(dataStructure.matchId).to.be.empty;
+      expect(dataStructure._id).to.be.empty;
       expect(dataStructure.for).to.be.empty;
       expect(dataStructure.against).to.be.empty;
       expect(dataStructure.log).to.be.empty;
