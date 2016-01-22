@@ -5,14 +5,15 @@ import {isMyHero, isHeroCard} from './is-my-hero';
 import findClass from './find-class';
 import hasWon from './win-condition';
 
+import mori from 'mori';
 import debug from 'debug';
 
 // TODO: case to be made whereby we turn the for and against values into object
 // { playerName: 'foo', playerId: 1}
-let dataStructure = {
-  _id: "",
-  startTime: "",
-  endTime: "",
+let dataStructure = mori.toClj({
+  _id: '',
+  startTime: '',
+  endTime: '',
   for: {
     name: '',
     id: '',
@@ -24,15 +25,14 @@ let dataStructure = {
     class: ''
   },
   log: [],
-  hasWon: ""
-};
-let database = [];
+  hasWon: ''
+});
+let matchLog = mori.vector();
 
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
   main: debug('HT:LV')
 };
-
 
 //TODO: should live somewhere else;
 const setHeroValues = (data) => {
@@ -51,9 +51,7 @@ const setHeroValues = (data) => {
 
 //TODO: write a test to cover this
 const fixStartTime = (dataStructure) => {
-  dataStructure.startTime = dataStructure.log[0].id;
-
-  return dataStructure;
+  return mori.assoc(dataStructure, 'startTime', mori.get(mori.first(mori.get(dataStructure, 'log')), 'id'));
 };
 
 export function dataLogger (logWatcher, db) {
@@ -61,19 +59,20 @@ export function dataLogger (logWatcher, db) {
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
     dataStructure = setStartTime(dataStructure);
-    log.main('game start: %s', dataStructure._id);
+    log.main('game start: %s', mori.get(dataStructure, '_id'));
   });
 
   logWatcher.on('game-over', (data) => {
     var winCondition;
-    if(!dataStructure._id) {
+    dataStructure = mori.assoc(dataStructure, 'log', matchLog);
+
+    if(!mori.get(dataStructure, '_id')) {
       log.main('no game start event');
-      log.main(data);
-      log.main(parsePlayerById(data, dataStructure.for.id));
-      log.main(hasWon(parsePlayerById(data, dataStructure.for.id)));
+      log.main(parsePlayerById(data, mori.getIn(dataStructure, ['for', 'id'])));
+      log.main(hasWon(parsePlayerById(data, mori.getIn(dataStructure, ['for', 'id']))));
       dataStructure = setMatchId(dataStructure);
       dataStructure = fixStartTime(dataStructure);
-      winCondition = hasWon(parsePlayerById(data, dataStructure.for.id));
+      winCondition = hasWon(parsePlayerById(data, mori.getIn(dataStructure, ['for', 'id'])));
     } else {
       log.main('game started event');
       log.main(parseFriendlyPlayer(data));
@@ -81,14 +80,13 @@ export function dataLogger (logWatcher, db) {
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
-    dataStructure = setForPlayerName(dataStructure, extractPlayerName(data, dataStructure.for.id));
-    dataStructure = setAgainstPlayerName(dataStructure, extractPlayerName(data, dataStructure.against.id));
+    dataStructure = setForPlayerName(dataStructure, extractPlayerName(data, mori.getIn(dataStructure, ['for', 'id'])));
+    dataStructure = setAgainstPlayerName(dataStructure, extractPlayerName(data, mori.getIn(dataStructure, ['against', 'id'])));
     dataStructure = setEndTime(dataStructure);
-    log.main(dataStructure);
-    db.put(dataStructure)
+
+    db.put(mori.toJs(dataStructure))
       .then(() => {
-        // TODO: switch to immutable data and renable this
-        dataStructure = resetData();
+        [dataStructure, matchLog] = resetData();
       }).catch((error) => {
         log.main(error);
       });
@@ -97,12 +95,8 @@ export function dataLogger (logWatcher, db) {
   logWatcher.on('zone-change', (data) => {
     dataStructure = setHeroValues(data);
     data.id = Date.now();
-    dataStructure.log.push(data);
+    matchLog = mori.conj(matchLog, mori.toClj(data));
   });
 
   return logWatcher;
-}
-
-export function getDatabase () {
-  return database;
 }

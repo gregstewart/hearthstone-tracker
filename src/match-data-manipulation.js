@@ -1,4 +1,6 @@
 import cloneDeep from 'lodash/lang/cloneDeep';
+import mori from 'mori';
+import {dataStructure, matchLog} from './data-structures';
 
 export const recordOutcome = (database, dataStructure) => {
   database.push(cloneDeep(dataStructure));
@@ -6,80 +8,49 @@ export const recordOutcome = (database, dataStructure) => {
 };
 
 export const resetData = () => {
-  // TODO: case to be made whereby we turn the for and against values into object
-  // { playerName: 'foo', playerId: 1}
-  const dataStructure = {
-    _id: '',
-    startTime: '',
-    endTime: '',
-    for: {
-      name: '',
-      id: '',
-      class: ''
-    },
-    against: {
-      name: '',
-      id: '',
-      class: ''
-    },
-    log: [],
-    hasWon: ''
-  };
-
-  return dataStructure;
+  return [dataStructure, matchLog];
 };
 
 export const setMatchId = (dataStructure) => {
-  dataStructure._id = Date.now().toString();
-  return dataStructure;
+  return mori.assoc(dataStructure, "_id", Date.now().toString());
 };
 
 export const setStartTime = (dataStructure) => {
-  dataStructure.startTime = Date.now();
-  return dataStructure;
+  return mori.assoc(dataStructure, "startTime", Date.now());
 };
 
 export const setEndTime = (dataStructure) => {
-  dataStructure.endTime = Date.now();
-  return dataStructure;
+  return mori.assoc(dataStructure, "endTime", Date.now());
 };
 
 export const setWinCondition = (dataStructure, hasWon) => {
-  dataStructure.hasWon = hasWon;
-  return dataStructure;
+  return mori.assoc(dataStructure, "hasWon", hasWon);
 };
 
 export const setForPlayerId = (dataStructure, id) => {
-  dataStructure.for.id = id;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["for", "id"], id);
 };
 
 export const setAgainstPlayerId = (dataStructure, id) => {
-  dataStructure.against.id = id;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["against", "id"], id);
 };
 
 export const setForPlayerName = (dataStructure, name) => {
-  dataStructure.for.name = name;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["for", "name"], name);
 };
 
 export const setAgainstPlayerName = (dataStructure, name) => {
-  dataStructure.against.name = name;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["against", "name"], name);
 };
 
 export const setForClass = (dataStructure, value) => {
-  dataStructure.for.class = value;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["for", "class"], value);
 };
 
 export const setAgainstClass = (dataStructure, value) => {
-  dataStructure.against.class = value;
-  return dataStructure;
+  return mori.assocIn(dataStructure, ["against", "class"], value);
 };
 
 export const logMatchData = (dataStructure, logMatch) => {
-  dataStructure.log = logMatch;
-  return dataStructure;
+  return mori.assoc(dataStructure, "log", logMatch);
 };

@@ -8,7 +8,7 @@
     "start": "electron .",
     "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.4 --out=builds/",
-    "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
+    "rebuild:leveldb": "cd node_modules/pouchi db/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
   },
   "pre-push": [
     "lint",
@@ -51,6 +51,7 @@
     "debug": "^2.2.0",
     "hearthstone-log-watcher": "3.0.1",
     "lodash": "3.10.1",
+    "mori": "^0.3.2",
     "pouchdb": "5.2.0",
     "react": "0.14.5",
     "react-dom": "0.14.5"
