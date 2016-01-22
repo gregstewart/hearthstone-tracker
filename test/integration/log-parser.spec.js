@@ -1,3 +1,4 @@
+import debug from 'debug';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 import {goodParse, missingStartEventParse} from '../fixtures/data-parses';
@@ -8,6 +9,10 @@ import sinon from 'sinon';
 import Promise from 'bluebird';
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
+// Define some debug logging functions for easy and readable debug messages.
+let log = {
+  main: debug('HT:TEST')
+};
 
 describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData, db;
@@ -54,6 +59,7 @@ describe('Parse HS log file', () => {
       applyData().then(() => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
+        log.main(result);
         let row = result.rows[0].doc;
         expect(row._id).to.be.a('string');
         expect(row.startTime).to.be.a('number');
@@ -93,6 +99,7 @@ describe('Parse HS log file', () => {
       applyData().then(() => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
+        log.main(result);
         let row = result.rows[1].doc;
         expect(row._id).to.be.a('string');
         expect(row.startTime).to.be.a('number');

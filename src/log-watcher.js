@@ -1,5 +1,3 @@
-// import LogWatcher from 'hearthstone-log-watcher';
-
 import {setWinCondition, setMatchId, setForPlayerId, setAgainstPlayerId, setForClass,
   setAgainstClass, setForPlayerName, setAgainstPlayerName, resetData, setStartTime, setEndTime} from './match-data-manipulation';
 import {parseFriendlyPlayer, parsePlayerById, extractPlayerName} from './parse-friendly-player';
