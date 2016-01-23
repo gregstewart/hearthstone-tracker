@@ -59,7 +59,6 @@ describe('Parse HS log file', () => {
       applyData().then(() => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
-        log.main(result);
         let row = result.rows[0].doc;
         expect(row._id).to.be.a('string');
         expect(row.startTime).to.be.a('number');
@@ -99,7 +98,6 @@ describe('Parse HS log file', () => {
       applyData().then(() => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
-        log.main(result);
         let row = result.rows[1].doc;
         expect(row._id).to.be.a('string');
         expect(row.startTime).to.be.a('number');
