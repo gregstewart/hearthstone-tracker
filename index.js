@@ -4,10 +4,9 @@ import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 
 import {dataLogger} from './src/log-watcher';
+import {summaryStats, transformSummaryStats} from './src/ui-data/stats';
 
 import debug from 'debug';
-
-let mainWindow = null;
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
   change: debug('HT:change'),
@@ -15,6 +14,18 @@ let log = {
   error: debug('HT:error')
 };
 
+const generateSummary = (db, wC) => {
+  return db.allDocs({include_docs: true})
+    .then(summaryStats)
+    .then((payload) => {
+      wC.send('ping', transformSummaryStats(payload));
+    })
+    .catch((error) => {
+      log.error(error);
+    });
+};
+
+let mainWindow = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -37,18 +48,15 @@ app.on('ready', () => {
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
   let webContents = mainWindow.webContents;
 
+  generateSummary(db, webContents);
+
   let changes = db.changes({
     since: 'now',
     live: true,
     include_docs: true
   }).on('change', (change) => {
     log.change(change);
-    return db.allDocs({include_docs: true}).then((result) => {
-      log.change(result);
-      webContents.send('ping', result);
-    }).catch((error) => {
-      log.error(error);
-    });
+    return generateSummary(db, webContents);
   }).on('complete', (info) => {
     log.complete(info);
   }).on('error', (error) => {

@@ -11,10 +11,6 @@
       // install babel hooks in the renderer process
       require('babel-register');
       require('./scripts/main');
-
-      require('electron').ipcRenderer.on('ping', function(event, message) {
-        console.log(message);  // logs message
-      });
     </script>
   </body>
 </html>
