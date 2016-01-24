@@ -1,7 +1,7 @@
 import app from 'app';
 import BrowserWindow from 'browser-window';
 import LogWatcher from 'hearthstone-log-watcher';
-import PouchDBWithLevelDB from 'pouchdb';
+import PouchDB from 'pouchdb';
 
 import {dataLogger} from './src/log-watcher';
 
@@ -10,7 +10,9 @@ import debug from 'debug';
 let mainWindow = null;
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
-  main: debug('HT:main')
+  change: debug('HT:change'),
+  complete: debug('HT:complete'),
+  error: debug('HT:error')
 };
 
 
@@ -22,22 +24,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  let db = new PouchDBWithLevelDB('hearthstone-tracker-leveldb');
-  db.info().then(function (info) {
-    debug(info);
-  });
-
-  let changes = db.changes({
-    since: 'now',
-    live: true,
-    include_docs: true
-  }).on('change', (change) => {
-    log.main(change);
-  }).on('complete', (info) => {
-    log.main(info);
-  }).on('error', (err) => {
-    log.main(err);
-  });
+  let db = new PouchDB('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
 
   let watcher = new LogWatcher();
   let logWatcher = dataLogger(watcher, db);
@@ -48,6 +35,25 @@ app.on('ready', () => {
   });
 
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+  let webContents = mainWindow.webContents;
+
+  let changes = db.changes({
+    since: 'now',
+    live: true,
+    include_docs: true
+  }).on('change', (change) => {
+    log.change(change);
+    return db.allDocs({include_docs: true}).then((result) => {
+      log.change(result);
+      webContents.send('ping', result);
+    }).catch((error) => {
+      log.error(error);
+    });
+  }).on('complete', (info) => {
+    log.complete(info);
+  }).on('error', (error) => {
+    log.error(error);
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
