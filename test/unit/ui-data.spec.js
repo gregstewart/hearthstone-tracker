@@ -12,7 +12,7 @@ let log = {
   test: debug('HT:TEST')
 };
 
-describe.only('UI data', () => {
+describe('UI data', () => {
   it('returns win loss summary', () => {
     summaryStats(result).then((stats) => {
       expect(stats.wins).to.equal(3);
