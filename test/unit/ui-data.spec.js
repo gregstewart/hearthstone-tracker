@@ -19,8 +19,15 @@ describe('UI data', () => {
       expect(stats.losses).to.equal(2);
       expect(stats.ratio).to.equal(0.6 * 100 + '%');
     }).catch((error) => {
-      log.test(error)
+      log.test(error);
       expect(error).to.be.undefined;
+    });
+  });
+
+  it('returns an error when no result is passed in', () => {
+    summaryStats().catch((error) => {
+      expect(error).to.be.defined;
+      expect(error.message).to.equal('Expected a result set');
     });
   });
 
@@ -34,8 +41,8 @@ describe('UI data', () => {
       wins: 3,
       losses: 2,
       ratio: 0.6 * 100 + '%'
-    }
+    };
 
     expect(expected).to.deep.equal(transformSummaryStats(input));
-  })
+  });
 });

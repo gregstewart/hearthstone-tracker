@@ -1,16 +1,32 @@
 import mori from 'mori';
 import Promise from 'bluebird';
 
+const winsLosses = (n) => {
+  return n === true ? "wins" : "losses";
+};
+
+const getElement = (element) => {
+  return mori.getIn(element, ['doc', 'hasWon']);
+};
+
 export function summaryStats (data) {
-  return new Promise((resolve, reject) => {
-    let wins = 3;
-    let losses = 2;
-    let ratio = wins/(wins+losses) * 100 + '%';
-    let result = {
-      wins,losses,ratio
+  let promise = new Promise((resolve, reject) => {
+    if(!data) {
+      reject(new Error('Expected a result set'));
     }
-    resolve(result);
+
+    data = mori.toClj(data.rows);
+    let results = mori.groupBy(winsLosses, mori.map(getElement, data));
+
+    let wins = mori.count(mori.get(results, 'wins'));
+    let losses = mori.count(mori.get(results, 'losses'));
+    let ratio = wins/(wins+losses) * 100 + '%';
+    resolve({
+      wins,losses,ratio
+    });
   });
+
+  return promise;
 }
 
 export function transformSummaryStats (input) {
