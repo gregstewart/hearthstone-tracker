@@ -1,4 +1,4 @@
-import mori from 'mori';
+import { assoc, count, find, get, getIn, groupBy, last, map, toClj, toJs } from 'mori';
 import Promise from 'bluebird';
 
 const winsLosses = (n) => {
@@ -6,7 +6,7 @@ const winsLosses = (n) => {
 };
 
 const getElement = (element) => {
-  return mori.getIn(element, ['doc', 'hasWon']);
+  return getIn(element, ['doc', 'hasWon']);
 };
 
 export function summaryStats (data) {
@@ -15,11 +15,11 @@ export function summaryStats (data) {
       reject(new Error('Expected a result set'));
     }
 
-    data = mori.toClj(data.rows);
-    let results = mori.groupBy(winsLosses, mori.map(getElement, data));
+    data = toClj(data.rows);
+    let results = groupBy(winsLosses, map(getElement, data));
 
-    let wins = mori.count(mori.get(results, 'wins'));
-    let losses = mori.count(mori.get(results, 'losses'));
+    let wins = count(get(results, 'wins'));
+    let losses = count(get(results, 'losses'));
     let ratio = wins/(wins+losses) * 100 + '%';
     resolve({
       wins,losses,ratio
@@ -30,17 +30,17 @@ export function summaryStats (data) {
 }
 
 export function transformSummaryStats (input) {
-  const shape = mori.toClj([
+  const shape = toClj([
     {id: 1, label: "Wins", text: ""},
     {id: 2, label: "Losses", text: ""},
     {id: 3, label: "Ratio", text: ""}
   ]);
 
-  let output = mori.map((element) => {
-    let keyToFind = mori.get(element, 'label').toLowerCase();
-    let foundValue = mori.find(mori.toClj(input), keyToFind);
-    return mori.assoc(element, 'text', mori.last(foundValue).toString());
+  let output = map((element) => {
+    let keyToFind = get(element, 'label').toLowerCase();
+    let foundValue = find(toClj(input), keyToFind);
+    return assoc(element, 'text', last(foundValue).toString());
   }, shape);
 
-  return mori.toJs(output);
+  return toJs(output);
 }

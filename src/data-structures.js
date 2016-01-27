@@ -1,6 +1,6 @@
-import mori from 'mori';
+import {toClj, vector} from 'mori';
 
-export const dataStructure = mori.toClj({
+export const dataStructure = toClj({
   _id: '',
   startTime: '',
   endTime: '',
@@ -18,4 +18,4 @@ export const dataStructure = mori.toClj({
   hasWon: ''
 });
 
-export const matchLog = mori.vector();
+export const matchLog = vector();
