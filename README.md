@@ -13,9 +13,9 @@ Then run:
 
 After a shortish time you should see something like the below the firs time you start the app:
 
-![First screenshot](assets/Screenshot 2016-02-03 16.38.32.png)
+![First screenshot](https://raw.githubusercontent.com/gregstewart/hearthstone-tracker/master/assets/Screenshot 2016-02-03 16.38.32.png)
 
-Launch `Hearthstone` and play a few games, the UI *should* update after each completed game. 
+Launch `Hearthstone` and play a few games, the UI *should* update after each completed game.
 
 To run the tests:
 
