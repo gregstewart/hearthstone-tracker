@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/lang/cloneDeep';
+import {cloneDeep} from 'lodash';
 import {assoc, assocIn} from 'mori';
 import {dataStructure, matchLog} from './data-structures';
 
