@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import {get, getIn, toClj, toJs} from 'mori';
 
-import { setWinCondition, logMatchData, recordOutcome, resetData, setMatchId,
+import { setWinCondition, logMatchData, resetData, setMatchId,
   setForClass, setAgainstClass, setAgainstPlayerId, setForPlayerId,
   setForPlayerName, setAgainstPlayerName, setStartTime, setEndTime } from '../../src/match-data-manipulation';
 
@@ -105,15 +105,6 @@ describe('Match data actions', () => {
       expect(getIn(dataStructure, ['against', 'name'])).to.be.empty;
       dataStructure = setAgainstPlayerName(dataStructure, value);
       expect(getIn(dataStructure, ['against', 'name'])).to.equal(value);
-    });
-
-    it('captures the whole dataStructure in the database not as a reference', () => {
-      let data = { id: 1};
-      expect(database).to.be.empty;
-      database = recordOutcome(database, data);
-      expect(database).not.to.be.empty;
-      data.id = 2;
-      expect(database[0].id).to.equal(1);
     });
 
     it('resets our data structures', () => {

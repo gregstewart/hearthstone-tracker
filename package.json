@@ -50,7 +50,6 @@
     "create-file": "1.0.1",
     "debug": "2.2.0",
     "hearthstone-log-watcher": "3.0.1",
-    "lodash": "4.2.1",
     "mori": "0.3.2",
     "pouchdb": "5.2.1",
     "react": "0.14.7",

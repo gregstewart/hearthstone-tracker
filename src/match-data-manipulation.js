@@ -1,11 +1,5 @@
-import {cloneDeep} from 'lodash';
 import {assoc, assocIn} from 'mori';
 import {dataStructure, matchLog} from './data-structures';
-
-export const recordOutcome = (database, dataStructure) => {
-  database.push(cloneDeep(dataStructure));
-  return database;
-};
 
 export const resetData = () => {
   return [dataStructure, matchLog];
