@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import ListComponent from './list-component';
 
-class Main extends React.Component {
+class Main extends Component {
   render () {
-    return (<div><h1>Stats</h1>
-      <ListComponent data={this.props.data} />
-    </div>);
+    return (
+      <div>
+        <h1>Stats</h1>
+        <ListComponent data={this.props.stats} />
+      </div>
+    );
   }
 }
 
 Main.propTypes = {
-  data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.number.isRequired,
-    label: React.PropTypes.string,
-    text: React.PropTypes.string,
-    map: React.PropTypes.func
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    label: PropTypes.string,
+    text: PropTypes.string,
+    map: PropTypes.func
   }))
 };
 

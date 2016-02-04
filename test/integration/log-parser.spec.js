@@ -1,5 +1,6 @@
+import debug from 'debug';
 import LogWatcher from 'hearthstone-log-watcher';
-import PouchDBWithLevelDB from 'pouchdb';
+import PouchDB from 'pouchdb';
 import {goodParse, missingStartEventParse} from '../fixtures/data-parses';
 import {dataLogger} from '../../src/log-watcher';
 
@@ -8,6 +9,10 @@ import sinon from 'sinon';
 import Promise from 'bluebird';
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
+// Define some debug logging functions for easy and readable debug messages.
+let log = {
+  main: debug('HT:TEST')
+};
 
 describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData, db;
@@ -19,7 +24,7 @@ describe('Parse HS log file', () => {
     };
     let watcher = new LogWatcher(options);
 
-    db = new PouchDBWithLevelDB('test-leveldb');
+    db = new PouchDB('test-leveldb', {db : require('memdown')});
     logWatcher = dataLogger(watcher, db);
 
     sandbox.spy(logWatcher, "on");
@@ -27,12 +32,12 @@ describe('Parse HS log file', () => {
   });
 
   after(() => {
-    sandbox.restore();
-    new PouchDBWithLevelDB('test-leveldb').destroy().then(function () {
+    db.destroy().then(function () {
       // database destroyed
     }).catch(function (err) {
       // error occurred
     });
+    sandbox.restore();
   });
 
   describe('We have a good parse', () => {
@@ -55,9 +60,15 @@ describe('Parse HS log file', () => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
         let row = result.rows[0].doc;
-        expect(row.matchId).to.be.a.number;
-        expect(row.for).to.equal('Hunter');
-        expect(row.against).to.equal('Shaman');
+        expect(row._id).to.be.a('string');
+        expect(row.startTime).to.be.a('number');
+        expect(row.endTime).to.be.a('number');
+        expect(row.for.class).to.equal('Hunter');
+        expect(row.for.name).to.equal('artaios');
+        expect(row.for.id).to.equal(1);
+        expect(row.against.class).to.equal('Shaman');
+        expect(row.against.name).to.equal('zam');
+        expect(row.against.id).to.equal(2);
         expect(row.log.length).to.equal(logData.length-OFF_SET);
         expect(row.hasWon).to.be.true;
         done();
@@ -88,9 +99,15 @@ describe('Parse HS log file', () => {
         return db.allDocs({include_docs: true});
       }).then((result) => {
         let row = result.rows[1].doc;
-        expect(row.matchId).to.be.a.number;
-        expect(row.for).to.equal('Hunter');
-        expect(row.against).to.equal('Hunter');
+        expect(row._id).to.be.a('string');
+        expect(row.startTime).to.be.a('number');
+        expect(row.endTime).to.be.a('number');
+        expect(row.for.class).to.equal('Hunter');
+        expect(row.for.name).to.equal('artaios');
+        expect(row.for.id).to.equal(2);
+        expect(row.against.class).to.equal('Hunter');
+        expect(row.against.name).to.equal('Musashi73');
+        expect(row.against.id).to.equal(1);
         expect(row.log.length).to.equal(logData.length-OFF_SET);
         expect(row.hasWon).to.be.false;
         done();

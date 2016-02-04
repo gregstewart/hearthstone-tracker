@@ -1,51 +1,50 @@
-import cloneDeep from 'lodash/lang/cloneDeep';
-
-export const recordOutcome = (database, dataStructure) => {
-  database.push(cloneDeep(dataStructure));
-  return database;
-};
+import {assoc, assocIn} from 'mori';
+import {dataStructure, matchLog} from './data-structures';
 
 export const resetData = () => {
-  // TODO: case to be made whereby we turn the for and against values into object
-  // { playerName: 'foo', playerId: 1}
-  const dataStructure = {
-    _id: "",
-    playerId: "",
-    for: "",
-    against: "",
-    log: [],
-    hasWon: ""
-  };
-
-  return dataStructure;
+  return [dataStructure, matchLog];
 };
 
 export const setMatchId = (dataStructure) => {
-  dataStructure._id = Date.now().toString();
-  return dataStructure;
+  return assoc(dataStructure, "_id", Date.now().toString());
+};
+
+export const setStartTime = (dataStructure) => {
+  return assoc(dataStructure, "startTime", Date.now());
+};
+
+export const setEndTime = (dataStructure) => {
+  return assoc(dataStructure, "endTime", Date.now());
 };
 
 export const setWinCondition = (dataStructure, hasWon) => {
-  dataStructure.hasWon = hasWon;
-  return dataStructure;
+  return assoc(dataStructure, "hasWon", hasWon);
 };
 
-export const setPlayerId = (dataStructure, id) => {
-  dataStructure.playerId = id;
-  return dataStructure;
+export const setForPlayerId = (dataStructure, id) => {
+  return assocIn(dataStructure, ["for", "id"], id);
+};
+
+export const setAgainstPlayerId = (dataStructure, id) => {
+  return assocIn(dataStructure, ["against", "id"], id);
+};
+
+export const setForPlayerName = (dataStructure, name) => {
+  return assocIn(dataStructure, ["for", "name"], name);
+};
+
+export const setAgainstPlayerName = (dataStructure, name) => {
+  return assocIn(dataStructure, ["against", "name"], name);
+};
+
+export const setForClass = (dataStructure, value) => {
+  return assocIn(dataStructure, ["for", "class"], value);
+};
+
+export const setAgainstClass = (dataStructure, value) => {
+  return assocIn(dataStructure, ["against", "class"], value);
 };
 
 export const logMatchData = (dataStructure, logMatch) => {
-  dataStructure.log = logMatch;
-  return dataStructure;
-};
-
-export const setFor = (dataStructure, value) => {
-  dataStructure.for = value;
-  return dataStructure;
-};
-
-export const setAgainst = (dataStructure, value) => {
-  dataStructure.against = value;
-  return dataStructure;
+  return assoc(dataStructure, "log", logMatch);
 };

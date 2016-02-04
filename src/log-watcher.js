@@ -1,61 +1,79 @@
-// import LogWatcher from 'hearthstone-log-watcher';
-
-import {setWinCondition, setMatchId, setFor, setAgainst, setPlayerId, resetData} from './match-data-manipulation';
-import {parseFriendlyPlayer, parseFriendlyPlayerById} from './parse-friendly-player';
+import {setWinCondition, setMatchId, setForPlayerId, setAgainstPlayerId, setForClass,
+  setAgainstClass, setForPlayerName, setAgainstPlayerName, resetData, setStartTime, setEndTime} from './match-data-manipulation';
+import {parseFriendlyPlayer, parsePlayerById, extractPlayerName} from './parse-friendly-player';
 import {isMyHero, isHeroCard} from './is-my-hero';
 import findClass from './find-class';
 import hasWon from './win-condition';
+
+import {assoc, conj, first, get, getIn, toClj, toJs, vector} from 'mori';
 
 import debug from 'debug';
 
 // TODO: case to be made whereby we turn the for and against values into object
 // { playerName: 'foo', playerId: 1}
-let dataStructure = {
-  _id: "",
-  playerId: "",
-  for: "",
-  against: "",
+let dataStructure = toClj({
+  _id: '',
+  startTime: '',
+  endTime: '',
+  for: {
+    name: '',
+    id: '',
+    class: ''
+  },
+  against: {
+    name: '',
+    id: '',
+    class: ''
+  },
   log: [],
-  hasWon: ""
-};
-let database = [];
+  hasWon: ''
+});
+let matchLog = vector();
 
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
   main: debug('HT:LV')
 };
 
-
 //TODO: should live somewhere else;
 const setHeroValues = (data) => {
-  //TODO: write a test to cover the issue resolved in commit 8fcc506  
+  //TODO: write a test to cover the issue resolved in commit 8fcc506
   if (isHeroCard(data)) {
     if (isMyHero(data)) {
-      dataStructure = setFor(dataStructure, findClass(data.cardName));
-      dataStructure = setPlayerId(dataStructure, data.playerId);
+      dataStructure = setForClass(dataStructure, findClass(data.cardName));
+      dataStructure = setForPlayerId(dataStructure, data.playerId);
     } else {
-      dataStructure = setAgainst(dataStructure, findClass(data.cardName));
+      dataStructure = setAgainstClass(dataStructure, findClass(data.cardName));
+      dataStructure = setAgainstPlayerId(dataStructure, data.playerId);
     }
   }
   return dataStructure;
+};
+
+//TODO: write a test to cover this
+const fixStartTime = (dataStructure) => {
+  return assoc(dataStructure, 'startTime', get(first(get(dataStructure, 'log')), 'id'));
 };
 
 export function dataLogger (logWatcher, db) {
 
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
-    log.main('game start: %s', dataStructure._id);
+    dataStructure = setStartTime(dataStructure);
+    log.main('game start: %s', get(dataStructure, '_id'));
   });
 
   logWatcher.on('game-over', (data) => {
     var winCondition;
-    if(!dataStructure._id) {
+    dataStructure = assoc(dataStructure, 'log', matchLog);
+
+    if(!get(dataStructure, '_id')) {
       log.main('no game start event');
-      log.main(data);
-      log.main(parseFriendlyPlayerById(data, dataStructure.playerId));
-      log.main(hasWon(parseFriendlyPlayerById(data, dataStructure.playerId)));
+      log.main(parsePlayerById(data, getIn(dataStructure, ['for', 'id'])));
+      log.main(hasWon(parsePlayerById(data, getIn(dataStructure, ['for', 'id']))));
       dataStructure = setMatchId(dataStructure);
-      winCondition = hasWon(parseFriendlyPlayerById(data, dataStructure.playerId));
+      dataStructure = fixStartTime(dataStructure);
+      winCondition = hasWon(parsePlayerById(data, getIn(dataStructure, ['for', 'id'])));
     } else {
       log.main('game started event');
       log.main(parseFriendlyPlayer(data));
@@ -63,11 +81,13 @@ export function dataLogger (logWatcher, db) {
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
-    log.main(dataStructure);
-    db.put(dataStructure)
+    dataStructure = setForPlayerName(dataStructure, extractPlayerName(data, getIn(dataStructure, ['for', 'id'])));
+    dataStructure = setAgainstPlayerName(dataStructure, extractPlayerName(data, getIn(dataStructure, ['against', 'id'])));
+    dataStructure = setEndTime(dataStructure);
+
+    db.put(toJs(dataStructure))
       .then(() => {
-        // TODO: switch to immutable data and renable this
-        dataStructure = resetData();
+        [dataStructure, matchLog] = resetData();
       }).catch((error) => {
         log.main(error);
       });
@@ -76,12 +96,8 @@ export function dataLogger (logWatcher, db) {
   logWatcher.on('zone-change', (data) => {
     dataStructure = setHeroValues(data);
     data.id = Date.now();
-    dataStructure.log.push(data);
+    matchLog = conj(matchLog, toClj(data));
   });
 
   return logWatcher;
-}
-
-export function getDatabase () {
-  return database;
 }
