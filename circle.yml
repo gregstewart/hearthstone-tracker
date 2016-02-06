@@ -5,11 +5,11 @@ machine:
 general:
   artifacts:
     - $CIRCLE_TEST_REPORTS
+    - coverage
 
 test:
   override:
     - npm run security:check
     - npm test -- --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/junit/results.xml
     - npm run coverage
-    - cp ./coverage $CIRCLE_TEST_REPORTS/coverage
-    - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN ./node_modules/.bin/codeclimate-test-reporter < $CIRCLE_TEST_REPORTS/coverage/lcov.info
+    - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN ./node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
