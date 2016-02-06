@@ -1,22 +1,13 @@
-import mori from 'mori';
-import React from 'react';
-import { render } from 'react-dom';
 import { createStore } from 'redux';
+import { ipcRenderer } from 'electron';
 import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import { updateStats } from './actions/stats';
 import App from '../views/app.jsx';
+import React from 'react';
 import stats from './reducers/stats';
-import {ipcRenderer} from 'electron';
-import {updateStats} from './actions/stats';
 
-let data = {
-  summaryStats: [
-    {id: 1, label: "Wins", text: "0"},
-    {id: 2, label: "Losses", text: "0"},
-    {id: 3, label: "Ratio", text: "0%"}
-  ]
-};
-
-let store = createStore(stats, data);
+let store = createStore(stats);
 let rootElement = document.getElementById('main');
 
 ipcRenderer.on('ping', function (event, message) {
