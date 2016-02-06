@@ -1,5 +1,7 @@
-import {assoc, assocIn} from 'mori';
-import {dataStructure, matchLog} from './data-structures';
+import { assoc, assocIn } from 'mori';
+import { dataStructure, matchLog } from './data-structures';
+import { isMyHero, isHeroCard } from './is-my-hero';
+import findClass from './find-class';
 
 export const resetData = () => {
   return [dataStructure, matchLog];
@@ -47,4 +49,18 @@ export const setAgainstClass = (dataStructure, value) => {
 
 export const logMatchData = (dataStructure, logMatch) => {
   return assoc(dataStructure, "log", logMatch);
+};
+
+export const setHeroValues = (dataStructure, data) => {
+  //TODO: write a test to cover the issue resolved in commit 8fcc506
+  if (isHeroCard(data)) {
+    if (isMyHero(data)) {
+      dataStructure = setForClass(dataStructure, findClass(data.cardName));
+      dataStructure = setForPlayerId(dataStructure, data.playerId);
+    } else {
+      dataStructure = setAgainstClass(dataStructure, findClass(data.cardName));
+      dataStructure = setAgainstPlayerId(dataStructure, data.playerId);
+    }
+  }
+  return dataStructure;
 };

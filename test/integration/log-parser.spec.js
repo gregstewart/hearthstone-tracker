@@ -1,13 +1,14 @@
+import { dataLogger } from '../../src/log-watcher';
+import { goodParse, missingStartEventParse } from '../fixtures/data-parses';
+import chai from 'chai';
 import debug from 'debug';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
-import {goodParse, missingStartEventParse} from '../fixtures/data-parses';
-import {dataLogger} from '../../src/log-watcher';
-
-import chai from 'chai';
-import sinon from 'sinon';
 import Promise from 'bluebird';
+import sinon from 'sinon';
+
 chai.use(require('sinon-chai'));
+
 const expect = chai.expect;
 // Define some debug logging functions for easy and readable debug messages.
 let log = {

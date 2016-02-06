@@ -1,53 +1,14 @@
-import {setWinCondition, setMatchId, setForPlayerId, setAgainstPlayerId, setForClass,
-  setAgainstClass, setForPlayerName, setAgainstPlayerName, resetData, setStartTime, setEndTime} from './match-data-manipulation';
-import {parseFriendlyPlayer, parsePlayerById, extractPlayerName} from './parse-friendly-player';
-import {isMyHero, isHeroCard} from './is-my-hero';
-import findClass from './find-class';
+import { assoc, conj, first, get, getIn, toClj, toJs } from 'mori';
+import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
+import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
+  setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
+import debug from 'debug';
 import hasWon from './win-condition';
 
-import {assoc, conj, first, get, getIn, toClj, toJs, vector} from 'mori';
-
-import debug from 'debug';
-
-// TODO: case to be made whereby we turn the for and against values into object
-// { playerName: 'foo', playerId: 1}
-let dataStructure = toClj({
-  _id: '',
-  startTime: '',
-  endTime: '',
-  for: {
-    name: '',
-    id: '',
-    class: ''
-  },
-  against: {
-    name: '',
-    id: '',
-    class: ''
-  },
-  log: [],
-  hasWon: ''
-});
-let matchLog = vector();
-
+let [dataStructure, matchLog] = resetData();
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
   main: debug('HT:LV')
-};
-
-//TODO: should live somewhere else;
-const setHeroValues = (data) => {
-  //TODO: write a test to cover the issue resolved in commit 8fcc506
-  if (isHeroCard(data)) {
-    if (isMyHero(data)) {
-      dataStructure = setForClass(dataStructure, findClass(data.cardName));
-      dataStructure = setForPlayerId(dataStructure, data.playerId);
-    } else {
-      dataStructure = setAgainstClass(dataStructure, findClass(data.cardName));
-      dataStructure = setAgainstPlayerId(dataStructure, data.playerId);
-    }
-  }
-  return dataStructure;
 };
 
 //TODO: write a test to cover this
@@ -94,7 +55,7 @@ export function dataLogger (logWatcher, db) {
   });
 
   logWatcher.on('zone-change', (data) => {
-    dataStructure = setHeroValues(data);
+    dataStructure = setHeroValues(dataStructure, data);
     data.id = Date.now();
     matchLog = conj(matchLog, toClj(data));
   });
