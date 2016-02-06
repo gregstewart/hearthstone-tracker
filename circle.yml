@@ -9,4 +9,4 @@ general:
 test:
   override:
     - npm run security:check
-    - NODE_ENV=test ./node_modules/.bin/mocha --recursive --compilers js:babel-register --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/junit/results.xml
+    - NODE_ENV=test ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/junit/results.xml
