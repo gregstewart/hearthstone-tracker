@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Main from './main';
+import Stats from './stats';
 
 export default class App extends Component {
   render () {
     const { stats, winStreak } = this.props;
     return (
-      <Main stats={stats} winStreak={winStreak} />
+      <Stats stats={stats} winStreak={winStreak} />
     );
   }
 }

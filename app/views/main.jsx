@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import ListComponent from './list-component';
+import Stats from './stats';
 
 class Main extends Component {
   render () {
     return (
       <div>
         <h1>Stats</h1>
-        <ListComponent data={this.props.stats} />
+        <Stats data={this.props.stats} />
       </div>
     );
   }
