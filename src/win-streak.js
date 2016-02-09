@@ -1,17 +1,20 @@
-import mori from 'mori';
+import { getIn, hashMap, map, subvec, toClj, toJs } from 'mori';
 
 const extractData = (element) => {
   const getWin = ['doc', 'hasWon'];
   const getAs = ['doc', 'for', 'class'];
   const getAgainst = ['doc', 'against', 'class'];
-  return mori.hashMap('result', mori.getIn(element, getWin) ? 'win' : 'loss',
-    'as', mori.getIn(element, getAs),
-    'against', mori.getIn(element, getAgainst));
+  return hashMap('result', getIn(element, getWin) ? 'win' : 'loss',
+    'as', getIn(element, getAs),
+    'against', getIn(element, getAgainst));
 };
 
 export default function (data) {
-  data = mori.toClj(data.rows);
-  let subset = mori.subvec(data, 0, 5);
+  return new Promise((resolve, reject) => {
+    if(!data) {
+      reject(new Error('Expected a result set'));
+    }
 
-  return mori.toJs(mori.map(extractData, subset));
+    resolve(toJs(map(extractData, subvec(toClj(data.rows), 0, 5))));
+  });
 }

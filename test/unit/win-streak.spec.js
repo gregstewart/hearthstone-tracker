@@ -10,8 +10,20 @@ describe('win streak', () => {
       { result: "win", as: "Rogue", against: "Warlock" },
       { result: "loss", as: "Rogue", against: "Warlock" },
       { result: "win", as: "Priest", against: "Shaman" }
-    ]
+    ];
 
-    expect(winStreak(result)).to.deep.equal(expected);
+    winStreak(result).then((streak) => {
+      expect(streak).to.deep.equal(expected);
+    }).catch((error) => {
+      expect(error).to.be.undefined;
+    });
+
+  });
+
+  it('returns an error when no result is passed in', () => {
+    winStreak().catch((error) => {
+      expect(error).to.be.defined;
+      expect(error.message).to.equal('Expected a result set');
+    });
   });
 });
