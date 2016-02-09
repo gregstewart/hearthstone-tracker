@@ -1,8 +1,5 @@
 import debug from 'debug';
-import chai from 'chai';
-import sinon from 'sinon';
-chai.use(require('sinon-chai'));
-const expect = chai.expect;
+import { expect } from 'chai';
 
 import {result} from '../fixtures/database-result';
 import {summaryStats, transformSummaryStats} from '../../src/ui-data/stats';
