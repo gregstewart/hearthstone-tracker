@@ -21,9 +21,9 @@ export function summaryStats (data) {
     let wins = count(get(results, 'wins'));
     let losses = count(get(results, 'losses'));
     let ratio = wins/(wins+losses) * 100 + '%';
-    resolve({
+    resolve(transformSummaryStats({
       wins,losses,ratio
-    });
+    }));
   });
 
   return promise;

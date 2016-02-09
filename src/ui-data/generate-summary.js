@@ -1,4 +1,4 @@
-import { summaryStats, transformSummaryStats } from './stats';
+import { summaryStats } from './stats';
 import debug from 'debug';
 
 let log = {
@@ -9,7 +9,7 @@ export function generateSummary (db, wC) {
   return db.allDocs({include_docs: true})
     .then(summaryStats)
     .then((payload) => {
-      wC.send('ping', transformSummaryStats(payload));
+      wC.send('ping', payload);
     })
     .catch((error) => {
       log.error(error);
