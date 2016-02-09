@@ -1,28 +1,16 @@
+import { dataLogger } from './src/log-watcher';
+import { generateSummary } from './src/ui-data/generate-summary';
 import app from 'app';
 import BrowserWindow from 'browser-window';
+import debug from 'debug';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 
-import {dataLogger} from './src/log-watcher';
-import {summaryStats, transformSummaryStats} from './src/ui-data/stats';
-
-import debug from 'debug';
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
   change: debug('HT:change'),
   complete: debug('HT:complete'),
   error: debug('HT:error')
-};
-
-const generateSummary = (db, wC) => {
-  return db.allDocs({include_docs: true})
-    .then(summaryStats)
-    .then((payload) => {
-      wC.send('ping', transformSummaryStats(payload));
-    })
-    .catch((error) => {
-      log.error(error);
-    });
 };
 
 let mainWindow = null;
