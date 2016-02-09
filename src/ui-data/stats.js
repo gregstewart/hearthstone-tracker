@@ -9,21 +9,25 @@ const getElement = (element) => {
   return getIn(element, ['doc', 'hasWon']);
 };
 
+export function pluckStats (rows) {
+  let results = groupBy(winsLosses, map(getElement, rows));
+
+  let wins = count(get(results, 'wins'));
+  let losses = count(get(results, 'losses'));
+  let ratio = wins/(wins+losses) * 100 + '%';
+
+  return {
+    wins,losses,ratio
+  };
+};
+
 export function summaryStats (data) {
   let promise = new Promise((resolve, reject) => {
     if(!data) {
       reject(new Error('Expected a result set'));
     }
 
-    data = toClj(data.rows);
-    let results = groupBy(winsLosses, map(getElement, data));
-
-    let wins = count(get(results, 'wins'));
-    let losses = count(get(results, 'losses'));
-    let ratio = wins/(wins+losses) * 100 + '%';
-    resolve(transformSummaryStats({
-      wins,losses,ratio
-    }));
+    resolve(transformSummaryStats(pluckStats(toClj(data.rows))));
   });
 
   return promise;

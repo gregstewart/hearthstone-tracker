@@ -8,7 +8,7 @@ const expect = chai.expect;
 import { result } from '../fixtures/database-result';
 import { generateSummary } from '../../src/ui-data/generate-summary';
 
-describe.only('Generate Summary', () => {
+describe('Generate Summary', () => {
   let db, wC, sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
