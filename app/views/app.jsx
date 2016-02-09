@@ -4,21 +4,22 @@ import Main from './main';
 
 export default class App extends Component {
   render () {
-    const { stats } = this.props;
+    const { stats, winStreak } = this.props;
     return (
-      <Main stats={stats} />
+      <Main stats={stats} winStreak={winStreak} />
     );
   }
 }
 
-function select (state) {
+function mapStateToProps (state) {
   return {
-    stats: state.summaryStats
+    stats: state.summaryStats,
+    winStreak: state.winStreak
   };
 }
 
 // Wrap the component to inject dispatch and state into it
-export default connect(select)(App);
+export default connect(mapStateToProps)(App);
 
 App.propTypes = {
   stats: PropTypes.arrayOf(PropTypes.shape({
@@ -26,5 +27,12 @@ App.propTypes = {
     label: PropTypes.string,
     text: PropTypes.string,
     map: PropTypes.func
+  })),
+  winStreak: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    label: PropTypes.string,
+    as: PropTypes.string,
+    against: PropTypes.string,
+    map: React.PropTypes.func
   }))
 };
