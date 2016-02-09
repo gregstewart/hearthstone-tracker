@@ -1,12 +1,11 @@
 import React from 'react';
+import ListItemWrapper from './list-item-wrapper';
 
 class ListComponent extends React.Component {
   render () {
     var listNodes = this.props.data.map((element) => {
       return (
-        <li key={element.id}>
-          {element.label}: {element.text}
-        </li>
+        <ListItemWrapper element={element} key={element.id}/>
       );
     });
 
