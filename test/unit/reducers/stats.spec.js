@@ -1,5 +1,4 @@
-import {expect} from 'chai';
-
+import { expect } from 'chai';
 import * as types from '../../../app/scripts/constants/action-types';
 import reducer from '../../../app/scripts/reducers/stats';
 
@@ -16,18 +15,18 @@ describe('Stats reducer', () => {
   });
 
   it('handles updating stats', () => {
-    const stats = [
+    const summaryStats = [
       {id: 1, label: "Wins", text: "1"},
       {id: 2, label: "Losses", text: "0"},
       {id: 3, label: "Ratio", text: "100%"}
     ];
     const expectedState = {
-      summaryStats: stats
+      summaryStats: summaryStats
     };
 
     expect(reducer([], {
       type: types.UPDATE_STATS,
-      stats
+      summaryStats
     })).to.deep.equal(expectedState);
   });
 });

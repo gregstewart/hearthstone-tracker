@@ -11,7 +11,7 @@ const initialState = {
 export default function (state = initialState, action) {
 
   if (action.type === types.UPDATE_STATS) {
-    return Object.assign({}, state, {summaryStats: action.stats}
+    return Object.assign({}, state, {summaryStats: action.summaryStats}
     );
   }
 

@@ -1,8 +1,8 @@
 import * as types from '../constants/action-types';
 
-export function updateStats (stats) {
+export function updateStats (summaryStats) {
   return {
     type: types.UPDATE_STATS,
-    stats
+    summaryStats
   };
 }
