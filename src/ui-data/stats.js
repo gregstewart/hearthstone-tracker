@@ -1,4 +1,5 @@
 import { assoc, count, find, get, getIn, groupBy, last, map, toClj, toJs } from 'mori';
+import { statsShape } from '../constants';
 import Promise from 'bluebird';
 
 const winsLosses = (n) => {
@@ -19,7 +20,7 @@ export function pluckStats (rows) {
   return {
     wins,losses,ratio
   };
-};
+}
 
 export function summaryStats (data) {
   let promise = new Promise((resolve, reject) => {
@@ -34,11 +35,7 @@ export function summaryStats (data) {
 }
 
 export function transformSummaryStats (input) {
-  const shape = toClj([
-    {id: 1, label: "Wins", text: ""},
-    {id: 2, label: "Losses", text: ""},
-    {id: 3, label: "Ratio", text: ""}
-  ]);
+  const shape = toClj(statsShape);
 
   let output = map((element) => {
     let keyToFind = get(element, 'label').toLowerCase();

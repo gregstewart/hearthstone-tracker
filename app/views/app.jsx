@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { stats, winStreak } from '../scripts/validators';
+import React, { Component } from 'react';
 import Stats from './stats';
 
 export default class App extends Component {
@@ -22,17 +23,6 @@ function mapStateToProps (state) {
 export default connect(mapStateToProps)(App);
 
 App.propTypes = {
-  stats: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    text: PropTypes.string,
-    map: PropTypes.func
-  })),
-  winStreak: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    as: PropTypes.string,
-    against: PropTypes.string,
-    map: React.PropTypes.func
-  }))
+  stats,
+  winStreak
 };

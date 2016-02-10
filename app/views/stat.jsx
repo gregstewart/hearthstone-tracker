@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import { element } from '../scripts/validators';
+import React, { Component } from 'react';
 
 class Stat extends Component {
   render () {
@@ -10,10 +11,7 @@ class Stat extends Component {
 }
 
 Stat.propTypes = {
-  element: PropTypes.shape({
-    label: PropTypes.string,
-    text: PropTypes.string
-  })
+  element
 };
 
 export default Stat;

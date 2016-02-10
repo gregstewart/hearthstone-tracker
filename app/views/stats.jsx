@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import { stats } from '../scripts/validators';
+import React, { Component } from 'react';
 import Stat from './stat';
 
 class Stats extends Component {
@@ -16,12 +17,7 @@ class Stats extends Component {
 }
 
 Stats.propTypes = {
-  stats: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    text: PropTypes.string,
-    map: PropTypes.func
-  }))
+  stats
 };
 
 export default Stats;
