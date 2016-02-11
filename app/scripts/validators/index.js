@@ -19,3 +19,9 @@ export const element = PropTypes.shape({
   label: PropTypes.string,
   text: PropTypes.string
 });
+
+export const winStreakElement = PropTypes.shape({
+  result: PropTypes.string,
+  as: PropTypes.string,
+  against: PropTypes.string
+});

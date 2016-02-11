@@ -1,6 +1,7 @@
-import { stats } from '../scripts/validators';
+import { stats, winStreak } from '../scripts/validators';
 import React, { Component } from 'react';
 import Stats from './stats';
+import WinStreaks from './win-streaks';
 
 class Main extends Component {
   render () {
@@ -8,13 +9,16 @@ class Main extends Component {
       <div>
         <h1>Stats</h1>
         <Stats data={this.props.stats} />
+        <h1>Win Streak</h1>
+        <WinStreaks data={this.props.winStreak} />
       </div>
     );
   }
 }
 
 Main.propTypes = {
-  stats
+  stats,
+  winStreak
 };
 
 export default Main;

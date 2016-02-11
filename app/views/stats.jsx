@@ -1,10 +1,10 @@
-import { stats } from '../scripts/validators';
+import { stats as data } from '../scripts/validators';
 import React, { Component } from 'react';
 import Stat from './stat';
 
 class Stats extends Component {
   render () {
-    var listNodes = this.props.stats.map((element) => {
+    var listNodes = this.props.data.map((element) => {
       return (
         <Stat element={element} key={element.id}/>
       );
@@ -17,7 +17,7 @@ class Stats extends Component {
 }
 
 Stats.propTypes = {
-  stats
+  data
 };
 
 export default Stats;
