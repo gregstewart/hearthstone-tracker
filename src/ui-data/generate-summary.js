@@ -3,6 +3,7 @@ import debug from 'debug';
 import winStreak from '../win-streak';
 
 let log = {
+  main: debug('HT:info'),
   error: debug('HT:error')
 };
 
@@ -13,6 +14,7 @@ export function generateSummary (db, wC) {
     })
     .then((results) => {
       let payload = {summaryStats: results[0], winStreak: results[1]};
+      log.main(payload)
       wC.send('ping', payload);
     })
     .catch((error) => {
