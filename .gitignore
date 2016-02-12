@@ -4,6 +4,10 @@ logs
 builds
 *-leveldb
 
+# Terraform
+terraform.tfvars
+*.pem
+
 # Runtime data
 pids
 *.pid
