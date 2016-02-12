@@ -22,6 +22,16 @@ describe('win streak', () => {
 
   });
 
+  it('returns an empty array when there are no values', (done) => {
+    winStreak({rows: []}).then((streak) => {
+      expect(streak).to.deep.equal([]);
+      done();
+    }).catch((error) => {
+      expect(error).to.be.undefined;
+      done();
+    });
+  });
+
   it('returns an error when no result is passed in', (done) => {
     winStreak().catch((error) => {
       expect(error).to.be.defined;

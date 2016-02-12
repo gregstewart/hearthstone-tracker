@@ -15,6 +15,10 @@ export default function (data) {
       reject(new Error('Expected a result set'));
     }
 
+    if(!data.rows.length) {
+      resolve([]);
+    }
+
     resolve(toJs(map(extractData, subvec(toClj(data.rows), 0, 5))));
   });
 }
