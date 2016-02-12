@@ -4,9 +4,9 @@ import WinStreak from './win-streak';
 
 class WinStreaks extends Component {
   render () {
-    var listNodes = this.props.data.map((element) => {
+    var listNodes = this.props.data.map((element, index) => {
       return (
-        <WinStreak element={element} key={element.id}/>
+        <WinStreak element={element} key={index}/>
       );
     });
 
