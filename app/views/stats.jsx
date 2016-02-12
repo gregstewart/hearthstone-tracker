@@ -1,4 +1,4 @@
-import { stats as data } from '../scripts/validators';
+import { summaryStats as data } from '../scripts/validators';
 import React, { Component } from 'react';
 import Stat from './stat';
 

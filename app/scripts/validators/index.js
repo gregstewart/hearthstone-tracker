@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
 
-export const stats = PropTypes.arrayOf(PropTypes.shape({
+export const summaryStats = PropTypes.arrayOf(PropTypes.shape({
   id: PropTypes.number.isRequired,
   label: PropTypes.string,
   text: PropTypes.string,

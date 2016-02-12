@@ -4,13 +4,7 @@ import reducer from '../../../app/scripts/reducers/stats';
 
 describe('Stats reducer', () => {
   it('should return the initial state', () => {
-    const expectedState = {
-      summaryStats: [
-        {id: 1, label: "Wins", text: "0"},
-        {id: 2, label: "Losses", text: "0"},
-        {id: 3, label: "Ratio", text: "0%"}
-      ]
-    };
+    const expectedState = [];
     expect(reducer(undefined, {})).to.deep.equal(expectedState);
   });
 
@@ -20,13 +14,10 @@ describe('Stats reducer', () => {
       {id: 2, label: "Losses", text: "0"},
       {id: 3, label: "Ratio", text: "100%"}
     ];
-    const expectedState = {
-      summaryStats: summaryStats
-    };
-
+    
     expect(reducer([], {
       type: types.UPDATE_STATS,
       summaryStats
-    })).to.deep.equal(expectedState);
+    })).to.deep.equal(summaryStats);
   });
 });

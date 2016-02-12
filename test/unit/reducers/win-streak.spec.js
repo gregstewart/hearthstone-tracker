@@ -4,9 +4,7 @@ import reducer from '../../../app/scripts/reducers/win-streak';
 
 describe('Win streak reducer', () => {
   it('should return the initial state', () => {
-    const expectedState = {
-      winStreak: []
-    };
+    const expectedState = [];
     expect(reducer(undefined, {})).to.deep.equal(expectedState);
   });
 
@@ -16,13 +14,10 @@ describe('Win streak reducer', () => {
       {id: 2, label: "Loss", as: "Rogue", against: "Warlock"},
       {id: 3, label: "Win", as: "Paladin", against: "Druid"}
     ];
-    const expectedState = {
-      winStreak: winStreak
-    };
 
     expect(reducer([], {
       type: types.UPDATE_WIN_STREAK,
       winStreak
-    })).to.deep.equal(expectedState);
+    })).to.deep.equal(winStreak);
   });
 });
