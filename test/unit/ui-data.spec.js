@@ -1,9 +1,8 @@
-import debug from 'debug';
 import { expect } from 'chai';
-import { toClj } from 'mori';
-
-import {result} from '../fixtures/database-result';
 import { pluckStats, summaryStats, transformSummaryStats } from '../../src/ui-data/stats';
+import { result } from '../fixtures/database-result';
+import { toClj } from 'mori';
+import debug from 'debug';
 
 // Define some debug logging functions for easy and readable debug messages.
 let log = {

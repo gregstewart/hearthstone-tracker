@@ -13,9 +13,7 @@ export function generateSummary (db, wC) {
       return Promise.all([summaryStats(result), winStreak(result)]);
     })
     .then((results) => {
-      let payload = {summaryStats: results[0], winStreak: results[1]};
-      log.main(payload)
-      wC.send('ping', payload);
+      wC.send('ping', {summaryStats: results[0], winStreak: results[1]});
     })
     .catch((error) => {
       log.error(error);

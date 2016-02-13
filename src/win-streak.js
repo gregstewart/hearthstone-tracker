@@ -1,4 +1,4 @@
-import { getIn, hashMap, map, subvec, toClj, toJs } from 'mori';
+import { getIn, hashMap, map, reverse, subvec, toClj, toJs } from 'mori';
 
 const extractData = (element) => {
   const getWin = ['doc', 'hasWon'];
@@ -18,7 +18,6 @@ export default function (data) {
     if(!data.rows.length) {
       resolve([]);
     }
-
-    resolve(toJs(map(extractData, subvec(toClj(data.rows), 0, 5))));
+    resolve(toJs(reverse(map(extractData, subvec(toClj(data.rows), data.rows.length-5, data.rows.length)))));
   });
 }

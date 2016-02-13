@@ -2,15 +2,14 @@ import { expect } from 'chai';
 import { result } from '../fixtures/database-result';
 import winStreak from '../../src/win-streak';
 
-describe('win streak', () => {
+describe('Win streak', () => {
   it('returns the users streak', (done) => {
     const expected = [
-      { result: "loss", as: "Rogue", against: "Rogue" },
-      { result: "win", as: "Rogue", against: "Mage" },
-      { result: "win", as: "Rogue", against: "Warlock" },
-      { result: "loss", as: "Rogue", against: "Warlock" },
-      { result: "win", as: "Priest", against: "Shaman" }
-    ];
+      { result: 'loss', as: 'Rogue', against: 'Rogue' },
+      { result: 'win', as: 'Rogue', against: 'Mage' },
+      { result: 'win', as: 'Rogue', against: 'Warlock' },
+      { result: 'loss', as: 'Rogue', against: 'Warlock' },
+      { result: 'win', as: 'Priest', against: 'Shaman' } ].reverse();
 
     winStreak(result).then((streak) => {
       expect(streak).to.deep.equal(expected);

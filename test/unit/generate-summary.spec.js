@@ -1,12 +1,12 @@
-import debug from 'debug';
-import chai from 'chai';
-import sinon from 'sinon';
-chai.use(require('sinon-chai'));
-import sinonAsPromised from 'sinon-as-promised';
-const expect = chai.expect;
-
-import { result } from '../fixtures/database-result';
 import { generateSummary } from '../../src/ui-data/generate-summary';
+import { result } from '../fixtures/database-result';
+import chai from 'chai';
+import debug from 'debug';
+import sinon from 'sinon';
+import sinonAsPromised from 'sinon-as-promised';
+
+chai.use(require('sinon-chai'));
+const expect = chai.expect;
 
 describe('Generate Summary', () => {
   let db, wC, sandbox;
@@ -36,7 +36,7 @@ describe('Generate Summary', () => {
           { result: 'win', as: 'Rogue', against: 'Mage' },
           { result: 'win', as: 'Rogue', against: 'Warlock' },
           { result: 'loss', as: 'Rogue', against: 'Warlock' },
-          { result: 'win', as: 'Priest', against: 'Shaman' } ] };
+          { result: 'win', as: 'Priest', against: 'Shaman' } ].reverse() };
     generateSummary(db, wC).then(() => {
       expect(wC.send).to.have.been.calledWith('ping', expected);
       done();
