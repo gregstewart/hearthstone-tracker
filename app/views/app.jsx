@@ -1,30 +1,29 @@
-import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { summaryStats, winStreak } from '../scripts/validators';
+import React, { Component } from 'react';
 import Main from './main';
 
 export default class App extends Component {
   render () {
-    const { stats } = this.props;
+    const { summaryStats, winStreak } = this.props;
     return (
-      <Main stats={stats} />
+      <Main summaryStats={summaryStats} winStreak={winStreak} />
     );
   }
 }
 
-function select (state) {
-  return {
-    stats: state.summaryStats
+function mapStateToProps (state) {
+  let props = {
+    summaryStats: state.summaryStats,
+    winStreak: state.winStreak
   };
+  return props;
 }
 
 // Wrap the component to inject dispatch and state into it
-export default connect(select)(App);
+export default connect(mapStateToProps)(App);
 
 App.propTypes = {
-  stats: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    text: PropTypes.string,
-    map: PropTypes.func
-  }))
+  summaryStats,
+  winStreak
 };

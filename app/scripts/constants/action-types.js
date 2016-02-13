@@ -1,1 +1,2 @@
 export const UPDATE_STATS = 'UPDATE_STATS';
+export const UPDATE_WIN_STREAK = 'UPDATE_WIN_STREAK';

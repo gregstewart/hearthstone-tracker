@@ -1,24 +1,24 @@
-import React, { Component, PropTypes } from 'react';
-import ListComponent from './list-component';
+import { summaryStats, winStreak } from '../scripts/validators';
+import React, { Component } from 'react';
+import Stats from './stats';
+import WinStreaks from './win-streaks';
 
 class Main extends Component {
   render () {
     return (
       <div>
         <h1>Stats</h1>
-        <ListComponent data={this.props.stats} />
+        <Stats data={this.props.summaryStats} />
+        <h1>Win Streak</h1>
+        <WinStreaks data={this.props.winStreak} />
       </div>
     );
   }
 }
 
 Main.propTypes = {
-  stats: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    text: PropTypes.string,
-    map: PropTypes.func
-  }))
+  summaryStats,
+  winStreak
 };
 
 export default Main;
