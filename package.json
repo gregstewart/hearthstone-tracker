@@ -45,6 +45,7 @@
     "mocha-junit-reporter": "1.9.1",
     "nsp": "2.2.0",
     "pre-push": "0.1.1",
+    "react-addons-test-utils": "^0.14.7",
     "sinon": "1.17.3",
     "sinon-as-promised": "4.0.0",
     "sinon-chai": "2.8.0"
