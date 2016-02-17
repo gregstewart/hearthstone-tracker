@@ -1,20 +1,18 @@
 import { winStreak as data } from '../scripts/validators';
-import React, { Component } from 'react';
+import React from 'react';
 import WinStreak from './win-streak';
 
-class WinStreaks extends Component {
-  render () {
-    var listNodes = this.props.data.map((element, index) => {
-      return (
+const WinStreaks = ({
+  data
+}) => (
+  <ul>
+    {
+      data.map((element, index) =>
         <WinStreak element={element} key={index}/>
-      );
-    });
-
-    return (<ul>
-      {listNodes}
-    </ul>);
-  }
-}
+      )
+    }
+  </ul>
+);
 
 WinStreaks.propTypes = {
   data

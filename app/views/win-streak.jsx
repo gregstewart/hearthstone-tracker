@@ -1,14 +1,11 @@
 import { winStreakElement } from '../scripts/validators';
-import React, { Component } from 'react';
+import React from 'react';
 
-class WinStreak extends Component {
-  render () {
-    let element = this.props.element;
-    return (
-      <li>{element.result} as {element.as} against {element.against}</li>
-    );
-  }
-}
+const WinStreak = ({
+  element
+}) => (
+  <li>{element.result} as {element.as} against {element.against}</li>
+);
 
 WinStreak.propTypes = {
   element: winStreakElement

@@ -5,11 +5,13 @@ import Stat from './stat';
 const Stats = ({
   data
 }) => (
-    <ul>
-      {data.map(element =>
+  <ul>
+    {
+      data.map(element =>
         <Stat element={element} key={element.id}/>
-      )}
-    </ul>
+      )
+    }
+  </ul>
 );
 
 Stats.propTypes = {
