@@ -1,0 +1,8 @@
+instrumentation:
+    root: .
+    extensions:
+      - .js
+      - .jsx
+    include-all-sources: true
+    excludes:
+      - './builds/**'
