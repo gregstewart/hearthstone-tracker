@@ -8,7 +8,6 @@ export const summaryStats = PropTypes.arrayOf(PropTypes.shape({
 }));
 
 export const winStreak =  PropTypes.arrayOf(PropTypes.shape({
-  id: PropTypes.number.isRequired,
   label: PropTypes.string,
   as: PropTypes.string,
   against: PropTypes.string,
