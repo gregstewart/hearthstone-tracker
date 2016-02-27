@@ -1,5 +1,6 @@
 import { dataLogger } from './src/log-watcher';
 import { generateSummary } from './src/ui-data/generate-summary';
+import { ipcMain } from 'electron';
 import app from 'app';
 import BrowserWindow from 'browser-window';
 import debug from 'debug';
@@ -8,6 +9,7 @@ import PouchDB from 'pouchdb';
 
 // Define some debug logging functions for easy and readable debug messages.
 let log = {
+  info: debug('HT:info'),
   change: debug('HT:change'),
   complete: debug('HT:complete'),
   error: debug('HT:error')
@@ -34,6 +36,7 @@ app.on('ready', () => {
   });
 
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+  mainWindow.openDevTools();
   let webContents = mainWindow.webContents;
 
   generateSummary(db, webContents);
@@ -49,6 +52,11 @@ app.on('ready', () => {
     log.complete(info);
   }).on('error', (error) => {
     log.error(error);
+  });
+
+  ipcMain.on('reload-data', () => {
+    log.info('reload-data');
+    generateSummary(db, webContents);
   });
 
   // Emitted when the window is closed.

@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { ipcRenderer } from 'electron';
+import { ipcRenderer, remote } from 'electron';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { updateStats } from './actions/stats';
@@ -19,6 +19,7 @@ const initialState = {
 
 let store = createStore(reducer, initialState);
 let rootElement = document.getElementById('main');
+let Menu = remote.require('menu');
 
 ipcRenderer.on('ping', function (event, message) {
   /*eslint-disable no-console */
@@ -26,6 +27,21 @@ ipcRenderer.on('ping', function (event, message) {
   store.dispatch(updateStats(message.summaryStats));
   store.dispatch(updateWinStreak(message.winStreak));
 });
+
+let menu = Menu.buildFromTemplate([
+  {
+    label: 'Hearthstone Tracker',
+    submenu: [
+      {
+        label: 'Reload data',
+        click: () => {
+          ipcRenderer.send('reload-data');
+        }
+      }
+    ]
+  }
+]);
+Menu.setApplicationMenu(menu);
 
 render(
   <Provider store={store}>
