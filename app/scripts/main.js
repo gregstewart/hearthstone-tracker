@@ -34,6 +34,7 @@ let menu = Menu.buildFromTemplate([
     submenu: [
       {
         label: 'Reload data',
+        accelerator: 'CmdOrCtrl+R',
         click: () => {
           ipcRenderer.send('reload-data');
         }
