@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Features:
 
   - Reload stats data using a application menu (#30 @gregstewart)
+  - Add Quit app option on OSX after adding custom menu
+  - Add app icons
 
 ## [0.1.4] - (2016-02-13)
 
