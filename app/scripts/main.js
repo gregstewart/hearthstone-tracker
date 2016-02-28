@@ -38,6 +38,13 @@ let menu = Menu.buildFromTemplate([
         click: () => {
           ipcRenderer.send('reload-data');
         }
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click: () => {
+          remote.app.quit();
+        }
       }
     ]
   }
