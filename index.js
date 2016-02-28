@@ -32,7 +32,8 @@ app.on('ready', () => {
   logWatcher.start();
   mainWindow = new BrowserWindow({
     height: 600,
-    width: 800
+    width: 800,
+    icon:'./assets/16x16.png'
   });
 
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');

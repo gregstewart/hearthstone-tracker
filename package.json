@@ -4,7 +4,8 @@
   "description": "An electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
-    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --platform=all --arch=all --version=0.36.7 --out=builds/",
+    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone --platform=all --arch=all --version=0.36.7 --out=builds/",
+    "build:release:mac": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.icns --platform=darwin --arch=x64 --version=0.36.7 --out=builds/",
     "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.jsx' --include '**/*.js' --exclude './builds/**' ./node_modules/.bin/_mocha test",
     "lint": "eslint -c .eslintrc ./**/*.js  ./**/*.jsx",
     "rebuild:leveldb": "cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.36.7 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
