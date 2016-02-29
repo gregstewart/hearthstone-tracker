@@ -2,12 +2,7 @@ import { expect } from 'chai';
 import { pluckStats, summaryStats, transformSummaryStats } from '../../src/ui-data/stats';
 import { result } from '../fixtures/database-result';
 import { toClj } from 'mori';
-import debug from 'debug';
-
-// Define some debug logging functions for easy and readable debug messages.
-let log = {
-  test: debug('HT:TEST')
-};
+import winston from 'winston';
 
 describe('UI data', () => {
   it('returns win loss summary as promise', () => {
@@ -20,7 +15,7 @@ describe('UI data', () => {
     summaryStats(result).then((stats) => {
       expect(expected).to.deep.equal(stats);
     }).catch((error) => {
-      log.test(error);
+      winston.error(error);
       expect(error).to.be.undefined;
     });
   });

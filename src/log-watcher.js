@@ -2,14 +2,11 @@ import { assoc, conj, first, get, getIn, toClj, toJs } from 'mori';
 import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
 import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
   setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
-import debug from 'debug';
+import winston from 'winston';
 import hasWon from './win-condition';
 
 let [dataStructure, matchLog] = resetData();
-// Define some debug logging functions for easy and readable debug messages.
-let log = {
-  main: debug('HT:LV')
-};
+
 
 //TODO: write a test to cover this
 const fixStartTime = (dataStructure) => {
@@ -21,7 +18,7 @@ export function dataLogger (logWatcher, db) {
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
     dataStructure = setStartTime(dataStructure);
-    log.main('game start: %s', get(dataStructure, '_id'));
+    winston.info('game start: %s', get(dataStructure, '_id'));
   });
 
   logWatcher.on('game-over', (data) => {
@@ -29,16 +26,16 @@ export function dataLogger (logWatcher, db) {
     dataStructure = assoc(dataStructure, 'log', matchLog);
 
     if(!get(dataStructure, '_id')) {
-      log.main('no game start event');
-      log.main(parsePlayerById(data, getIn(dataStructure, ['for', 'id'])));
-      log.main(hasWon(parsePlayerById(data, getIn(dataStructure, ['for', 'id']))));
+      winston.info('no game start event');
+      winston.info(parsePlayerById(data, getIn(dataStructure, ['for', 'id'])));
+      winston.info(hasWon(parsePlayerById(data, getIn(dataStructure, ['for', 'id']))));
       dataStructure = setMatchId(dataStructure);
       dataStructure = fixStartTime(dataStructure);
       winCondition = hasWon(parsePlayerById(data, getIn(dataStructure, ['for', 'id'])));
     } else {
-      log.main('game started event');
-      log.main(parseFriendlyPlayer(data));
-      log.main(hasWon(parseFriendlyPlayer(data)));
+      winston.info('game started event');
+      winston.info(parseFriendlyPlayer(data));
+      winston.info(hasWon(parseFriendlyPlayer(data)));
       winCondition = hasWon(parseFriendlyPlayer(data));
     }
     dataStructure = setWinCondition(dataStructure, winCondition);
@@ -50,7 +47,7 @@ export function dataLogger (logWatcher, db) {
       .then(() => {
         [dataStructure, matchLog] = resetData();
       }).catch((error) => {
-        log.main(error);
+        winston.info(error);
       });
   });
 
