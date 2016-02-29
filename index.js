@@ -3,12 +3,17 @@ import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
 import BrowserWindow from 'browser-window';
-import Logger from 'le_node';
+import winstonLoggly from 'winston-loggly';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 import winston from 'winston';
 
-winston.add(winston.transports.Logentries, { token: 'c5737085-b87c-4e27-9156-754d1447456f' });
+winston.add(winston.transports.Loggly, {
+  token: "2adc38ba-9a94-4e13-8a63-8c64e9c15c81",
+  subdomain: "tcias",
+  tags: ["Winston-NodeJS"],
+  json:true
+});
 let mainWindow = null;
 
 // Quit when all windows are closed.
