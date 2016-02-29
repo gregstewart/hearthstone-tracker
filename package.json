@@ -61,12 +61,14 @@
     "create-file": "1.0.1",
     "debug": "2.2.0",
     "hearthstone-log-watcher": "3.0.1",
+    "le_node": "^1.2.0",
     "mori": "0.3.2",
     "pouchdb": "5.2.1",
     "react": "0.14.7",
     "react-dom": "0.14.7",
     "react-redux": "4.2.1",
-    "redux": "3.2.1"
+    "redux": "3.2.1",
+    "winston": "^2.2.0"
   },
   "engines": {
     "node": "4.1.2"

@@ -3,18 +3,12 @@ import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
 import BrowserWindow from 'browser-window';
-import debug from 'debug';
+import Logger from 'le_node';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
+import winston from 'winston';
 
-// Define some debug logging functions for easy and readable debug messages.
-let log = {
-  info: debug('HT:info'),
-  change: debug('HT:change'),
-  complete: debug('HT:complete'),
-  error: debug('HT:error')
-};
-
+winston.add(winston.transports.Logentries, { token: 'c5737085-b87c-4e27-9156-754d1447456f' });
 let mainWindow = null;
 
 // Quit when all windows are closed.
@@ -47,16 +41,16 @@ app.on('ready', () => {
     live: true,
     include_docs: true
   }).on('change', (change) => {
-    log.change(change);
+    winston.change(change);
     return generateSummary(db, webContents);
   }).on('complete', (info) => {
-    log.complete(info);
+    winston.complete(info);
   }).on('error', (error) => {
-    log.error(error);
+    winston.error(error);
   });
 
   ipcMain.on('reload-data', () => {
-    log.info('reload-data');
+    winston.info('reload-data');
     generateSummary(db, webContents);
   });
 
