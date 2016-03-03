@@ -46,10 +46,10 @@ app.on('ready', () => {
     live: true,
     include_docs: true
   }).on('change', (change) => {
-    winston.change(change);
+    winston.info(change);
     return generateSummary(db, webContents);
   }).on('complete', (info) => {
-    winston.complete(info);
+    winston.info(info);
   }).on('error', (error) => {
     winston.error(error);
   });
