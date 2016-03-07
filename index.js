@@ -3,7 +3,7 @@ import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
 import BrowserWindow from 'browser-window';
-import winstonLoggly from 'winston-loggly';
+import winstonLoggly from 'winston-loggly';/* eslint no-unused-vars: 0 */
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 import winston from 'winston';
