@@ -1,3 +1,7 @@
+const determineAppDataRootLocation = () => {
+  return process.env.HOME || process.env.LOCALAPPDATA;
+};
+
 export function watchForDBChanges (db, webContents, generateSummary, winston) {
   return db.changes({
     since: 'now',
@@ -13,7 +17,8 @@ export function watchForDBChanges (db, webContents, generateSummary, winston) {
 export function setUpDatabase (PouchDB) {
   return new Promise((resolve, reject) => {
     try {
-      let db = new PouchDB('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
+      const dBLocation = determineAppDataRootLocation() + '/.hearthstone-tracker-leveldb';
+      let db = new PouchDB(dBLocation, {adapter : 'leveldb'});
       return resolve(db);
     } catch (exception) {
       return reject(exception);
