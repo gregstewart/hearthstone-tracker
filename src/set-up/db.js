@@ -1,16 +1,10 @@
-import { generateSummary } from '../ui-data/generate-summary';
-import winston from 'winston';
-
-export function watchForDBChanges (db, webContents) {
+export function watchForDBChanges (db, webContents, generateSummary, winston) {
   return db.changes({
     since: 'now',
     live: true,
     include_docs: true
-  }).on('change', (change) => {
-    winston.info(change);
+  }).on('change', () => {
     return generateSummary(db, webContents);
-  }).on('complete', (info) => {
-    winston.info(info);
   }).on('error', (error) => {
     winston.error(error);
   });

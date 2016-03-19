@@ -29,7 +29,7 @@ app.on('ready', () => {
     .spread((db, watcher, mainWindow) => {
       let logWatcher = startLogWatcher(watcher, db);
       let webContents = mainWindow.webContents;
-      let changes = watchForDBChanges(db, webContents);
+      let changes = watchForDBChanges(db, webContents, generateSummary, winston);
 
       generateSummary(db, webContents);
 

@@ -1,5 +1,5 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
-import { setUpDatabase } from '../../../src/set-up/db';
+import { setUpDatabase, watchForDBChanges } from '../../../src/set-up/db';
 import { setUpLogWatcher } from '../../../src/set-up/log-watcher';
 import chai from 'chai';
 import sinon from 'sinon';
@@ -47,9 +47,13 @@ describe('Set up', () => {
 
   describe('database', () => {
     let PouchDB;
+    let changes;
 
     beforeEach(() => {
-      PouchDB = sandbox.stub();
+      changes = sandbox.stub().returns({on: sandbox.stub().returns({on: sandbox.stub()})});
+      PouchDB = sandbox.stub().returns({
+        changes: changes
+      });
     });
 
     it('resolves the promise with a database object', (done) => {
@@ -62,15 +66,24 @@ describe('Set up', () => {
         done();
       });
     });
+
+    it('sets up watching for database changes', () => {
+      let db = new PouchDB();
+      db = watchForDBChanges(db, {}, () => {}, {});
+
+      expect(changes).to.have.been.calledWith({
+        since: 'now',
+        live: true,
+        include_docs: true
+      });
+    });
   });
 
   describe('log watcher', () => {
     let LogWatcher;
 
     beforeEach(() => {
-      LogWatcher = sandbox.stub().returns({
-
-      });
+      LogWatcher = sandbox.stub().returns({});
     });
 
     it('resolves the promise with a log watcher object', (done) => {
