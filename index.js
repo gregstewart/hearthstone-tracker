@@ -2,6 +2,7 @@ import { setUpDatabase, watchForDBChanges, setUpBrowserWindow, setUpLogWatcher, 
 import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
+import BrowserWindow from 'browser-window';
 import Promise from 'bluebird';
 import winston from 'winston';
 import winstonLoggly from 'winston-loggly';/* eslint no-unused-vars: 0 */
@@ -21,7 +22,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  return Promise.all([setUpDatabase(), setUpLogWatcher(), setUpBrowserWindow()]).spread((db, watcher, mainWindow) => {
+  return Promise.all([setUpDatabase(), setUpLogWatcher(), setUpBrowserWindow(BrowserWindow)]).spread((db, watcher, mainWindow) => {
     let logWatcher = startLogWatcher(watcher, db);
     let webContents = mainWindow.webContents;
     let changes = watchForDBChanges(db, webContents);

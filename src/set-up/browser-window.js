@@ -1,6 +1,4 @@
-import BrowserWindow from 'browser-window';
-
-export function setUpBrowserWindow () {
+export function setUpBrowserWindow (BrowserWindow) {
   return new Promise((resolve, reject) => {
     try {
       let mainWindow = new BrowserWindow({
