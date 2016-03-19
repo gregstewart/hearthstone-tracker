@@ -3,7 +3,6 @@ import { goodParse, missingStartEventParse } from '../fixtures/data-parses';
 import chai from 'chai';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
-import Promise from 'bluebird';
 import sinon from 'sinon';
 
 chai.use(require('sinon-chai'));

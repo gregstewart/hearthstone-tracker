@@ -1,6 +1,5 @@
 import { generateSummary } from '../ui-data/generate-summary';
 import PouchDB from 'pouchdb';
-import Promise from 'bluebird';
 import winston from 'winston';
 
 export function watchForDBChanges (db, webContents) {

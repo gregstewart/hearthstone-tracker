@@ -1,5 +1,4 @@
 import BrowserWindow from 'browser-window';
-import Promise from 'bluebird';
 
 export function setUpBrowserWindow () {
   return new Promise((resolve, reject) => {

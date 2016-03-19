@@ -1,6 +1,5 @@
 import { assoc, count, find, get, getIn, groupBy, last, map, toClj, toJs } from 'mori';
 import { statsShape } from '../constants';
-import Promise from 'bluebird';
 
 const winsLosses = (n) => {
   return n === true ? "wins" : "losses";

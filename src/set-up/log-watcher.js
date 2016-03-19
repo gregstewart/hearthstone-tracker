@@ -1,6 +1,5 @@
 import { dataLogger } from '../log-watcher';
 import LogWatcher from 'hearthstone-log-watcher';
-import Promise from 'bluebird';
 
 export function startLogWatcher (watcher, db) {
   let logWatcher = dataLogger(watcher, db);
