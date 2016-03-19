@@ -1,5 +1,6 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
 import { setUpDatabase } from '../../../src/set-up/db';
+import { setUpLogWatcher } from '../../../src/set-up/log-watcher';
 import chai from 'chai';
 import sinon from 'sinon';
 
@@ -57,6 +58,26 @@ describe('Set up', () => {
         expect(PouchDB).to.have.been.calledWith('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
         done();
       }).catch((error) => {
+        expect(error).to.be.undefined;
+        done();
+      });
+    });
+  });
+
+  describe('Log Watcher', () => {
+    let LogWatcher;
+
+    beforeEach(() => {
+      LogWatcher = sandbox.stub().returns({
+
+      });
+    });
+
+    it('resolves the promise with a log watcher object', (done) => {
+      setUpLogWatcher(LogWatcher).then(logWatcher => {
+        expect(LogWatcher).to.have.been.calledWithNew;
+        done();
+      }).catch(error => {
         expect(error).to.be.undefined;
         done();
       });

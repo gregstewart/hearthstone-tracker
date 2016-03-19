@@ -1,5 +1,4 @@
 import { dataLogger } from '../log-watcher';
-import LogWatcher from 'hearthstone-log-watcher';
 
 export function startLogWatcher (watcher, db) {
   let logWatcher = dataLogger(watcher, db);
@@ -7,7 +6,7 @@ export function startLogWatcher (watcher, db) {
   return logWatcher;
 }
 
-export function setUpLogWatcher () {
+export function setUpLogWatcher (LogWatcher) {
   return new Promise((resolve, reject) => {
     try {
       let watcher = new LogWatcher();
