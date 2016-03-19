@@ -1,5 +1,4 @@
 import { generateSummary } from '../ui-data/generate-summary';
-import PouchDB from 'pouchdb';
 import winston from 'winston';
 
 export function watchForDBChanges (db, webContents) {
@@ -17,7 +16,7 @@ export function watchForDBChanges (db, webContents) {
   });
 }
 
-export function setUpDatabase () {
+export function setUpDatabase (PouchDB) {
   return new Promise((resolve, reject) => {
     try {
       let db = new PouchDB('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
