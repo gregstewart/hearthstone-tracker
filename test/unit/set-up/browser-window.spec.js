@@ -7,7 +7,7 @@ import sinonAsPromised from 'sinon-as-promised';
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
-describe('set up browser window', () => {
+describe('Set up browser window', () => {
   let sandbox;
   let BrowserWindow;
 
@@ -25,7 +25,12 @@ describe('set up browser window', () => {
 
   it('resolves the promise with a mainWindow object', (done) => {
     setUpBrowserWindow(BrowserWindow).then((mainWindow) => {
-      expect(mainWindow.loadURL).to.have.been.called;
+      expect(BrowserWindow).to.have.been.calledWith({
+        height: 600,
+        width: 800,
+        icon:'./assets/16x16.png'
+      });
+      expect(mainWindow.loadURL).to.have.been.calledWithMatch('/app/index.html');
       expect(mainWindow.openDevTools).to.have.been.called;
       done();
     }).catch((error) => {
