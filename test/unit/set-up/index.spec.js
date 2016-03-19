@@ -45,7 +45,7 @@ describe('Set up', () => {
     });
   });
 
-  describe('Database', () => {
+  describe('database', () => {
     let PouchDB;
 
     beforeEach(() => {
@@ -64,7 +64,7 @@ describe('Set up', () => {
     });
   });
 
-  describe('Log Watcher', () => {
+  describe('log watcher', () => {
     let LogWatcher;
 
     beforeEach(() => {
