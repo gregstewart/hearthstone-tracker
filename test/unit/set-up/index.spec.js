@@ -59,7 +59,7 @@ describe('Set up', () => {
     it('resolves the promise with a database object', (done) => {
       setUpDatabase(PouchDB).then(db => {
         expect(PouchDB).to.have.been.calledWithNew;
-        expect(PouchDB).to.have.been.calledWith('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
+        expect(PouchDB).to.have.been.calledWithMatch('hearthstone-tracker-leveldb', {adapter : 'leveldb'});
         done();
       }).catch((error) => {
         expect(error).to.be.undefined;
