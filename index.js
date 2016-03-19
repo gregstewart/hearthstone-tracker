@@ -2,6 +2,7 @@ import { setUpDatabase, watchForDBChanges, setUpBrowserWindow, setUpLogWatcher, 
 import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
+import Promise from 'bluebird';
 import winston from 'winston';
 import winstonLoggly from 'winston-loggly';/* eslint no-unused-vars: 0 */
 
