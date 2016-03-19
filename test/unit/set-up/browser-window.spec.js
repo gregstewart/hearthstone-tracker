@@ -1,8 +1,6 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
 import chai from 'chai';
-import debug from 'debug';
 import sinon from 'sinon';
-import sinonAsPromised from 'sinon-as-promised';
 
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
