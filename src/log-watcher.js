@@ -2,7 +2,6 @@ import { assoc, conj, first, get, getIn, toClj, toJs } from 'mori';
 import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
 import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
   setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
-import winston from 'winston';
 import hasWon from './win-condition';
 
 let [dataStructure, matchLog] = resetData();
@@ -13,7 +12,7 @@ const fixStartTime = (dataStructure) => {
   return assoc(dataStructure, 'startTime', get(first(get(dataStructure, 'log')), 'id'));
 };
 
-export function dataLogger (logWatcher, db) {
+export function dataLogger (logWatcher, db, winston) {
 
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);

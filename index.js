@@ -27,8 +27,8 @@ app.on('ready', () => {
   const promises = [setUpDatabase(PouchDB), setUpLogWatcher(LogWatcher), setUpBrowserWindow(BrowserWindow)];
   return Promise.all(promises)
     .spread((db, watcher, mainWindow) => {
-      let logWatcher = startLogWatcher(watcher, db);
       let webContents = mainWindow.webContents;
+      let logWatcher = startLogWatcher(watcher, db, winston);
       let changes = watchForDBChanges(db, webContents, generateSummary, winston);
 
       generateSummary(db, webContents);

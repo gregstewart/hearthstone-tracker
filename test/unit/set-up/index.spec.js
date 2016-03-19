@@ -1,6 +1,6 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
 import { setUpDatabase, watchForDBChanges } from '../../../src/set-up/db';
-import { setUpLogWatcher } from '../../../src/set-up/log-watcher';
+import { setUpLogWatcher, startLogWatcher } from '../../../src/set-up/log-watcher';
 import chai from 'chai';
 import sinon from 'sinon';
 
@@ -81,9 +81,13 @@ describe('Set up', () => {
 
   describe('log watcher', () => {
     let LogWatcher;
+    let start;
+    let on;
 
     beforeEach(() => {
-      LogWatcher = sandbox.stub().returns({});
+      start = sandbox.spy();
+      on = sandbox.stub();
+      LogWatcher = sandbox.stub().returns({ on: on, start: start});
     });
 
     it('resolves the promise with a log watcher object', (done) => {
@@ -94,6 +98,17 @@ describe('Set up', () => {
         expect(error).to.be.undefined;
         done();
       });
+    });
+
+    it('starts the log watcher', () => {
+      let watcher = new LogWatcher();
+      let db = {
+        put: sandbox.stub()
+      };
+
+      startLogWatcher(watcher, db, {});
+      expect(on).to.have.been.calledThrice;
+      expect(start).to.have.been.called;
     });
   });
 });

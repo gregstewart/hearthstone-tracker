@@ -18,9 +18,11 @@ describe('Parse HS log file', () => {
       configFile: './test/fixtures/log.config'
     };
     let watcher = new LogWatcher(options);
-
+    let winston = {
+      info: sandbox.stub()
+    };
     db = new PouchDB('test-leveldb', {db : require('memdown')});
-    logWatcher = dataLogger(watcher, db);
+    logWatcher = dataLogger(watcher, db, winston);
 
     sandbox.spy(logWatcher, "on");
     sandbox.spy(db, "put");
