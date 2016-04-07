@@ -1,4 +1,4 @@
-import { assoc, count, find, get, getIn, groupBy, last, map, toClj, toJs } from 'mori';
+import { assoc, count, filter, find, get, getIn, groupBy, hashMap, last, map, nth, partitionBy, toClj, toJs } from 'mori';
 import { statsShape } from '../constants';
 
 const winsLosses = (n) => {
@@ -8,6 +8,25 @@ const winsLosses = (n) => {
 const getElement = (element) => {
   return getIn(element, ['doc', 'hasWon']);
 };
+
+export function winDetails (rows) {
+  const filterWinners = (row) => {
+    const result = get(row, 'doc');
+    if (get(result, 'hasWon')) {
+      return result;
+    }
+  };
+
+  const getClassName = (element) => {
+    return getIn(element, ['doc', 'for', 'class']);
+  };
+
+  const aggregateResults = (element) => {
+    return hashMap('class', getIn(nth(element, 0), ['doc', 'for', 'class']), 'value', count(element));
+  };
+
+  return map(aggregateResults, partitionBy(getClassName, filter(filterWinners, toClj(rows))));
+}
 
 export function pluckStats (rows) {
   let results = groupBy(winsLosses, map(getElement, rows));

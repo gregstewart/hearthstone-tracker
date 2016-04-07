@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { pluckStats, summaryStats, transformSummaryStats } from '../../src/ui-data/stats';
+import { pluckStats, summaryStats, transformSummaryStats, winDetails } from '../../src/ui-data/stats';
 import { result } from '../fixtures/database-result';
-import { toClj } from 'mori';
+import { get, nth, toClj } from 'mori';
 import winston from 'winston';
 
 describe('UI data', () => {
@@ -47,5 +47,15 @@ describe('UI data', () => {
     };
 
     expect(expected).to.deep.equal(transformSummaryStats(input));
+  });
+
+  describe('wins grouped by class', () => {
+    it('returns the expected result as a mori hashmap', () => {
+      let stats = winDetails(toClj(result.rows));
+      expect(get(nth(stats, 0), 'class')).to.equal('Rogue');
+      expect(get(nth(stats, 0), 'value')).to.equal(2);
+      expect(get(nth(stats, 1), 'class')).to.equal('Priest');
+      expect(get(nth(stats, 1), 'value')).to.equal(1);
+    });
   });
 });
