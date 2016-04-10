@@ -6,6 +6,7 @@ const CLASSES = {
   "Jaina Proudmoore": "Mage",
   "Medivh": "Mage",
   "Uther Lightbringer": "Paladin",
+  "Lady Liadrin": "Paladin",
   "Thrall": "Shaman",
   "Anduin Wrynn": "Priest",
   "Valeera Sanguinar": "Rogue",
