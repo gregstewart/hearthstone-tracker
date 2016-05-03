@@ -1,6 +1,6 @@
 export const result = {
   "offset": 0,
-  "total_rows": 4,
+  "total_rows": 5,
   "rows": [{
     id: '1453418863494',
     doc: {

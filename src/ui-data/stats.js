@@ -1,4 +1,4 @@
-import { assoc, count, filter, find, get, getIn, groupBy, hashMap, last, map, nth, partitionBy, toClj, toJs } from 'mori';
+import { assoc, count, filter, find, get, getIn, groupBy, hashMap, last, map, nth, partitionBy, repeat, toClj, toJs } from 'mori';
 import { statsShape } from '../constants';
 
 const winsLosses = (n) => {
@@ -7,6 +7,10 @@ const winsLosses = (n) => {
 
 const getElement = (element) => {
   return getIn(element, ['doc', 'hasWon']);
+};
+
+const formattedPercentage = (val) => {
+  return val * 100 + '%';
 };
 
 export function winDetails (rows) {
@@ -21,11 +25,16 @@ export function winDetails (rows) {
     return getIn(element, ['doc', 'for', 'class']);
   };
 
-  const aggregateResults = (element) => {
-    return hashMap('class', getIn(nth(element, 0), ['doc', 'for', 'class']), 'value', count(element));
+  const aggregateResults = (element, totalWinners) => {
+    const total = count(element);
+    const percentageAsString = formattedPercentage(total/totalWinners);
+
+    return hashMap('class', getClassName(nth(element, 0)), 'value', total, 'percentage', percentageAsString);
   };
 
-  return map(aggregateResults, partitionBy(getClassName, filter(filterWinners, toClj(rows))));
+  const winners = filter(filterWinners, toClj(rows));
+  const totalWinners = repeat(count(winners), count(winners));
+  return map(aggregateResults, partitionBy(getClassName, winners), totalWinners);
 }
 
 export function pluckStats (rows) {
@@ -33,7 +42,7 @@ export function pluckStats (rows) {
 
   let wins = count(get(results, 'wins'));
   let losses = count(get(results, 'losses'));
-  let ratio = wins/(wins+losses) * 100 + '%';
+  let ratio = formattedPercentage(wins/(wins+losses));
 
   return {
     wins,losses,ratio
