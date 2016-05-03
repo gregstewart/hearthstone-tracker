@@ -50,16 +50,30 @@ describe('UI data', () => {
     expect(expected).to.deep.equal(transformSummaryStats(input));
   });
 
-  describe('wins grouped by class', () => {
-    it('returns the expected result as a mori hashmap', () => {
-      let stats = aggregateDetails(byWinCondition(toClj(result.rows), true));
+  describe('takes a filtered mori result', () => {
+    describe('wins grouped by class', () => {
+      it('returns the expected result as a mori hashmap', () => {
+        let stats = aggregateDetails(byWinCondition(toClj(result.rows), true), 'for');
 
-      expect(get(nth(stats, 0), 'class')).to.equal('Rogue');
-      expect(get(nth(stats, 0), 'value')).to.equal(2);
-      expect(get(nth(stats, 0), 'percentage')).to.equal('66.66666666666666%');
-      expect(get(nth(stats, 1), 'class')).to.equal('Priest');
-      expect(get(nth(stats, 1), 'value')).to.equal(1);
-      expect(get(nth(stats, 1), 'percentage')).to.equal('33.33333333333333%');
+        expect(get(nth(stats, 0), 'class')).to.equal('Rogue');
+        expect(get(nth(stats, 0), 'value')).to.equal(2);
+        expect(get(nth(stats, 0), 'percentage')).to.equal('66.66666666666666%');
+        expect(get(nth(stats, 1), 'class')).to.equal('Priest');
+        expect(get(nth(stats, 1), 'value')).to.equal(1);
+        expect(get(nth(stats, 1), 'percentage')).to.equal('33.33333333333333%');
+      });
+    });
+    describe('losses grouped by class', () => {
+      it('returns the expected result as a mori hashmap', () => {
+        let stats = aggregateDetails(byWinCondition(toClj(result.rows), false), 'against');
+
+        expect(get(nth(stats, 0), 'class')).to.equal('Rogue');
+        expect(get(nth(stats, 0), 'value')).to.equal(1);
+        expect(get(nth(stats, 0), 'percentage')).to.equal('50%');
+        expect(get(nth(stats, 1), 'class')).to.equal('Warlock');
+        expect(get(nth(stats, 1), 'value')).to.equal(1);
+        expect(get(nth(stats, 1), 'percentage')).to.equal('50%');
+      });
     });
   });
 });
