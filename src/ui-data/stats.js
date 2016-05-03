@@ -13,28 +13,20 @@ const formattedPercentage = (val) => {
   return val * 100 + '%';
 };
 
-export function winDetails (rows) {
-  const filterWinners = (row) => {
-    const result = get(row, 'doc');
-    if (get(result, 'hasWon')) {
-      return result;
-    }
-  };
-
+export function aggregateDetails (rows) {
   const getClassName = (element) => {
     return getIn(element, ['doc', 'for', 'class']);
   };
 
-  const aggregateResults = (element, totalWinners) => {
+  const aggregateResults = (element, totalRows) => {
     const total = count(element);
-    const percentageAsString = formattedPercentage(total/totalWinners);
+    const percentageAsString = formattedPercentage(total/totalRows);
 
     return hashMap('class', getClassName(nth(element, 0)), 'value', total, 'percentage', percentageAsString);
   };
 
-  const winners = filter(filterWinners, toClj(rows));
-  const totalWinners = repeat(count(winners), count(winners));
-  return map(aggregateResults, partitionBy(getClassName, winners), totalWinners);
+  const totalVector = repeat(count(rows), count(rows));
+  return map(aggregateResults, partitionBy(getClassName, rows), totalVector);
 }
 
 export function pluckStats (rows) {
