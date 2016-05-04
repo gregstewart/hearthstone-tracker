@@ -1,5 +1,6 @@
-import { count, get, getIn, groupBy, hashMap, map, nth, partitionBy, repeat, toClj } from 'mori';
+import { count, get, getIn, groupBy, hashMap, map, nth, partitionBy, repeat, toClj, toJs } from 'mori';
 import { transformSummaryStats } from './transformers';
+import { byWinCondition } from './filters';
 
 const winsLosses = (n) => {
   return n === true ? "wins" : "losses";
@@ -22,7 +23,7 @@ export function aggregateDetails (rows, key) {
     const total = count(element);
     const percentageAsString = formattedPercentage(total/totalRows);
 
-    return hashMap('class', getClassName(nth(element, 0), key), 'value', total, 'percentage', percentageAsString);
+    return hashMap('class', getClassName(nth(element, 0), key), 'total', total, 'percentage', percentageAsString);
   };
 
   const partitionByClassName = (rows, key) => {
@@ -55,6 +56,27 @@ export function summaryStats (data) {
     }
 
     resolve(transformSummaryStats(pluckStats(toClj(data.rows))));
+  });
+
+  return promise;
+}
+
+export function aggregate (rows) {
+  const wins = toJs(aggregateDetails(byWinCondition(rows, true), 'for'));
+  const losses = toJs(aggregateDetails(byWinCondition(rows, false), 'against'));
+
+  return {
+    wins, losses
+  };
+}
+
+export function gameBreakdownDetails (data) {
+  let promise = new Promise((resolve, reject) => {
+    if(!data) {
+      reject(new Error('Expected a result set'));
+    }
+
+    resolve(aggregate(toClj(data.rows)));
   });
 
   return promise;
