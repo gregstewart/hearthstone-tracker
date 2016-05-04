@@ -35,21 +35,6 @@ describe('UI data', () => {
     });
   });
 
-  it('transforms the data into the UI shape', () => {
-    const expected = [
-      {id: 1, label: "Wins", text: "3"},
-      {id: 2, label: "Losses", text: "2"},
-      {id: 3, label: "Ratio", text: "60%"}
-    ];
-    const input = {
-      wins: 3,
-      losses: 2,
-      ratio: 0.6 * 100 + '%'
-    };
-
-    expect(expected).to.deep.equal(transformSummaryStats(input));
-  });
-
   describe('takes a filtered mori result', () => {
     describe('wins grouped by class', () => {
       it('returns the expected result as a mori hashmap', () => {

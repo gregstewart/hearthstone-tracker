@@ -1,5 +1,5 @@
-import { assoc, count, find, get, getIn, groupBy, hashMap, last, map, nth, partitionBy, repeat, toClj, toJs } from 'mori';
-import { statsShape } from '../constants';
+import { count, get, getIn, groupBy, hashMap, map, nth, partitionBy, repeat, toClj } from 'mori';
+import { transformSummaryStats } from './transformers';
 
 const winsLosses = (n) => {
   return n === true ? "wins" : "losses";
@@ -58,16 +58,4 @@ export function summaryStats (data) {
   });
 
   return promise;
-}
-
-export function transformSummaryStats (input) {
-  const shape = toClj(statsShape);
-
-  let output = map((element) => {
-    let keyToFind = get(element, 'label').toLowerCase();
-    let foundValue = find(toClj(input), keyToFind);
-    return assoc(element, 'text', last(foundValue).toString());
-  }, shape);
-
-  return toJs(output);
 }
