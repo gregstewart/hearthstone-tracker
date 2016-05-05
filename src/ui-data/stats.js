@@ -1,4 +1,4 @@
-import { count, get, getIn, groupBy, hashMap, map, nth, partitionBy, repeat, toClj, toJs } from 'mori';
+import { count, get, getIn, groupBy, hashMap, map, nth, repeat, toJs } from 'mori';
 import { transformSummaryStats } from './transformers';
 import { byWinCondition } from './filters';
 
@@ -26,15 +26,18 @@ export function aggregateDetails (rows, key) {
     return hashMap('class', getClassName(nth(element, 0), key), 'total', total, 'percentage', percentageAsString);
   };
 
-  const partitionByClassName = (rows, key) => {
-    return partitionBy((row) => {
-      return getClassName(row, key);
-    }, rows);
+  const getClassResults = (classGrouping) => {
+    return nth(classGrouping, 1); // 1 is the position of grouped results for that class in the vector
   };
+
+  const sorted = groupBy((row) => {
+    return getClassName(row, key);
+  }, rows);
 
   const totalVector = repeat(count(rows), count(rows));
   const keysVector = repeat(count(rows), key);
-  return map(aggregateResults, partitionByClassName(rows, key), totalVector, keysVector);
+
+  return map(aggregateResults, map(getClassResults, sorted), totalVector, keysVector);
 }
 
 export function pluckStats (rows) {

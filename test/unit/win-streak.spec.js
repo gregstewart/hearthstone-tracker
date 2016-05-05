@@ -5,12 +5,13 @@ import winStreak from '../../src/win-streak';
 
 describe('Win streak', () => {
   it('returns the users streak', (done) => {
-    const expected = [
-      { result: 'loss', as: 'Rogue', against: 'Rogue' },
-      { result: 'win', as: 'Rogue', against: 'Mage' },
-      { result: 'win', as: 'Rogue', against: 'Warlock' },
+    const expected = [ { result: 'win', as: 'Rogue', against: 'Shaman' },
+      { result: 'win', as: 'Druid', against: 'Shaman' },
+      { result: 'win', as: 'Priest', against: 'Shaman' },
       { result: 'loss', as: 'Rogue', against: 'Warlock' },
-      { result: 'win', as: 'Priest', against: 'Shaman' } ].reverse();
+      { result: 'win', as: 'Rogue', against: 'Warlock' },
+      { result: 'win', as: 'Rogue', against: 'Mage' },
+      { result: 'loss', as: 'Rogue', against: 'Rogue' } ];
 
     winStreak(toClj(result.rows)).then((streak) => {
       expect(streak).to.deep.equal(expected);

@@ -7,7 +7,7 @@ describe('Filters', () => {
   it('returns winners', () => {
     const winners = byWinCondition(toClj(result.rows), true);
 
-    expect(count(winners)).to.equal(3);
+    expect(count(winners)).to.equal(5);
   });
 
   it('returns losses', () => {

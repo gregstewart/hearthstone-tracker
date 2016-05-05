@@ -29,20 +29,23 @@ describe('Generate Summary', () => {
   it('calls send when the summary is generated', (done) => {
     const expected = {
       summaryStats:
-        [ { id: 1, label: 'Wins', text: '3' },
+        [ { id: 1, label: 'Wins', text: '5' },
           { id: 2, label: 'Losses', text: '2' },
-          { id: 3, label: 'Ratio', text: '60%' } ],
+          { id: 3, label: 'Ratio', text: '71.42857142857143%' } ],
       winStreak:
-        [ { result: 'loss', as: 'Rogue', against: 'Rogue' },
-          { result: 'win', as: 'Rogue', against: 'Mage' },
-          { result: 'win', as: 'Rogue', against: 'Warlock' },
-          { result: 'loss', as: 'Rogue', against: 'Warlock' },
-          { result: 'win', as: 'Priest', against: 'Shaman' } ].reverse(),
+      [ { result: 'win', as: 'Rogue', against: 'Shaman' },
+        { result: 'win', as: 'Druid', against: 'Shaman' },
+        { result: 'win', as: 'Priest', against: 'Shaman' },
+        { result: 'loss', as: 'Rogue', against: 'Warlock' },
+        { result: 'win', as: 'Rogue', against: 'Warlock' },
+        { result: 'win', as: 'Rogue', against: 'Mage' },
+        { result: 'loss', as: 'Rogue', against: 'Rogue' } ],
       matchBreakdown:
         {
           wins:
-          [ { class: 'Rogue', total: 2, percentage: '66.66666666666666%' },
-            { class: 'Priest', total: 1, percentage: '33.33333333333333%' }
+          [ { class: 'Rogue', total: 3, percentage: '60%' },
+            { class: 'Priest', total: 1, percentage: '20%' },
+            { class: 'Druid', total: 1, percentage: '20%' }
           ],
           losses:
           [ { class: 'Rogue', total: 1, percentage: '50%' },
@@ -54,6 +57,7 @@ describe('Generate Summary', () => {
       expect(wC.send).to.have.been.calledWith('ping', expected);
       done();
     }).catch((err) => {
+      console.log(err);
       expect(err).to.be.undefined;
       done();
     });
