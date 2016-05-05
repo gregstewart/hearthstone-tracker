@@ -49,13 +49,13 @@ export function pluckStats (rows) {
   };
 }
 
-export function summaryStats (data) {
+export function summaryStats (rows) {
   let promise = new Promise((resolve, reject) => {
-    if(!data) {
+    if(!rows) {
       reject(new Error('Expected a result set'));
     }
 
-    resolve(transformSummaryStats(pluckStats(toClj(data.rows))));
+    resolve(transformSummaryStats(pluckStats(rows)));
   });
 
   return promise;
@@ -76,7 +76,7 @@ export function gameBreakdownDetails (data) {
       reject(new Error('Expected a result set'));
     }
 
-    resolve(aggregate(toClj(data.rows)));
+    resolve(aggregate(data));
   });
 
   return promise;

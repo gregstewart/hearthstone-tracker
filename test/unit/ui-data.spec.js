@@ -13,7 +13,7 @@ describe('UI data', () => {
       {id: 3, label: 'Ratio', text: '60%'}
     ];
 
-    summaryStats(result).then((stats) => {
+    summaryStats(toClj(result.rows)).then((stats) => {
       expect(expected).to.deep.equal(stats);
     }).catch((error) => {
       winston.error(error);
@@ -47,7 +47,7 @@ describe('UI data', () => {
       ]
     };
 
-    gameBreakdownDetails(result).then((stats) => {
+    gameBreakdownDetails(toClj(result.rows)).then((stats) => {
       expect(expected).to.deep.equal(stats);
     }).catch((error) => {
       winston.error(error);

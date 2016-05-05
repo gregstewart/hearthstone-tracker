@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { toClj } from 'mori';
 import { result } from '../fixtures/database-result';
 import winStreak from '../../src/win-streak';
 
@@ -11,7 +12,7 @@ describe('Win streak', () => {
       { result: 'loss', as: 'Rogue', against: 'Warlock' },
       { result: 'win', as: 'Priest', against: 'Shaman' } ].reverse();
 
-    winStreak(result).then((streak) => {
+    winStreak(toClj(result.rows)).then((streak) => {
       expect(streak).to.deep.equal(expected);
       done();
     }).catch((error) => {
@@ -22,7 +23,7 @@ describe('Win streak', () => {
   });
 
   it('returns an empty array when there are no values', (done) => {
-    winStreak({rows: []}).then((streak) => {
+    winStreak(toClj([])).then((streak) => {
       expect(streak).to.deep.equal([]);
       done();
     }).catch((error) => {
