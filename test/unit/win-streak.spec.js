@@ -9,9 +9,7 @@ describe('Win streak', () => {
       { result: 'win', as: 'Druid', against: 'Shaman' },
       { result: 'win', as: 'Priest', against: 'Shaman' },
       { result: 'loss', as: 'Rogue', against: 'Warlock' },
-      { result: 'win', as: 'Rogue', against: 'Warlock' },
-      { result: 'win', as: 'Rogue', against: 'Mage' },
-      { result: 'loss', as: 'Rogue', against: 'Rogue' } ];
+      { result: 'win', as: 'Rogue', against: 'Warlock' } ];
 
     winStreak(toClj(result.rows)).then((streak) => {
       expect(streak).to.deep.equal(expected);

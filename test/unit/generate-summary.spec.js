@@ -37,9 +37,7 @@ describe('Generate Summary', () => {
         { result: 'win', as: 'Druid', against: 'Shaman' },
         { result: 'win', as: 'Priest', against: 'Shaman' },
         { result: 'loss', as: 'Rogue', against: 'Warlock' },
-        { result: 'win', as: 'Rogue', against: 'Warlock' },
-        { result: 'win', as: 'Rogue', against: 'Mage' },
-        { result: 'loss', as: 'Rogue', against: 'Rogue' } ],
+        { result: 'win', as: 'Rogue', against: 'Warlock' }],
       matchBreakdown:
         {
           wins:

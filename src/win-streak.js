@@ -1,4 +1,4 @@
-import { count, getIn, hashMap, map, reverse, toJs } from 'mori';
+import { count, getIn, hashMap, map, reverse, toJs, take } from 'mori';
 
 const extractData = (element) => {
   const getWin = ['doc', 'hasWon'];
@@ -14,11 +14,10 @@ export default function (data) {
     if(!data) {
       reject(new Error('Expected a result set'));
     }
-
     if(!count(data)) {
       resolve([]);
     }
 
-    resolve(toJs(reverse(map(extractData, data))));
+    resolve(toJs(map(extractData, take(5, reverse(data)))));
   });
 }
