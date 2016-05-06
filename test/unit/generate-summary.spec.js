@@ -57,7 +57,6 @@ describe('Generate Summary', () => {
       expect(wC.send).to.have.been.calledWith('ping', expected);
       done();
     }).catch((err) => {
-      console.log(err);
       expect(err).to.be.undefined;
       done();
     });
