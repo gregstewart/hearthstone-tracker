@@ -4,7 +4,7 @@ const CLASSES = {
   "Garrosh Hellscream": "Warrior",
   "Magni Bronzebeard": "Warrior",
   "Jaina Proudmoore": "Mage",
-  "Medivh": "Mage",
+  "Khadgar": "Mage",
   "Medivh": "Mage",
   "Uther Lightbringer": "Paladin",
   "Lady Liadrin": "Paladin",
