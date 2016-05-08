@@ -5,6 +5,7 @@ const CLASSES = {
   "Magni Bronzebeard": "Warrior",
   "Jaina Proudmoore": "Mage",
   "Medivh": "Mage",
+  "Medivh": "Mage",
   "Uther Lightbringer": "Paladin",
   "Lady Liadrin": "Paladin",
   "Thrall": "Shaman",
