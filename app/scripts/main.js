@@ -10,6 +10,10 @@ import React from 'react';
 import reducer from './reducers/index';
 
 const initialState = {
+  matchBreakdown: {
+    wins: [],
+    losses: []
+  },
   summaryStats: [
     {id: 1, label: "Wins", text: "0"},
     {id: 2, label: "Losses", text: "0"},
