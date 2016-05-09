@@ -2,7 +2,7 @@ import { matchBreakdown as data } from '../scripts/validators';
 import React from 'react';
 
 const MatchBreakdown = ({
-  data
+  data /* eslint no-unused-vars: 0 */
 }) => (
   <ul>
     <li>
