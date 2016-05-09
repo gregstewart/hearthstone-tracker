@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { updateStats } from './actions/stats';
 import { updateWinStreak } from './actions/win-streak';
+import { updateMatchBreakdown } from './actions/match-breakdown';
 import App from '../views/app.jsx';
 import React from 'react';
 import reducer from './reducers/index';
@@ -26,6 +27,7 @@ ipcRenderer.on('ping', function (event, message) {
   console.log(message);  // logs data
   store.dispatch(updateStats(message.summaryStats));
   store.dispatch(updateWinStreak(message.winStreak));
+  store.dispatch(updateMatchBreakdown(message.matchBreakdown));
 });
 
 let menu = Menu.buildFromTemplate([
