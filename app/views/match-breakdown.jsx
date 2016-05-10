@@ -1,24 +1,16 @@
 import { matchBreakdown as data } from '../scripts/validators';
 import React from 'react';
+import GameStatsByClass from './game-stats-by-class';
 
 const MatchBreakdown = ({
   data /* eslint no-unused-vars: 0 */
 }) => (
   <ul>
-    <li>
-      <h2>Wins</h2>
-      <ul>
-        <li>Class | Wins: 2 | Percentage: xx%</li>
-        <li>Class | Wins: 1 | Percentage: xx%</li>
-      </ul>
-    </li>
-    <li>
-      <h2>Losses</h2>
-      <ul>
-        <li>Class | Losses: 5 | Percentage: xx%</li>
-        <li>Class | Losses: 3 | Percentage: xx%</li>
-      </ul>
-    </li>
+    {
+      data.map((element, index) =>
+        <GameStatsByClass data={element} key={index}/>
+      )
+    }
   </ul>
 );
 

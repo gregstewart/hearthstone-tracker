@@ -35,17 +35,19 @@ describe('UI data', () => {
   });
 
   it('returns win loss details as promise', () => {
-    const expected = {
-      wins:
-      [ { class: 'Rogue', total: 3, percentage: '60%' },
-        { class: 'Priest', total: 1, percentage: '20%' },
-        { class: 'Druid', total: 1, percentage: '20%' }
-      ],
-      losses:
-      [ { class: 'Rogue', total: 1, percentage: '50%' },
-        { class: 'Warlock', total: 1, percentage: '50%' }
-      ]
-    };
+    const expected = [
+      { status: 'wins',
+        outcomes:
+        [ { class: 'Rogue', total: 3, percentage: '60%' },
+          { class: 'Priest', total: 1, percentage: '20%' },
+          { class: 'Druid', total: 1, percentage: '20%' }
+        ]},
+      { status: 'losses',
+        outcomes:
+        [ { class: 'Rogue', total: 1, percentage: '50%' },
+          { class: 'Warlock', total: 1, percentage: '50%' }
+        ]}
+    ];
 
     gameBreakdownDetails(toClj(result.rows)).then((stats) => {
       expect(expected).to.deep.equal(stats);
