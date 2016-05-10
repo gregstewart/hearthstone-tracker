@@ -65,12 +65,16 @@ export function summaryStats (rows) {
 }
 
 export function aggregate (rows) {
-  const wins = toJs(aggregateDetails(byWinCondition(rows, true), 'for'));
-  const losses = toJs(aggregateDetails(byWinCondition(rows, false), 'against'));
-
-  return {
-    wins, losses
-  };
+  return [
+    {
+      status: 'wins',
+      outcomes: toJs(aggregateDetails(byWinCondition(rows, true), 'for'))
+    },
+    {
+      status: 'losses',
+      outcomes: toJs(aggregateDetails(byWinCondition(rows, false), 'against'))
+    }
+  ];
 }
 
 export function gameBreakdownDetails (data) {

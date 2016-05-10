@@ -29,7 +29,7 @@ describe('Actions', () => {
 
   describe('match breakdown', () => {
     it('creates an action to update the match breakdown', () => {
-      const matchBreakdown = {};
+      const matchBreakdown = [{}, {}];
       const expectedAction = {
         type: types.UPDATE_MATCH_BREAKDOWN,
         matchBreakdown

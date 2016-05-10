@@ -11,24 +11,24 @@ describe('Main view component', () => {
       { result: 'loss', as: 'Rogue', against: 'Rogue' },
       { result: 'win', as: 'Rogue', against: 'Mage' }
     ];
-    const matchBreakdownData = {
-      wins:
-      [ { class: 'Rogue', total: 3, percentage: '60%' },
-        { class: 'Priest', total: 1, percentage: '20%' },
-        { class: 'Druid', total: 1, percentage: '20%' }
-      ],
-      losses:
-      [ { class: 'Rogue', total: 1, percentage: '50%' },
-        { class: 'Warlock', total: 1, percentage: '50%' }
-      ]
-    };
+    const matchBreakdownData = [
+      { status: 'wins',
+        outcomes: [ { class: 'Rogue', total: 3, percentage: '60%' },
+          { class: 'Priest', total: 1, percentage: '20%' },
+          { class: 'Druid', total: 1, percentage: '20%' }
+      ]},
+      { status: 'losses',
+        outcomes: [ { class: 'Rogue', total: 1, percentage: '50%' },
+          { class: 'Warlock', total: 1, percentage: '50%' }
+      ]}
+    ];
 
     const shallowRenderer = createRenderer();
     shallowRenderer.render(
       <Main matchBreakdown={matchBreakdownData} summaryStats={summaryStatData} winStreak={winStreakData}/>
     );
     const item = shallowRenderer.getRenderOutput();
-    console.log(item.props.children[5]);
+
     expect(item.type).to.equal('div');
     expect(item.props.children[0].type).to.equal('h1');
     expect(item.props.children[0].props.children).to.equal('Stats');

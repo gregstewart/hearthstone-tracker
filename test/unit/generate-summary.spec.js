@@ -33,23 +33,27 @@ describe('Generate Summary', () => {
           { id: 2, label: 'Losses', text: '2' },
           { id: 3, label: 'Ratio', text: '71.42857142857143%' } ],
       winStreak:
-      [ { result: 'win', as: 'Rogue', against: 'Shaman' },
-        { result: 'win', as: 'Druid', against: 'Shaman' },
-        { result: 'win', as: 'Priest', against: 'Shaman' },
-        { result: 'loss', as: 'Rogue', against: 'Warlock' },
-        { result: 'win', as: 'Rogue', against: 'Warlock' }],
+        [ { result: 'win', as: 'Rogue', against: 'Shaman' },
+          { result: 'win', as: 'Druid', against: 'Shaman' },
+          { result: 'win', as: 'Priest', against: 'Shaman' },
+          { result: 'loss', as: 'Rogue', against: 'Warlock' },
+          { result: 'win', as: 'Rogue', against: 'Warlock' }],
       matchBreakdown:
-        {
-          wins:
-          [ { class: 'Rogue', total: 3, percentage: '60%' },
-            { class: 'Priest', total: 1, percentage: '20%' },
-            { class: 'Druid', total: 1, percentage: '20%' }
-          ],
-          losses:
-          [ { class: 'Rogue', total: 1, percentage: '50%' },
-            { class: 'Warlock', total: 1, percentage: '50%' }
-          ]
-        }
+        [ 
+          {
+            status: 'wins',
+            outcomes: [ { class: 'Rogue', total: 3, percentage: '60%' },
+              { class: 'Priest', total: 1, percentage: '20%' },
+              { class: 'Druid', total: 1, percentage: '20%' }
+            ]
+          },
+          {
+            status: 'losses',
+            outcomes: [ { class: 'Rogue', total: 1, percentage: '50%' },
+              { class: 'Warlock', total: 1, percentage: '50%' }
+            ]
+          }
+        ]
     };
     generateSummary(db, wC).then(() => {
       expect(wC.send).to.have.been.calledWith('ping', expected);

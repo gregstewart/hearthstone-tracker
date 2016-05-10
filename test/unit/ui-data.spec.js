@@ -58,10 +58,12 @@ describe('UI data', () => {
   it('returns a detailed summary of wins and losses by class', () => {
     let stats = aggregate(toClj(result.rows));
 
-    expect(stats.wins[0]).to.deep.equal({'class': 'Rogue', 'total': 3, 'percentage': '60%'});
-    expect(stats.wins[1]).to.deep.equal({'class': 'Priest', 'total': 1, 'percentage': '20%'});
-    expect(stats.losses[0]).to.deep.equal({'class': 'Rogue', 'total': 1, 'percentage': '50%'});
-    expect(stats.losses[1]).to.deep.equal({'class': 'Warlock', 'total': 1, 'percentage': '50%'});
+    expect(stats[0].status).to.equal('wins');
+    expect(stats[0].outcomes[0]).to.deep.equal({'class': 'Rogue', 'total': 3, 'percentage': '60%'});
+    expect(stats[0].outcomes[1]).to.deep.equal({'class': 'Priest', 'total': 1, 'percentage': '20%'});
+    expect(stats[1].status).to.equal('losses');
+    expect(stats[1].outcomes[0]).to.deep.equal({'class': 'Rogue', 'total': 1, 'percentage': '50%'});
+    expect(stats[1].outcomes[1]).to.deep.equal({'class': 'Warlock', 'total': 1, 'percentage': '50%'});
   });
 
   describe('takes a filtered mori result', () => {

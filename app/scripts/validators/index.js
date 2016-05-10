@@ -1,12 +1,17 @@
 import { PropTypes } from 'react';
 
-export const matchBreakdown = PropTypes.shape({
-  wins: PropTypes.arrayOf(PropTypes.shape({
+export const matchBreakdown = PropTypes.arrayOf(PropTypes.shape({
+  status: PropTypes.string,
+  outcomes: PropTypes.arrayOf(PropTypes.shape({
     class: PropTypes.string,
     result: PropTypes.string,
     percentage: PropTypes.string
-  })),
-  losses: PropTypes.arrayOf(PropTypes.shape({
+  }))
+}));
+
+export const GameStatsByClass = PropTypes.shape({
+  status: PropTypes.string,
+  outcomes: PropTypes.arrayOf(PropTypes.shape({
     class: PropTypes.string,
     result: PropTypes.string,
     percentage: PropTypes.string
