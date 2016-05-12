@@ -1,5 +1,29 @@
 import { PropTypes } from 'react';
 
+export const matchBreakdown = PropTypes.arrayOf(PropTypes.shape({
+  status: PropTypes.string,
+  outcomes: PropTypes.arrayOf(PropTypes.shape({
+    class: PropTypes.string,
+    result: PropTypes.string,
+    percentage: PropTypes.string
+  }))
+}));
+
+export const gameStatsByClass = PropTypes.shape({
+  status: PropTypes.string,
+  outcomes: PropTypes.arrayOf(PropTypes.shape({
+    class: PropTypes.string,
+    result: PropTypes.string,
+    percentage: PropTypes.string
+  }))
+});
+
+export const gameStatsByClassElement = PropTypes.shape({
+  class: PropTypes.string,
+  result: PropTypes.string,
+  percentage: PropTypes.string
+});
+
 export const summaryStats = PropTypes.arrayOf(PropTypes.shape({
   id: PropTypes.number.isRequired,
   label: PropTypes.string,

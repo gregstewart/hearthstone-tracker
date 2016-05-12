@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
-import { summaryStats, winStreak } from '../scripts/validators';
+import { summaryStats, winStreak, matchBreakdown } from '../scripts/validators';
 import React, { Component } from 'react';
 import Main from './main';
 
 export default class App extends Component {
   render () {
-    const { summaryStats, winStreak } = this.props;
+    const { matchBreakdown, summaryStats, winStreak } = this.props;
     return (
-      <Main summaryStats={summaryStats} winStreak={winStreak} />
+      <Main matchBreakdown={matchBreakdown} summaryStats={summaryStats} winStreak={winStreak} />
     );
   }
 }
 
 function mapStateToProps (state) {
   let props = {
+    matchBreakdown: state.matchBreakdown,
     summaryStats: state.summaryStats,
     winStreak: state.winStreak
   };
@@ -24,6 +25,7 @@ function mapStateToProps (state) {
 export default connect(mapStateToProps)(App);
 
 App.propTypes = {
+  matchBreakdown,
   summaryStats,
   winStreak
 };

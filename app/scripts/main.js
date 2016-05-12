@@ -4,11 +4,16 @@ import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { updateStats } from './actions/stats';
 import { updateWinStreak } from './actions/win-streak';
+import { updateMatchBreakdown } from './actions/match-breakdown';
 import App from '../views/app.jsx';
 import React from 'react';
 import reducer from './reducers/index';
 
 const initialState = {
+  matchBreakdown: [
+    { status: 'wins', outcomes: [] },
+    { status: 'losses', outcomes: [] }
+  ],
   summaryStats: [
     {id: 1, label: "Wins", text: "0"},
     {id: 2, label: "Losses", text: "0"},
@@ -26,6 +31,7 @@ ipcRenderer.on('ping', function (event, message) {
   console.log(message);  // logs data
   store.dispatch(updateStats(message.summaryStats));
   store.dispatch(updateWinStreak(message.winStreak));
+  store.dispatch(updateMatchBreakdown(message.matchBreakdown));
 });
 
 let menu = Menu.buildFromTemplate([
