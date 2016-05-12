@@ -57,7 +57,7 @@ describe('UI data', () => {
     });
   });
 
-  it('returns a detailed summary of wins and losses by class', () => {
+  it('returns a detailed sorted summary of wins and losses by class', () => {
     let stats = aggregate(toClj(result.rows));
 
     expect(stats[0].status).to.equal('wins');
@@ -73,12 +73,12 @@ describe('UI data', () => {
       it('returns the expected result as a mori hashmap', () => {
         let stats = aggregateDetails(byWinCondition(toClj(result.rows), true), 'for');
 
-        expect(get(nth(stats, 0), 'class')).to.equal('Rogue');
-        expect(get(nth(stats, 0), 'total')).to.equal(3);
-        expect(get(nth(stats, 0), 'percentage')).to.equal('60%');
-        expect(get(nth(stats, 1), 'class')).to.equal('Priest');
-        expect(get(nth(stats, 1), 'total')).to.equal(1);
-        expect(get(nth(stats, 1), 'percentage')).to.equal('20%');
+        expect(get(nth(stats, 0), 'class')).to.equal('Priest');
+        expect(get(nth(stats, 0), 'total')).to.equal(1);
+        expect(get(nth(stats, 0), 'percentage')).to.equal('20%');
+        expect(get(nth(stats, 1), 'class')).to.equal('Rogue');
+        expect(get(nth(stats, 1), 'total')).to.equal(3);
+        expect(get(nth(stats, 1), 'percentage')).to.equal('60%');
         expect(get(nth(stats, 2), 'class')).to.equal('Druid');
         expect(get(nth(stats, 2), 'total')).to.equal(1);
         expect(get(nth(stats, 2), 'percentage')).to.equal('20%');

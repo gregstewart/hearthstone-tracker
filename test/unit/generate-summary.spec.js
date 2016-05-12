@@ -35,11 +35,11 @@ describe('Generate Summary', () => {
       winStreak:
         [ { result: 'win', as: 'Rogue', against: 'Shaman' },
           { result: 'win', as: 'Druid', against: 'Shaman' },
-          { result: 'win', as: 'Priest', against: 'Shaman' },
           { result: 'loss', as: 'Rogue', against: 'Warlock' },
-          { result: 'win', as: 'Rogue', against: 'Warlock' }],
+          { result: 'win', as: 'Rogue', against: 'Warlock' },
+          { result: 'win', as: 'Rogue', against: 'Mage' } ],
       matchBreakdown:
-        [ 
+        [
           {
             status: 'wins',
             outcomes: [ { class: 'Rogue', total: 3, percentage: '60%' },
