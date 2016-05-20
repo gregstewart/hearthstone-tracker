@@ -1,4 +1,4 @@
-import { setUpDatabase, watchForDBChanges, setUpBrowserWindow, setUpLogWatcher, startLogWatcher } from './src/set-up/';
+import { setUpDatabase, watchForDBChanges, setUpRemoteDatabase, syncData, setUpBrowserWindow, setUpLogWatcher, startLogWatcher } from './src/set-up/';
 import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
@@ -24,12 +24,13 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  const promises = [setUpDatabase(PouchDB), setUpLogWatcher(LogWatcher), setUpBrowserWindow(BrowserWindow)];
+  const promises = [setUpDatabase(PouchDB), setUpRemoteDatabase(PouchDB), setUpLogWatcher(LogWatcher), setUpBrowserWindow(BrowserWindow)];
   return Promise.all(promises)
-    .spread((db, watcher, mainWindow) => {
+    .spread((db, remoteDB, watcher, mainWindow) => {
       let webContents = mainWindow.webContents;
       let logWatcher = startLogWatcher(watcher, db, winston);
       let changes = watchForDBChanges(db, webContents, generateSummary, winston);
+      let synced = syncData(db, remoteDB, winston);
 
       generateSummary(db, webContents);
 
