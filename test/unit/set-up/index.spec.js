@@ -1,5 +1,6 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
 import { setUpDatabase, watchForDBChanges } from '../../../src/set-up/db';
+import { setUpRemoteDatabase, syncData } from '../../../src/set-up/remote-db';
 import { setUpLogWatcher, startLogWatcher } from '../../../src/set-up/log-watcher';
 import chai from 'chai';
 import sinon from 'sinon';
@@ -45,7 +46,7 @@ describe('Set up', () => {
     });
   });
 
-  describe('database', () => {
+  describe('local database', () => {
     let PouchDB;
     let changes;
 
@@ -76,6 +77,39 @@ describe('Set up', () => {
         live: true,
         include_docs: true
       });
+    });
+  });
+
+  describe('remote database', () => {
+    let PouchDB;
+    let RemotePouchDB;
+    let replicate;
+
+    beforeEach(() => {
+      let on = {on: sandbox.stub().returns({on: sandbox.stub()})};
+      replicate = {to: sandbox.stub().returns(on)};
+      PouchDB = sandbox.stub().returns({
+        replicate: replicate
+      });
+      RemotePouchDB = sandbox.stub().returns(on);
+    });
+
+    it('resolves the promise with a database object', (done) => {
+      setUpRemoteDatabase(PouchDB).then(db => {
+        expect(PouchDB).to.have.been.calledWithNew;
+        expect(PouchDB).to.have.been.calledWithMatch('http://localhost:5984/hearthstone-tracker');
+        done();
+      }).catch((error) => {
+        expect(error).to.be.undefined;
+        done();
+      });
+    });
+
+    it('sets up syncing data', () => {
+      let db = new PouchDB();
+      let remoteDB = new RemotePouchDB();
+      db = syncData(db, remoteDB, {});
+      expect(replicate.to).to.have.been.calledWithMatch(remoteDB);
     });
   });
 
