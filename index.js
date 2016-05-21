@@ -3,11 +3,25 @@ import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain } from 'electron';
 import app from 'app';
 import BrowserWindow from 'browser-window';
+import flipit from 'flipit';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
 import Promise from 'bluebird';
 import winston from 'winston';
 import winstonLoggly from 'winston-loggly';/* eslint no-unused-vars: 0 */
+
+const setUpPromises = (flipit) => {
+  const promises = [];
+  promises.push(setUpDatabase(PouchDB));
+  promises.push(setUpLogWatcher(LogWatcher));
+  promises.push(setUpBrowserWindow(BrowserWindow));
+  if (flipit.isEnabled('dataSync')) {
+    promises.push(setUpRemoteDatabase(PouchDB));
+  }
+  return promises;
+};
+
+flipit.load('./config/feature-toggles.json');
 
 winston.add(winston.transports.Loggly, {
   token: "2adc38ba-9a94-4e13-8a63-8c64e9c15c81",
@@ -24,14 +38,14 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  const promises = [setUpDatabase(PouchDB), setUpRemoteDatabase(PouchDB), setUpLogWatcher(LogWatcher), setUpBrowserWindow(BrowserWindow)];
-  return Promise.all(promises)
-    .spread((db, remoteDB, watcher, mainWindow) => {
+  return Promise.all(setUpPromises(flipit))
+    .spread((db, watcher, mainWindow, remoteDB) => {
       let webContents = mainWindow.webContents;
       let logWatcher = startLogWatcher(watcher, db, winston);
       let changes = watchForDBChanges(db, webContents, generateSummary, winston);
-      let synced = syncData(db, remoteDB, winston);
-
+      if (flipit.isEnabled('dataSync')) {
+        let synced = syncData(db, remoteDB, winston);
+      }
       generateSummary(db, webContents);
 
       // Emitted when the window is closed.
