@@ -9,17 +9,12 @@ chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
 describe('Generate Summary', () => {
-  let db, wC, sandbox;
+  let wC, sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-    db = {
-      allDocs: sandbox.stub()
-    };
     wC = {
       send: sandbox.spy()
     };
-
-    db.allDocs.resolves(result);
   });
 
   afterEach(() => {
@@ -55,7 +50,7 @@ describe('Generate Summary', () => {
           }
         ]
     };
-    generateSummary(db, wC).then(() => {
+    generateSummary(result, wC).then(() => {
       expect(wC.send).to.have.been.calledWith('ping', expected);
       done();
     }).catch((err) => {

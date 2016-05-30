@@ -2,6 +2,14 @@ const determineAppDataRootLocation = () => {
   return process.env.HOME || process.env.LOCALAPPDATA;
 };
 
+export function fetchData (db) {
+  return new Promise((resolve) => {
+    return db.allDocs({include_docs: true}).then((result) => {
+      resolve(result);
+    });
+  });
+}
+
 export function watchForDBChanges (db) {
   return db.changes({
     since: 'now',
