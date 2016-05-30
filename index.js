@@ -42,12 +42,18 @@ app.on('ready', () => {
     .spread((db, watcher, mainWindow, remoteDB) => {
       let webContents = mainWindow.webContents;
       let logWatcher = startLogWatcher(watcher, db, winston);
-      let changes = watchForDBChanges(db, webContents, generateSummary, winston);
+      let changes = watchForDBChanges(db);
       if (flipit.isEnabled('dataSync')) {
         let synced = syncData(db, remoteDB, winston);
       }
-      generateSummary(db, webContents);
 
+      generateSummary(db, webContents);
+      changes.on('change', () => {
+        return generateSummary(db, webContents);
+      }).on('error', (error) => {
+        winston.error(error);
+      });
+      
       // Emitted when the window is closed.
       mainWindow.on('closed', () => {
         // Dereference the window object, usually you would store windows
