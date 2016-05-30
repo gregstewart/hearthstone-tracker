@@ -1,11 +1,12 @@
-import { assoc, conj, first, get, getIn, toClj, toJs } from 'mori';
+import { mori } from 'datascript-mori';
 import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
 import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
   setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
 import hasWon from './win-condition';
 
-let [dataStructure, matchLog] = resetData();
+const { assoc, conj, first, get, getIn, toClj, toJs } = mori;
 
+let [dataStructure, matchLog] = resetData();
 
 //TODO: write a test to cover this
 const fixStartTime = (dataStructure) => {

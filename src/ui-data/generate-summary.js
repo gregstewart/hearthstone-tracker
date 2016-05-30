@@ -1,7 +1,9 @@
 import { summaryStats, gameBreakdownDetails } from './stats';
 import winston from 'winston';
 import winStreak from '../win-streak';
-import { map, toClj, updateIn, vector } from 'mori';
+import { mori } from 'datascript-mori';
+
+const { map, toClj, updateIn, vector } = mori;
 
 const stripLog = (row) => {
   return updateIn(row, ['doc', 'log'], () => { return vector(); });

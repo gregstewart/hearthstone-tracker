@@ -1,5 +1,7 @@
-import { assoc, find, get, last, map, toClj, toJs } from 'mori';
+import { mori } from 'datascript-mori';
 import { statsShape } from '../constants';
+
+const { assoc, find, get, last, map, toClj, toJs } = mori;
 
 export function transformSummaryStats (input) {
   const shape = toClj(statsShape);

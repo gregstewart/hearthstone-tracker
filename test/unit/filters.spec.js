@@ -1,7 +1,9 @@
 import { expect } from 'chai';
 import { result } from '../fixtures/database-result';
 import { byWinCondition } from '../../src/ui-data/filters';
-import { count, toClj } from 'mori';
+import { mori } from 'datascript-mori';
+
+const { count, toClj } = mori;
 
 describe('Filters', () => {
   it('returns winners', () => {

@@ -1,7 +1,9 @@
 import { expect } from 'chai';
-import { toClj } from 'mori';
+import { mori } from 'datascript-mori';
 import { result } from '../fixtures/database-result';
 import winStreak from '../../src/win-streak';
+
+const { toClj } = mori;
 
 describe('Win streak', () => {
   it('returns the users streak', (done) => {

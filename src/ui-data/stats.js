@@ -1,6 +1,8 @@
-import { count, get, getIn, groupBy, hashMap, map, nth, repeat, sort, toJs } from 'mori';
+import { mori } from 'datascript-mori';
 import { transformSummaryStats } from './transformers';
 import { byWinCondition } from './filters';
+
+const { count, get, getIn, groupBy, hashMap, map, nth, repeat, sort, toJs } = mori;
 
 const winsLosses = (n) => {
   return n === true ? "wins" : "losses";

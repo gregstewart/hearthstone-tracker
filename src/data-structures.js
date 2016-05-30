@@ -1,4 +1,6 @@
-import {toClj, vector} from 'mori';
+import { mori } from 'datascript-mori';
+
+const { toClj, vector } = mori;
 
 export const dataStructure = toClj({
   _id: '',

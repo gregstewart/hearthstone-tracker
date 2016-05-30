@@ -39,7 +39,7 @@
     "codeclimate-test-reporter": "0.3.1",
     "electron-packager": "5.2.1",
     "electron-prebuilt": "0.37.2",
-    "electron-rebuild": "^1.1.3",
+    "electron-rebuild": "1.1.3",
     "eslint": "1.10.3",
     "eslint-plugin-react": "3.16.1",
     "isparta": "4.0.0",
@@ -52,24 +52,24 @@
     "sinon": "1.17.3",
     "sinon-as-promised": "4.0.0",
     "sinon-chai": "2.8.0",
-    "winston-loggly": "^1.3.1"
+    "winston-loggly": "1.3.1"
   },
   "dependencies": {
     "babel-preset-es2015": "6.3.13",
     "babel-preset-react": "6.3.13",
     "babel-register": "6.4.3",
-    "bluebird": "^3.2.1",
+    "bluebird": "3.2.1",
     "create-file": "1.0.1",
+    "datascript-mori": "0.16.0",
     "debug": "2.2.0",
     "flipit": "^2.0.3",
     "hearthstone-log-watcher": "3.0.1",
-    "mori": "0.3.2",
     "pouchdb": "5.2.1",
     "react": "0.14.7",
     "react-dom": "0.14.7",
     "react-redux": "4.2.1",
     "redux": "3.2.1",
-    "winston": "^2.2.0"
+    "winston": "2.2.0"
   },
   "engines": {
     "node": "5.1.1"

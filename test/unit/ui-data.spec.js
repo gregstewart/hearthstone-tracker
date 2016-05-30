@@ -2,8 +2,10 @@ import { expect } from 'chai';
 import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDetails } from '../../src/ui-data/stats';
 import { byWinCondition } from '../../src/ui-data/filters';
 import { result } from '../fixtures/database-result';
-import { get, hashMap, map, nth, toClj, updateIn, vector } from 'mori';
+import { mori } from 'datascript-mori';
 import winston from 'winston';
+
+const { get, hashMap, map, nth, toClj, updateIn, vector } = mori;
 
 describe('UI data', () => {
   it('returns win loss summary as promise', () => {
