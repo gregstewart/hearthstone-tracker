@@ -29,7 +29,10 @@ describe('Datascript importer', () => {
         [":db/add", 1, ":hasWon", true]
       ])
     );
-    const query = '[:find ?n ?name ?hasWon :in $ ?a :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon] [?e ":time/start" ?a]]';
+    const query = `[:find ?n ?name ?hasWon
+                    :in $ ?a
+                    :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon]
+                    [?e ":time/start" ?a]]`;
     let queryResponse = core.q(parse(query), dbWithData, 1453420291617);
 
     expect(isSet(queryResponse)).to.be.true;
@@ -39,7 +42,10 @@ describe('Datascript importer', () => {
   it('imports a set of data', () => {
     let dbWithData = importer(db, result);
 
-    const query = '[:find ?n ?name ?hasWon :in $ ?a :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon] [?e ":time/start" ?a]]';
+    const query = `[:find ?n ?name ?hasWon
+                    :in $ ?a
+                    :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon]
+                    [?e ":time/start" ?a]]`;
     let queryResponse = core.q(parse(query), dbWithData, 1453420291617);
 
     expect(isSet(queryResponse)).to.be.true;
