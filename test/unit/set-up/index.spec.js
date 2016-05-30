@@ -1,9 +1,11 @@
 import { setUpBrowserWindow } from '../../../src/set-up/browser-window';
-import { setUpDatabase, watchForDBChanges } from '../../../src/set-up/db';
+import { setUpDatabase, watchForDBChanges, fetchData } from '../../../src/set-up/db';
 import { setUpRemoteDatabase, syncData } from '../../../src/set-up/remote-db';
 import { setUpLogWatcher, startLogWatcher } from '../../../src/set-up/log-watcher';
+import { result } from '../../fixtures/database-result';
 import chai from 'chai';
 import sinon from 'sinon';
+import sinonAsPromised from 'sinon-as-promised';
 
 chai.use(require('sinon-chai'));
 const expect = chai.expect;
@@ -49,12 +51,17 @@ describe('Set up', () => {
   describe('local database', () => {
     let PouchDB;
     let changes;
+    let db;
 
     beforeEach(() => {
+      db = {
+        allDocs: sandbox.stub()
+      };
       changes = sandbox.stub().returns({on: sandbox.stub().returns({on: sandbox.stub()})});
       PouchDB = sandbox.stub().returns({
         changes: changes
       });
+      db.allDocs.resolves(result);
     });
 
     it('resolves the promise with a database object', (done) => {
@@ -76,6 +83,13 @@ describe('Set up', () => {
         since: 'now',
         live: true,
         include_docs: true
+      });
+    });
+
+    it('fetches data from the storage when invoked', () => {
+      let db = new PouchDB();
+      fetchData(db).then((data) => {
+        expect(data).to.deep.equal(result);
       });
     });
   });
