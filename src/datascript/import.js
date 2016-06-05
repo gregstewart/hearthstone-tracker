@@ -17,7 +17,7 @@ export default function (db, data) {
       ":against/class": item.doc.against.class,
       ":hasWon": item.doc.hasWon
     };
-  })
-  );
+  }));
+  
   return core.db_with(db, entities);
 }
