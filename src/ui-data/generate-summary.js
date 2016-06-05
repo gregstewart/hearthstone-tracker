@@ -6,7 +6,7 @@ import { mori, datascript } from 'datascript-mori';
 import importer from '../datascript/import';
 import { scheme } from '../datascript/scheme';
 
-const { map, parse, toClj, updateIn, vector } = mori;
+const { map, toClj, updateIn, vector } = mori;
 const { core } = datascript;
 
 const stripLog = (row) => {
