@@ -14,3 +14,7 @@ export function transformSummaryStats (input) {
 
   return toJs(output);
 }
+
+export function formattedPercentage (val) {
+  return val * 100 + '%';
+}
