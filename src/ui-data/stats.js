@@ -1,15 +1,11 @@
 import { mori } from 'datascript-mori';
-import { transformSummaryStats } from './transformers';
+import { transformSummaryStats, formattedPercentage } from './transformers';
 import { byWinCondition } from './filters';
 
 const { count, get, getIn, groupBy, hashMap, map, nth, repeat, sort, toJs } = mori;
 
 const winsLosses = (n) => {
   return n === true ? "wins" : "losses";
-};
-
-const formattedPercentage = (val) => {
-  return val * 100 + '%';
 };
 
 const getHasWon = (element) => {
@@ -48,7 +44,6 @@ export function aggregateDetails (rows, key) {
 
 export function pluckStats (rows) {
   let results = groupBy(winsLosses, map(getHasWon, rows));
-
   let wins = count(get(results, 'wins'));
   let losses = count(get(results, 'losses'));
   let ratio = formattedPercentage(wins/(wins+losses));
