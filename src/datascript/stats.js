@@ -2,14 +2,14 @@ import { formattedPercentage, transformSummaryStats } from '../ui-data/transform
 
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
-const { parse, count } = mori;
+const { parse } = mori;
 
 export function pluckStats (db) {
-  const query = `[:find ?e
+  const query = `[:find (count ?e) .
                   :in $ ?a
                   :where [?e ":hasWon" ?a]]`;
-  const wins = count(core.q(parse(query), db, true));
-  const losses = count(core.q(parse(query), db, false));
+  const wins = core.q(parse(query), db, true);
+  const losses = core.q(parse(query), db, false);
   const ratio = formattedPercentage(wins/(wins+losses));
 
   return {
