@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import importer from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
 
-const { hashMap, isSet, parse, set, vector } = mori;
+const { hashMap, isSet, parse, set, vector, get } = mori;
 const { core } = datascript;
 const { entities_to_clj } = helpers;
 
@@ -29,31 +29,30 @@ describe('Datascript importer', () => {
         [":db/add", 1, ":hasWon", true]
       ])
     );
-    const query = `[:find ?n ?name ?hasWon
+    const query = `[:find ?e ?a ?end ?name ?hasWon
                     :in $ ?a
-                    :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon]
+                    :where [?e ":time/end" ?end] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon]
                     [?e ":time/start" ?a]]`;
     let queryResponse = core.q(parse(query), dbWithData, 1453420291617);
-
     expect(isSet(queryResponse)).to.be.true;
-    expect(set([vector(1453420736889, "artaios", true)])).to.deep.equal(queryResponse);
+    expect(set([vector(1, 1453420291617, 1453420736889, "artaios", true)])).to.deep.equal(queryResponse);
   });
 
   it('imports a set of data', () => {
     let dbWithData = importer(db, result);
 
-    const query = `[:find ?n ?name ?hasWon
+    const query = `[:find ?e ?n ?name ?hasWon
                     :in $ ?a
                     :where [?e ":time/end" ?n] [?e ":for/name" ?name] [?e ":hasWon" ?hasWon]
                     [?e ":time/start" ?a]]`;
     let queryResponse = core.q(parse(query), dbWithData, 1453420291617);
 
     expect(isSet(queryResponse)).to.be.true;
-    expect(set([vector(1453420736889, "artaios", true)])).to.deep.equal(queryResponse);
+    expect(set([vector(1453420291617, 1453420736889, "artaios", true)])).to.deep.equal(queryResponse);
 
     queryResponse = core.q(parse(query), dbWithData, 1453420291613);
 
     expect(isSet(queryResponse)).to.be.true;
-    expect(set([vector(1453420736889, "artaios", false)])).to.deep.equal(queryResponse);
+    expect(set([vector(1453420291613, 1453420736889, "artaios", false)])).to.deep.equal(queryResponse);
   });
 });
