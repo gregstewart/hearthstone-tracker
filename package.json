@@ -37,6 +37,7 @@
     "babel-eslint": "6.0.4",
     "chai": "3.5.0",
     "codeclimate-test-reporter": "0.3.2",
+    "devtron": "^1.2.0",
     "electron-packager": "7.0.3",
     "electron-prebuilt": "1.2.2",
     "electron-rebuild": "^1.1.3",
