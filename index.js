@@ -1,8 +1,6 @@
 import { setUpDatabase, watchForDBChanges, setUpRemoteDatabase, syncData, setUpBrowserWindow, setUpLogWatcher, startLogWatcher } from './src/set-up/';
 import { generateSummary } from './src/ui-data/generate-summary';
-import { ipcMain } from 'electron';
-import app from 'app';
-import BrowserWindow from 'browser-window';
+import { ipcMain, app, BrowserWindow } from 'electron';
 import flipit from 'flipit';
 import LogWatcher from 'hearthstone-log-watcher';
 import PouchDB from 'pouchdb';
