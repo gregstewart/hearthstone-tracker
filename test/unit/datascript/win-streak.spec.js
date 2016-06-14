@@ -8,7 +8,7 @@ import { scheme } from '../../../src/datascript/scheme';
 import { result } from '../../fixtures/database-result';
 import { winStreak } from '../../../src/datascript/win-streak';
 
-const { toClj } = mori;
+const { toClj, toJs } = mori;
 
 describe('Win streak - DataScript', () => {
   let db, dbWithData;
@@ -25,9 +25,10 @@ describe('Win streak - DataScript', () => {
      { result: 'win', as: 'Rogue', against: 'Warlock' } ];
 
     winStreak(dbWithData).then((streak) => {
-      expect(streak).to.deep.equal(expected);
+      expect(toJs(streak)).to.deep.equal(expected);
       done();
     }).catch((error) => {
+      console.log(error);
       expect(error).to.be.undefined;
       done();
     });

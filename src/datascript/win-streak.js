@@ -27,6 +27,6 @@ export function winStreak (db) {
       resolve([]);
     }
 
-    resolve(toJs(map(extractData, take(5, reverse(result)))));
+    resolve(map(extractData, take(5, reverse(result))));
   });
 }
