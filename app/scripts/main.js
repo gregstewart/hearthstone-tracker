@@ -24,7 +24,7 @@ const initialState = {
 
 let store = createStore(reducer, initialState);
 let rootElement = document.getElementById('main');
-let Menu = remote.require('menu');
+const { Menu, app } = remote;
 
 ipcRenderer.on('ping', function (event, message) {
   /*eslint-disable no-console */
@@ -49,7 +49,7 @@ let menu = Menu.buildFromTemplate([
         label: 'Quit',
         accelerator: 'Command+Q',
         click: () => {
-          remote.app.quit();
+          app.quit();
         }
       }
     ]
