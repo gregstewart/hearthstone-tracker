@@ -65,7 +65,7 @@
     "flipit": "^2.0.3",
     "hearthstone-log-watcher": "3.0.1",
     "mori": "0.3.2",
-    "pouchdb": "5.4.2",
+    "pouchdb": "5.4.3",
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-redux": "4.4.5",
