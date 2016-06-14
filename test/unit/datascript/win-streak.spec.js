@@ -28,7 +28,6 @@ describe('Win streak - DataScript', () => {
       expect(toJs(streak)).to.deep.equal(expected);
       done();
     }).catch((error) => {
-      console.log(error);
       expect(error).to.be.undefined;
       done();
     });

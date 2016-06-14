@@ -1,6 +1,6 @@
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
-const { parse , count, reverse, take, map, nth, hashMap, toJs } = mori;
+const { parse , count, reverse, take, map, nth, hashMap } = mori;
 
 const getData = (db) => {
   const query = `[:find ?hasWon ?for-class ?against-class

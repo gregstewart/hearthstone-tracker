@@ -17,7 +17,6 @@ describe('Win streak', () => {
       expect(toJs(streak)).to.deep.equal(expected);
       done();
     }).catch((error) => {
-      console.log(error);
       expect(error).to.be.undefined;
       done();
     });
