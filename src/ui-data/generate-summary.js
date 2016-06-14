@@ -1,5 +1,7 @@
 import { summaryStats, gameBreakdownDetails } from './stats';
 import { summaryStats as summaryStatsDS } from '../datascript/stats';
+import { gameBreakdownDetails as gameBreakdownDetailsDS } from '../datascript/stats';
+import { winStreak as winStreakDS } from '../datascript/win-streak';
 import winston from 'winston';
 import winStreak from '../win-streak';
 import { mori, datascript } from 'datascript-mori';
@@ -19,7 +21,7 @@ export function generateSummary (result, wC, flipit) {
     const db = core.empty_db(scheme);
     const dbWithData = importer(db, result);
 
-    promises = [summaryStatsDS(dbWithData), winStreak(reducedSet), gameBreakdownDetails(reducedSet)];
+    promises = [summaryStatsDS(dbWithData), winStreakDS(dbWithData), gameBreakdownDetailsDS(dbWithData)];
   } else {
     reducedSet = map(stripLog, toClj(result.rows));
     promises = [summaryStats(reducedSet), winStreak(reducedSet), gameBreakdownDetails(reducedSet)];
@@ -27,6 +29,7 @@ export function generateSummary (result, wC, flipit) {
 
   return Promise.all(promises)
     .then((results) => {
+      console.log(results);
       wC.send('ping', {summaryStats: results[0], winStreak: results[1], matchBreakdown: results[2]});
     })
     .catch((error) => {

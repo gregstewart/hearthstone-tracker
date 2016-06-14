@@ -29,3 +29,15 @@ export function summaryStats (db) {
 
   return promise;
 }
+
+export function gameBreakdownDetails (data) {
+  let promise = new Promise((resolve, reject) => {
+    if(!data) {
+      reject(new Error('Expected a result set'));
+    }
+
+    resolve([]);
+  });
+
+  return promise;
+}
