@@ -1,10 +1,8 @@
 import { formattedPercentage, transformSummaryStats } from '../ui-data/transformers';
 
-import { mori, datascript } from 'datascript-mori';
+import { datascript, mori } from 'datascript-mori';
 const { core } = datascript;
-const { first, last, parse, map, hashMap, vector, repeat } = mori;
-
-
+const { first, hashMap, last, map, parse, repeat } = mori;
 
 export function pluckStats (db) {
   const query = `[:find (count ?e) .
