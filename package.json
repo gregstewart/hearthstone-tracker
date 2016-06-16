@@ -39,7 +39,7 @@
     "codeclimate-test-reporter": "0.3.3",
     "devtron": "1.2.0",
     "electron-packager": "7.0.4",
-    "electron-prebuilt": "1.2.2",
+    "electron-prebuilt": "1.2.3",
     "electron-rebuild": "1.1.3",
     "eslint": "2.12.0",
     "eslint-plugin-react": "5.1.1",
