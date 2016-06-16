@@ -1,8 +1,8 @@
 import { formattedPercentage, transformSummaryStats } from '../ui-data/transformers';
-
+import { highestToLowest } from '../ui-data/sort';
 import { datascript, mori } from 'datascript-mori';
 const { core } = datascript;
-const { first, hashMap, last, map, parse, repeat } = mori;
+const { first, hashMap, last, map, parse, repeat, sort, vector } = mori;
 
 export function pluckStats (db) {
   const query = `[:find (count ?e) .
@@ -30,16 +30,11 @@ export function summaryStats (db) {
   return promise;
 }
 
-export function gameBreakdownDetails (data) {
-  let promise = new Promise((resolve, reject) => {
-    if(!data) {
-      reject(new Error('Expected a result set'));
-    }
-
-    resolve([]);
-  });
-
-  return promise;
+export function aggregate (db) {
+  return vector(
+    hashMap('status', 'wins', 'outcomes', sort(highestToLowest, aggregateDetails(db, true))),
+    hashMap('status', 'losses', 'outcomes', sort(highestToLowest, aggregateDetails(db, false)))
+  );
 }
 
 export function aggregateDetails (db, outcome) {
@@ -72,4 +67,16 @@ export function aggregateDetails (db, outcome) {
   const total = getCount(db, outcome);
 
   return map(aggregateResults, result, repeat(total, total));
+}
+
+export function gameBreakdownDetails (db) {
+  let promise = new Promise((resolve, reject) => {
+    if(!db) {
+      reject(new Error('Expected a result set'));
+    }
+
+    resolve(aggregate(db));
+  });
+
+  return promise;
 }

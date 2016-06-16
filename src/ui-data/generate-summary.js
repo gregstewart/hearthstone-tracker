@@ -29,7 +29,7 @@ export function generateSummary (result, wC, flipit) {
 
   return Promise.all(promises)
     .then((results) => {
-      wC.send('ping', {summaryStats: toJs(results[0]), winStreak: toJs(results[1]), matchBreakdown: results[2]});
+      wC.send('ping', {summaryStats: toJs(results[0]), winStreak: toJs(results[1]), matchBreakdown: toJs(results[2])});
     })
     .catch((error) => {
       winston.error(error);

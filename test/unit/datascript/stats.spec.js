@@ -2,12 +2,12 @@ import { result } from '../../fixtures/database-result';
 import { mori, datascript } from 'datascript-mori';
 import { expect } from 'chai';
 const { core } = datascript;
-const { get, nth } = mori;
+const { get, nth, toJs } = mori;
 
 import importer from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
 
-import { pluckStats, summaryStats, aggregateDetails } from '../../../src/datascript/stats';
+import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDetails } from '../../../src/datascript/stats';
 
 describe('UI Data - Datascript', () => {
   let db, dbWithData;
@@ -45,6 +45,38 @@ describe('UI Data - Datascript', () => {
     });
   });
 
+  it('returns win loss details as promise', () => {
+    const expected = [
+      { status: 'wins',
+        outcomes:
+        [ { class: 'Rogue', total: 3, percentage: '60%' },
+          { class: 'Priest', total: 1, percentage: '20%' },
+          { class: 'Druid', total: 1, percentage: '20%' }
+        ]},
+      { status: 'losses',
+        outcomes:
+        [ { class: 'Rogue', total: 1, percentage: '50%' },
+          { class: 'Warlock', total: 1, percentage: '50%' }
+        ]}
+    ];
+
+    gameBreakdownDetails(dbWithData).then((stats) => {
+      expect(expected).to.deep.equal(stats);
+    }).catch((error) => {
+      expect(error).to.be.undefined;
+    });
+  });
+
+  it('returns a detailed sorted summary of wins and losses by class', () => {
+    let stats = toJs(aggregate(dbWithData));
+
+    expect(stats[0].status).to.equal('wins');
+    expect(stats[0].outcomes[0]).to.deep.equal({'class': 'Rogue', 'total': 3, 'percentage': '60%'});
+    expect(stats[0].outcomes[1]).to.deep.equal({'class': 'Priest', 'total': 1, 'percentage': '20%'});
+    expect(stats[1].status).to.equal('losses');
+    expect(stats[1].outcomes[0]).to.deep.equal({'class': 'Rogue', 'total': 1, 'percentage': '50%'});
+    expect(stats[1].outcomes[1]).to.deep.equal({'class': 'Warlock', 'total': 1, 'percentage': '50%'});
+  });
 
   describe('takes a filtered mori result', () => {
     describe('wins grouped by class', () => {

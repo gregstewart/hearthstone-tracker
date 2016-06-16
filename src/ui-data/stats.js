@@ -1,6 +1,7 @@
 import { mori } from 'datascript-mori';
 import { transformSummaryStats, formattedPercentage } from './transformers';
 import { byWinCondition } from './filters';
+import { highestToLowest } from './sort';
 
 const { count, get, getIn, groupBy, hashMap, map, nth, repeat, sort, toJs } = mori;
 
@@ -14,10 +15,6 @@ const getHasWon = (element) => {
 
 const getClassName = (element, key) => {
   return getIn(element, ['doc', key, 'class']);
-};
-
-const highestToLowest = (a, b) => {
-  return (get(b, 'total') - get(a, 'total'));
 };
 
 export function aggregateDetails (rows, key) {
