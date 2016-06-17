@@ -8,6 +8,7 @@ export function pluckStats (db) {
   const query = `[:find (count ?e) .
                   :in $ ?a
                   :where [?e ":hasWon" ?a]]`;
+
   const wins = core.q(parse(query), db, true);
   const losses = core.q(parse(query), db, false);
   const ratio = formattedPercentage(wins/(wins+losses));
@@ -23,7 +24,7 @@ export function summaryStats (db) {
     if(!db) {
       reject(new Error('Expected a result set'));
     }
-
+    
     resolve(transformSummaryStats(pluckStats(db)));
   });
 
