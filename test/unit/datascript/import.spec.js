@@ -1,4 +1,5 @@
 import { result } from '../../fixtures/database-result';
+import { result as fullResult } from '../../fixtures/data';
 import { mori, datascript, helpers } from 'datascript-mori';
 import { expect } from 'chai';
 
@@ -16,7 +17,7 @@ describe('Datascript importer', () => {
   });
 
   it('captures the schema', () => {
-    let dbWithData = core.db_with(db,
+    const dbWithData = core.db_with(db,
       entities_to_clj([
         [":db/add", 1, ":time/start", 1453420291617],
         [":db/add", 1, ":time/end", 1453420736889],
@@ -39,7 +40,7 @@ describe('Datascript importer', () => {
   });
 
   it('imports a set of data', () => {
-    let dbWithData = importer(db, result);
+    const dbWithData = importer(db, result);
 
     const query = `[:find ?e ?n ?name ?hasWon
                     :in $ ?a
@@ -54,5 +55,18 @@ describe('Datascript importer', () => {
 
     expect(isSet(queryResponse)).to.be.true;
     expect(set([vector(1453420291613, 1453420736889, "artaios", false)])).to.deep.equal(queryResponse);
+  });
+
+  it.skip('is able to import all data', () => {
+    // this test fails when it passes :S
+    const dbWithData = importer(db, fullResult);
+    const query = `[:find (count ?e) .
+                    :where [?e ":for/name"]]`;
+    const count = core.q(parse(query), dbWithData);
+
+    // in the full result there are a FIVE elements that get filtered out
+    const expectedCount = count + 5;
+
+    expect(expectedCount).to.eql(fullResult.total_rows);
   });
 });
