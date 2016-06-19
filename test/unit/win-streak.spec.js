@@ -1,7 +1,9 @@
 import { expect } from 'chai';
-import { toClj } from 'mori';
+import { mori } from 'datascript-mori';
 import { result } from '../fixtures/database-result';
 import winStreak from '../../src/win-streak';
+
+const { toClj, toJs } = mori;
 
 describe('Win streak', () => {
   it('returns the users streak', (done) => {
@@ -12,7 +14,7 @@ describe('Win streak', () => {
       { result: 'win', as: 'Rogue', against: 'Mage' } ];
 
     winStreak(toClj(result.rows)).then((streak) => {
-      expect(streak).to.deep.equal(expected);
+      expect(toJs(streak)).to.deep.equal(expected);
       done();
     }).catch((error) => {
       expect(error).to.be.undefined;

@@ -2,15 +2,19 @@ const determineAppDataRootLocation = () => {
   return process.env.HOME || process.env.LOCALAPPDATA;
 };
 
-export function watchForDBChanges (db, webContents, generateSummary, winston) {
+export function fetchData (db) {
+  return new Promise((resolve) => {
+    return db.allDocs({include_docs: true}).then((result) => {
+      resolve(result);
+    });
+  });
+}
+
+export function watchForDBChanges (db) {
   return db.changes({
     since: 'now',
     live: true,
     include_docs: true
-  }).on('change', () => {
-    return generateSummary(db, webContents);
-  }).on('error', (error) => {
-    winston.error(error);
   });
 }
 

@@ -1,4 +1,6 @@
-import { count, getIn, hashMap, map, reverse, toJs, take } from 'mori';
+import { mori } from 'datascript-mori';
+
+const { count, getIn, hashMap, map, reverse, take } = mori;
 
 const extractData = (element) => {
   const getWin = ['doc', 'hasWon'];
@@ -18,6 +20,6 @@ export default function (data) {
       resolve([]);
     }
 
-    resolve(toJs(map(extractData, take(5, reverse(data)))));
+    resolve(map(extractData, take(5, reverse(data))));
   });
 }

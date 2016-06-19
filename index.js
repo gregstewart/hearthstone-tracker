@@ -1,4 +1,4 @@
-import { setUpDatabase, watchForDBChanges, setUpRemoteDatabase, syncData, setUpBrowserWindow, setUpLogWatcher, startLogWatcher } from './src/set-up/';
+import { setUpDatabase, watchForDBChanges, fetchData, setUpRemoteDatabase, syncData, setUpBrowserWindow, setUpLogWatcher, startLogWatcher } from './src/set-up/';
 import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain, app, BrowserWindow } from 'electron';
 import flipit from 'flipit';
@@ -19,7 +19,13 @@ const setUpPromises = (flipit) => {
   return promises;
 };
 
-flipit.load('./config/feature-toggles.json');
+const loadFeatureToggles = (flipit) => {
+  return new Promise((resolve) => {
+    flipit.load('./config/feature-toggles.json', (result) => {
+      resolve(result);
+    });
+  });
+};
 
 winston.add(winston.transports.Loggly, {
   token: "2adc38ba-9a94-4e13-8a63-8c64e9c15c81",
@@ -36,32 +42,46 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-  return Promise.all(setUpPromises(flipit))
-    .spread((db, watcher, mainWindow, remoteDB) => {
-      let webContents = mainWindow.webContents;
-      let logWatcher = startLogWatcher(watcher, db, winston);
-      let changes = watchForDBChanges(db, webContents, generateSummary, winston);
-      if (flipit.isEnabled('dataSync')) {
-        let synced = syncData(db, remoteDB, winston);
-      }
-      generateSummary(db, webContents);
+  return loadFeatureToggles(flipit).then(() => {
+    return Promise.all(setUpPromises(flipit))
+      .spread((db, watcher, mainWindow, remoteDB) => {
+        let webContents = mainWindow.webContents;
+        let logWatcher = startLogWatcher(watcher, db, winston);
+        let changes = watchForDBChanges(db);
+        if (flipit.isEnabled('dataSync')) {
+          let synced = syncData(db, remoteDB, winston);
+        }
 
-      // Emitted when the window is closed.
-      mainWindow.on('closed', () => {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
-        logWatcher.stop();
-        changes.cancel();
-      });
+        changes.on('change', () => {
+          return fetchData(db).then((result) => {
+            generateSummary(result, webContents, flipit);
+          });
+        }).on('error', (error) => {
+          winston.error(error);
+        });
 
-      ipcMain.on('reload-data', () => {
-        winston.info('reload-data');
-        generateSummary(db, webContents);
+        fetchData(db).then((result) => {
+          generateSummary(result, webContents, flipit);
+          // Emitted when the window is closed.
+          mainWindow.on('closed', () => {
+            // Dereference the window object, usually you would store windows
+            // in an array if your app supports multi windows, this is the time
+            // when you should delete the corresponding element.
+            mainWindow = null;
+            logWatcher.stop();
+            changes.cancel();
+          });
+
+          ipcMain.on('reload-data', () => {
+            winston.info('reload-data');
+            return fetchData(db).then((result) => {
+              generateSummary(result, webContents, flipit);
+            });
+          });
+        });
+      })
+      .catch(error => {
+        winston.error(error);
       });
-    })
-    .catch(error => {
-      winston.error(error);
-    });
+  });
 });

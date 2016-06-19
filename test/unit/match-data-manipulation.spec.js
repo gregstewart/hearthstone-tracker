@@ -1,9 +1,10 @@
 import { expect } from 'chai';
-import {get, getIn, toClj, toJs} from 'mori';
-
+import { mori } from 'datascript-mori';
 import { setWinCondition, logMatchData, resetData, setMatchId,
   setForClass, setAgainstClass, setAgainstPlayerId, setForPlayerId,
   setForPlayerName, setAgainstPlayerName, setStartTime, setEndTime } from '../../src/match-data-manipulation';
+
+const {get, getIn, toClj, toJs} = mori;
 
 describe('Match data actions', () => {
   let logMatch, dataStructure, database;
