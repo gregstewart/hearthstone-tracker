@@ -1,7 +1,7 @@
 import { mori, datascript } from 'datascript-mori';
 import { byTimeStamp } from  '../ui-data/sort';
 const { core } = datascript;
-const { parse , count, reverse, take, map, nth, hashMap, sort } = mori;
+const { count, hashMap, parse , map, nth, sort, take } = mori;
 
 const getData = (db) => {
   const query = `[:find ?start ?hasWon ?for-class ?against-class
@@ -28,7 +28,7 @@ export function winStreak (db) {
     if(!count(result)) {
       resolve([]);
     }
-    console.log(take(5, sort(byTimeStamp, result)));
+
     resolve(map(extractData, take(5, sort(byTimeStamp, result))));
   });
 }
