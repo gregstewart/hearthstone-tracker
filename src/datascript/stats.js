@@ -4,6 +4,12 @@ import { datascript, mori } from 'datascript-mori';
 const { core } = datascript;
 const { first, hashMap, last, map, parse, repeat, sort, vector } = mori;
 
+const checkForDb = (db, reject) => {
+  if(!db) {
+    return reject(new Error('Expected a result set'));
+  }
+};
+
 export function pluckStats (db) {
   const query = `[:find (count ?e) .
                   :in $ ?a
@@ -21,10 +27,8 @@ export function pluckStats (db) {
 export function summaryStats (db) {
 
   let promise = new Promise((resolve, reject) => {
-    if(!db) {
-      reject(new Error('Expected a result set'));
-    }
-    
+    checkForDb(db, reject);
+
     resolve(transformSummaryStats(pluckStats(db)));
   });
 
@@ -72,9 +76,7 @@ export function aggregateDetails (db, outcome) {
 
 export function gameBreakdownDetails (db) {
   let promise = new Promise((resolve, reject) => {
-    if(!db) {
-      reject(new Error('Expected a result set'));
-    }
+    checkForDb(db, reject);
 
     resolve(aggregate(db));
   });
