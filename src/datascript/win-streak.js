@@ -1,20 +1,22 @@
 import { mori, datascript } from 'datascript-mori';
+import { byTimeStamp } from  '../ui-data/sort';
 const { core } = datascript;
-const { parse , count, reverse, take, map, nth, hashMap } = mori;
+const { parse , count, reverse, take, map, nth, hashMap, sort } = mori;
 
 const getData = (db) => {
-  const query = `[:find ?hasWon ?for-class ?against-class
+  const query = `[:find ?start ?hasWon ?for-class ?against-class
                   :where [?e ":hasWon" ?hasWon]
                   [?e ":for/class" ?for-class]
-                  [?e ":against/class" ?against-class]]`;
+                  [?e ":against/class" ?against-class]
+                  [?e ":time/start" ?start]]`;
 
   return core.q(parse(query), db);
 };
 
 const extractData = (element) => {
-  return hashMap('result', nth(element, 0) ? 'win' : 'loss',
-      'as', nth(element, 1),
-      'against', nth(element, 2));
+  return hashMap('result', nth(element, 1) ? 'win' : 'loss',
+      'as', nth(element, 2),
+      'against', nth(element, 3));
 };
 
 export function winStreak (db) {
@@ -26,7 +28,7 @@ export function winStreak (db) {
     if(!count(result)) {
       resolve([]);
     }
-
-    resolve(map(extractData, take(5, reverse(result))));
+    console.log(take(5, sort(byTimeStamp, result)));
+    resolve(map(extractData, take(5, sort(byTimeStamp, result))));
   });
 }
