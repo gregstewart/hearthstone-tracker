@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 Features:
 
-  - Upgrade to electron 1.2.2
+  - Upgrade to electron 1.2.2 (and many other packages after enabling [Greenkeeper](https://greenkeeper.io/))
+  - Use [Datascript](https://github.com/tonsky/datascript) (and [mori](http://swannodette.github.io/mori/)) now for data retrieval and manipulation
 
 ### Added
 
