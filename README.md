@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/gregstewart/hearthstone-tracker.svg?style=svg)](https://circleci.com/gh/gregstewart/hearthstone-tracker)
+[![Circle CI](https://circleci.com/gh/gregstewart/hearthstone-tracker.svg?style=shield)](https://circleci.com/gh/gregstewart/hearthstone-tracker)
 [![Code Climate](https://codeclimate.com/github/gregstewart/hearthstone-tracker/badges/gpa.svg)](https://codeclimate.com/github/gregstewart/hearthstone-tracker)
 [![Test Coverage](https://codeclimate.com/github/gregstewart/hearthstone-tracker/badges/coverage.svg)](https://codeclimate.com/github/gregstewart/hearthstone-tracker/coverage)
 [![Issue Count](https://codeclimate.com/github/gregstewart/hearthstone-tracker/badges/issue_count.svg)](https://codeclimate.com/github/gregstewart/hearthstone-tracker)
