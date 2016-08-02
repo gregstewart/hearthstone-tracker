@@ -20,8 +20,13 @@ const setUpPromises = (flipit) => {
 };
 
 const loadFeatureToggles = (flipit) => {
-  return new Promise((resolve) => {
-    flipit.load('./config/feature-toggles.json', (result) => {
+  return new Promise((resolve, reject) => {
+    const filePath = __dirname + '/config/feature-toggles.json';
+    flipit.load(filePath, (error, result) => {
+      winston.info(error, result);
+      if (error) {
+        reject(error);
+      }
       resolve(result);
     });
   });
