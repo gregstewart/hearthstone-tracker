@@ -2,7 +2,7 @@ import { setUpDatabase, watchForDBChanges, fetchData, setUpRemoteDatabase, syncD
 import { generateSummary } from './src/ui-data/generate-summary';
 import { ipcMain, app, BrowserWindow } from 'electron';
 import flipit from 'flipit';
-import LogWatcher from 'hearthstone-log-watcher';
+import LogWatcher from 'farseer';
 import PouchDB from 'pouchdb';
 import Promise from 'bluebird';
 import winston from 'winston';
