@@ -10,6 +10,13 @@ Bugfixes:
 
 ### Added
 
+## [0.3.1] - (2016-08-03)
+
+Bugfixes:
+
+  - Fix path to feature toggles file (@gregstewart)
+
+
 ## [0.3.0] - (2016-08-02)
 
 Features:
@@ -20,8 +27,8 @@ Features:
 
 Bugfixes:
 
-    - New Shamen hero (Morgl) added (@gregstewart)
-    - Log parsing is broken after patch 5.2 (@gregstewart)
+  - New Shamen hero (Morgl) added (@gregstewart)
+  - Log parsing is broken after patch 5.2 (@gregstewart)
 
 ## [0.2.0] - (2016-05-12)
 
