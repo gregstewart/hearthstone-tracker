@@ -3,12 +3,25 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+Features:
+
+Bugfixes:
+
+### Added
+
+## [0.3.0] - (2016-08-02)
+
 Features:
 
   - Upgrade to electron 1.2.2 (and many other packages after enabling [Greenkeeper](https://greenkeeper.io/))
   - Use [Datascript](https://github.com/tonsky/datascript) (and [mori](http://swannodette.github.io/mori/)) now for data retrieval and manipulation
+  - Use [Farsee](https://www.npmjs.com/package/farseer) instead of [hearthstone-log-watcher](https://github.com/chevex-archived/hearthstone-log-watcher). This fixes a bug in the log parsing after patch 5.2
 
-### Added
+Bugfixes:
+
+    - New Shamen hero (Morgl) added (@gregstewart)
+    - Log parsing is broken after patch 5.2 (@gregstewart)
 
 ## [0.2.0] - (2016-05-12)
 
