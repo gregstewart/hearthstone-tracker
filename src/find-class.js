@@ -15,7 +15,7 @@ const CLASSES = {
   "Malfurion Stormrage": "Druid",
   "Medivh": "Mage",
   "Millhouse Manastorm": "Training",
-  "Morgl The Oracle": "Shaman",
+  "Morgl the Oracle": "Shaman",
   "Rexxar": "Hunter",
   "Thrall": "Shaman",
   "Uther Lightbringer": "Paladin",
