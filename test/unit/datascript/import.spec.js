@@ -1,7 +1,7 @@
 import { result } from '../../fixtures/database-result';
-import { result as fullResult } from '../../fixtures/data';
 import { mori, datascript, helpers } from 'datascript-mori';
 import { expect } from 'chai';
+import { fs } from 'fs';
 
 import importer from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
@@ -59,6 +59,7 @@ describe('Datascript importer', () => {
 
   it.skip('is able to import all data', () => {
     // this test fails when it passes :S
+    const fullResult = JSON.parse(fs.readFileSync('../../fixtures/data.json', 'utf8'));
     const dbWithData = importer(db, fullResult);
     const query = `[:find (count ?e) .
                     :where [?e ":for/name"]]`;
