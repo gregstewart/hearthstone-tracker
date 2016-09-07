@@ -1,7 +1,7 @@
 import { dataLogger } from '../../src/log-watcher';
 import { goodParse, missingStartEventParse } from '../fixtures/data-parses';
 import chai from 'chai';
-import LogWatcher from 'hearthstone-log-watcher';
+import LogWatcher from 'farseer';
 import PouchDB from 'pouchdb';
 import sinon from 'sinon';
 
