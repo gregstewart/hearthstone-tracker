@@ -3,7 +3,7 @@ import { summaryStats, winStreak, matchBreakdown } from '../scripts/validators';
 import React, { Component } from 'react';
 import Main from './main';
 
-export default class App extends Component {
+export class App extends Component {
   render () {
     const { matchBreakdown, summaryStats, winStreak } = this.props;
     return (
