@@ -67,7 +67,7 @@
     "farseer": "^4.0.0",
     "flipit": "2.0.3",
     "pouchdb": "6.0.5",
-    "react": "15.3.1",
+    "react": "15.3.2",
     "react-dom": "15.3.1",
     "react-redux": "4.4.5",
     "redux": "3.6.0",
