@@ -50,7 +50,7 @@
     "nsp": "2.6.1",
     "nyc": "^8.1.0",
     "pre-push": "0.1.1",
-    "react-addons-test-utils": "15.3.1",
+    "react-addons-test-utils": "15.3.2",
     "sinon": "1.17.6",
     "sinon-as-promised": "4.0.2",
     "sinon-chai": "2.8.0",
