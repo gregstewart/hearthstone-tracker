@@ -12,6 +12,8 @@ Features:
 
 Bugfixes:
 
+ - Fix linting issues (#168 @gregstewart)
+
 ### Added
 
 ## [0.3.1] - (2016-08-03)
