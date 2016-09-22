@@ -16,9 +16,18 @@
   "plugins": [
     "react"
   ],
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "rules": {
     "indent": [2, 2, {"SwitchCase": 1}],
+    "import/no-unresolved": [1, {commonjs: true, amd: true}],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
     "semi": 2,
     "space-before-function-paren": 2,
     "react/display-name": 0,
@@ -36,6 +45,7 @@
     "react/jsx-sort-props": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
+    "react/jsx-wrap-multilines": 1,
     "react/no-danger": 1,
     "react/no-did-mount-set-state": 1,
     "react/no-did-update-set-state": 1,
@@ -46,10 +56,8 @@
     "react/prefer-es6-class": 1,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/sort-prop-types": 1,
-    "react/wrap-multilines": 1
+    "react/sort-prop-types": 1
   }
 }
