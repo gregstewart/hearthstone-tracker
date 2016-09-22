@@ -18,6 +18,7 @@ const CLASSES = {
   "Morgl the Oracle": "Shaman",
   "Rexxar": "Hunter",
   "Thrall": "Shaman",
+  "Tyrande Whisperwind": "Priest",
   "Uther Lightbringer": "Paladin",
   "Valeera Sanguinar": "Rogue"
 };
