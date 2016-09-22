@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Features:
 
+  - New hero is being added: Tyrande Whisperwind (#161 @gregstewart)
+  - Use `babel-plugin-istanbul` instead of isparta (#144 @gregstewart)
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
+
 Bugfixes:
 
 ### Added
@@ -23,7 +27,7 @@ Features:
 
   - Upgrade to electron 1.2.2 (and many other packages after enabling [Greenkeeper](https://greenkeeper.io/))
   - Use [Datascript](https://github.com/tonsky/datascript) (and [mori](http://swannodette.github.io/mori/)) now for data retrieval and manipulation
-  - Use [Farsee](https://www.npmjs.com/package/farseer) instead of [hearthstone-log-watcher](https://github.com/chevex-archived/hearthstone-log-watcher). This fixes a bug in the log parsing after patch 5.2
+  - Use [Farseer](https://www.npmjs.com/package/farseer) instead of [hearthstone-log-watcher](https://github.com/chevex-archived/hearthstone-log-watcher). This fixes a bug in the log parsing after patch 5.2
 
 Bugfixes:
 
