@@ -44,7 +44,7 @@
     "electron-rebuild": "1.2.1",
     "eslint": "3.5.0",
     "eslint-plugin-import": "^1.15.0",
-    "eslint-plugin-react": "6.2.1",
+    "eslint-plugin-react": "6.4.0",
     "memdown": "1.2.2",
     "mocha": "3.0.2",
     "mocha-junit-reporter": "1.12.0",
