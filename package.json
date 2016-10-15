@@ -67,7 +67,7 @@
     "debug": "2.2.0",
     "farseer": "^4.0.0",
     "flipit": "2.0.3",
-    "pouchdb": "6.0.5",
+    "pouchdb": "6.0.6",
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "react-redux": "4.4.5",
