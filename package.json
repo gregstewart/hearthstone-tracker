@@ -37,7 +37,7 @@
     "babel-eslint": "7.0.0",
     "babel-plugin-istanbul": "^2.0.1",
     "chai": "3.5.0",
-    "codeclimate-test-reporter": "0.3.3",
+    "codeclimate-test-reporter": "0.4.0",
     "devtron": "1.3.0",
     "electron-packager": "8.1.0",
     "electron-prebuilt": "1.4.0",
