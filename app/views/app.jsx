@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { summaryStats, winStreak, matchBreakdown } from '../scripts/validators';
 import React, { Component } from 'react';
-import Main from './main';
+import Main from './main.jsx';
 
 export class App extends Component {
   render () {

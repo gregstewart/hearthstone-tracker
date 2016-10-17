@@ -1,8 +1,8 @@
 import { matchBreakdown, summaryStats, winStreak } from '../scripts/validators';
 import React from 'react';
-import Stats from './stats';
-import WinStreaks from './win-streaks';
-import MatchBreakdown from './match-breakdown';
+import Stats from './stats.jsx';
+import WinStreaks from './win-streaks.jsx';
+import MatchBreakdown from './match-breakdown.jsx';
 
 const Main = ({
   matchBreakdown, summaryStats, winStreak

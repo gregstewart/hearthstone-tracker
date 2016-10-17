@@ -1,6 +1,6 @@
 import { gameStatsByClass as data } from '../scripts/validators';
 import React from 'react';
-import GameStatByClass from './game-stat-by-class';
+import GameStatByClass from './game-stat-by-class.jsx';
 
 const GameStatsByClass = ({
   data /* eslint no-unused-vars: 0 */

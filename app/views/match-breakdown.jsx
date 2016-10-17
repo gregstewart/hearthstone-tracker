@@ -1,6 +1,6 @@
 import { matchBreakdown as data } from '../scripts/validators';
 import React from 'react';
-import GameStatsByClass from './game-stats-by-class';
+import GameStatsByClass from './game-stats-by-class.jsx';
 
 const MatchBreakdown = ({
   data /* eslint no-unused-vars: 0 */
