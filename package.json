@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/gregstewart/hearthstone-tracker#readme",
   "devDependencies": {
-    "babel-cli": "6.16.0",
+    "babel-cli": "6.18.0",
     "babel-eslint": "7.0.0",
     "babel-plugin-istanbul": "^2.0.1",
     "chai": "3.5.0",
