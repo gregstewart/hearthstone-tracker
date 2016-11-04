@@ -4,17 +4,20 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+## [0.3.2] - (2016-11-04)
+
 Features:
 
   - New hero is being added: Tyrande Whisperwind (#161 @gregstewart)
   - Use `babel-plugin-istanbul` instead of isparta (#144 @gregstewart)
+  - Update to `electron 1.4.5`
   - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
 
 Bugfixes:
 
  - Fix linting issues (#168 @gregstewart)
-
-### Added
 
 ## [0.3.1] - (2016-08-03)
 
