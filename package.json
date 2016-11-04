@@ -4,12 +4,12 @@
   "description": "An electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
-    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone --platform=all --arch=all --version=1.4.4 --out=builds/",
-    "build:release:mac": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.icns --platform=darwin --arch=x64 --version=1.4.4 --out=builds/",
-    "build:release:win": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.ico --platform=win32 --arch=x64 --version=1.4.4 --out=builds/",
+    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone --platform=all --arch=all --version=1.4.5 --out=builds/",
+    "build:release:mac": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.icns --platform=darwin --arch=x64 --version=1.4.5 --out=builds/",
+    "build:release:win": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.ico --platform=win32 --arch=x64 --version=1.4.5 --out=builds/",
     "coverage": "./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/_mocha test",
     "lint": "eslint -c .eslintrc ./**/*.js ./**/*.jsx",
-    "rebuild:leveldb": "cd node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=1.4.4 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
+    "rebuild:leveldb": "cd node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=1.4.5 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "security:check": "node_modules/.bin/nsp check",
     "start": "electron .",
     "test": "NODE_ENV=test mocha"
