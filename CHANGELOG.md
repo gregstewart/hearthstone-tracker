@@ -12,6 +12,7 @@ Features:
 
   - New hero is being added: Tyrande Whisperwind (#161 @gregstewart)
   - Use `babel-plugin-istanbul` instead of isparta (#144 @gregstewart)
+  - All vulnerabilities address (#109 @gregstewart)
   - Update to `electron 1.4.5`
   - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
 
