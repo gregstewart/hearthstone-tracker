@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import {parsePlayerById} from '../../src/parse-friendly-player';
-import hasWon from '../../src/win-condition';
+import { parsePlayerById } from '../../src/parse-friendly-player';
+import { winCondition as hasWon } from '../../src/win-condition';
 
 describe('Win condition', () => {
   it('returns a win', () => {

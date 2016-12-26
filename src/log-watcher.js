@@ -2,7 +2,7 @@ import { mori } from 'datascript-mori';
 import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
 import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
   setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
-import hasWon from './win-condition';
+import { winCondition as hasWon } from './win-condition';
 
 const { assoc, conj, first, get, getIn, toClj, toJs } = mori;
 
