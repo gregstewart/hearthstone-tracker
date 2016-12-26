@@ -1,7 +1,7 @@
 
 import { expect } from 'chai';
 
-import keyValueChecker from '../../../src/datascript/key-value-checker';
+import { keyValueChecker } from '../../../src/datascript/key-value-checker';
 
 describe('Key Value checker', () => {
   it('fails when the item is undefined', () => {
@@ -29,8 +29,9 @@ describe('Key Value checker', () => {
   });
 
   it('passes when the item has all the right values', () => {
-    const expected = { doc:
-      { startTime: 123455,
+    const expected = {
+      doc: {
+        startTime: 123455,
         endTime: 123455,
         for: { name: 'foo', id: 1, class: 'wibble' },
         against: {name: 'foo', id: 1, class: 'wibble' },
