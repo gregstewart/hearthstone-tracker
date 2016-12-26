@@ -3,7 +3,7 @@ import { summaryStats } from './stats';
 import { winStreak } from './win-streak';
 import { matchBreakdown } from './match-breakdown';
 
-export default combineReducers({
+export const reducers = combineReducers({
   matchBreakdown,
   summaryStats,
   winStreak
