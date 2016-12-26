@@ -13,7 +13,7 @@ const fixStartTime = (dataStructure) => {
   return assoc(dataStructure, 'startTime', get(first(get(dataStructure, 'log')), 'id'));
 };
 
-export function dataLogger (logWatcher, db, winston) {
+export const dataLogger = (logWatcher, db, winston) => {
 
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
@@ -58,4 +58,4 @@ export function dataLogger (logWatcher, db, winston) {
   });
 
   return logWatcher;
-}
+};

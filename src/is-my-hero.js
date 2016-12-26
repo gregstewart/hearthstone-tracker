@@ -14,17 +14,17 @@ const isInHeroZone = (toZone) => {
   return toZone && toZone === HERO_ZONE;
 };
 
-export function isMyHero (card) {
+export const isMyHero = (card) => {
   return belongsToFriendlyTeam(card.toTeam) && isHeroCard(card);
-}
+};
 
-export function isHeroCard (card) {
+export const isHeroCard = (card) => {
   return hasHeroPattern(card.cardId) && isInHeroZone(card.toZone);
-}
+};
 
-export function extractPlayerDetails (card) {
+export const extractPlayerDetails = (card) => {
   return {
     team: card.toTeam,
     id: card.playerId
   };
-}
+};
