@@ -24,12 +24,10 @@ describe('Generate Summary', () => {
 
   it('calls send when the summary is generated', (done) => {
     const expected = {
-      summaryStats:
-        [ { id: 1, label: 'Wins', text: '5' },
+      summaryStats: [ { id: 1, label: 'Wins', text: '5' },
           { id: 2, label: 'Losses', text: '2' },
           { id: 3, label: 'Ratio', text: '71.42857142857143%' } ],
-      winStreak:
-        [ { result: 'win', as: 'Rogue', against: 'Shaman' },
+      winStreak: [ { result: 'win', as: 'Rogue', against: 'Shaman' },
           { result: 'win', as: 'Druid', against: 'Shaman' },
           { result: 'loss', as: 'Rogue', against: 'Warlock' },
           { result: 'win', as: 'Rogue', against: 'Warlock' },
@@ -66,12 +64,10 @@ describe('Generate Summary', () => {
   describe('DataScript', () => {
     it('calls send when the summary is generated', (done) => {
       const expected = {
-        summaryStats:
-          [ { id: 1, label: 'Wins', text: '5' },
+        summaryStats: [ { id: 1, label: 'Wins', text: '5' },
             { id: 2, label: 'Losses', text: '2' },
             { id: 3, label: 'Ratio', text: '71.42857142857143%' } ],
-        winStreak:
-          [ { result: 'win', as: 'Rogue', against: 'Shaman' },
+        winStreak: [ { result: 'win', as: 'Rogue', against: 'Shaman' },
             { result: 'win', as: 'Druid', against: 'Shaman' },
             { result: 'win', as: 'Priest', against: 'Shaman' },
             { result: 'loss', as: 'Rogue', against: 'Warlock' },
