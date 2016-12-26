@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as types from '../../../app/scripts/constants/action-types';
-import reducer from '../../../app/scripts/reducers/win-streak';
+import { winStreak as reducer } from '../../../app/scripts/reducers/win-streak';
 
 describe('Win streak reducer', () => {
   it('should return the initial state', () => {

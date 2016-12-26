@@ -1,6 +1,6 @@
 import * as types from '../constants/action-types';
 
-export default function (state = [], action) {
+export const matchBreakdown = (state = [], action) => {
   if (action.type === types.UPDATE_MATCH_BREAKDOWN) {
     return action.matchBreakdown.map(statii => {
       return statii;
@@ -8,4 +8,4 @@ export default function (state = [], action) {
   }
 
   return state;
-}
+};

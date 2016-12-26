@@ -1,6 +1,6 @@
 import * as types from '../constants/action-types';
 
-export default function (state = [], action) {
+export const summaryStats = (state = [], action) => {
   if (action.type === types.UPDATE_STATS) {
     return action.summaryStats.map((stat) => {
       return stat;
@@ -8,4 +8,4 @@ export default function (state = [], action) {
   }
 
   return state;
-}
+};
