@@ -1,6 +1,5 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
-import { expect } from 'chai';
 
 import Main from '../../../app/views/main.jsx';
 

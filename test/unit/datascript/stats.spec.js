@@ -1,6 +1,5 @@
 import { result } from '../../fixtures/database-result';
 import { mori, datascript } from 'datascript-mori';
-import { expect } from 'chai';
 const { core } = datascript;
 const { get, nth, toJs } = mori;
 

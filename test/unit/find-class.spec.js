@@ -1,5 +1,3 @@
-import { expect } from 'chai';
-
 import { findClass } from '../../src/find-class';
 
 describe('Find class', () => {

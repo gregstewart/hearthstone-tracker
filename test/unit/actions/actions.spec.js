@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { updateStats } from '../../../app/scripts/actions/stats';
 import { updateWinStreak } from '../../../app/scripts/actions/win-streak';
 import { updateMatchBreakdown } from '../../../app/scripts/actions/match-breakdown';

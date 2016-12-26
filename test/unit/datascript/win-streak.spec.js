@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
 

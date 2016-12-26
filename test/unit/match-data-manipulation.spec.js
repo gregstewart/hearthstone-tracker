@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { mori } from 'datascript-mori';
 import { setWinCondition, logMatchData, resetData, setMatchId,
   setForClass, setAgainstClass, setAgainstPlayerId, setForPlayerId,

@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { result } from '../fixtures/database-result';
 import { byWinCondition } from '../../src/ui-data/filters';
 import { mori } from 'datascript-mori';

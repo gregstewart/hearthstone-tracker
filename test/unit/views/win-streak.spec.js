@@ -1,6 +1,5 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
-import { expect } from 'chai';
 
 import WinStreak from '../../../app/views/win-streak.jsx';
 

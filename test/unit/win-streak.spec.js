@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { mori } from 'datascript-mori';
 import { result } from '../fixtures/database-result';
 import { winStreak } from '../../src/win-streak';

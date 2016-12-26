@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDetails } from '../../src/ui-data/stats';
 import { byWinCondition } from '../../src/ui-data/filters';
 import { result } from '../fixtures/database-result';

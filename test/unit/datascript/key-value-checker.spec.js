@@ -1,6 +1,3 @@
-
-import { expect } from 'chai';
-
 import { keyValueChecker } from '../../../src/datascript/key-value-checker';
 
 describe('Key Value checker', () => {
