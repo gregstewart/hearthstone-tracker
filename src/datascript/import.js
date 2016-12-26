@@ -4,9 +4,9 @@ const { core } = datascript;
 const { entities_to_clj } = helpers;
 const { filter, map } = mori;
 
-import keyValueChecker from './key-value-checker';
+import { keyValueChecker } from './key-value-checker';
 
-export default function (db, data) {
+export const importer = (db, data) => {
   const filtered = filter(keyValueChecker, data.rows);
   const entities = entities_to_clj(map((item) => {
     return {
@@ -24,4 +24,4 @@ export default function (db, data) {
   }, filtered));
 
   return core.db_with(db, entities);
-}
+};

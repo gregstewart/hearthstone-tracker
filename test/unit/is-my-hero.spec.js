@@ -1,5 +1,3 @@
-import { expect } from 'chai';
-
 import {isMyHero, isHeroCard, extractPlayerDetails} from '../../src/is-my-hero';
 
 describe('Find hero', () => {

@@ -1,9 +1,8 @@
 import { result } from '../../fixtures/database-result';
 import { mori, datascript, helpers } from 'datascript-mori';
-import { expect } from 'chai';
 import { fs } from 'fs';
 
-import importer from '../../../src/datascript/import';
+import { importer } from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
 
 const { hashMap, isSet, parse, set, vector, get } = mori;

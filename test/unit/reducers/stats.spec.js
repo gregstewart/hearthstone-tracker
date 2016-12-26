@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as types from '../../../app/scripts/constants/action-types';
-import reducer from '../../../app/scripts/reducers/stats';
+import { summaryStats as reducer } from '../../../app/scripts/reducers/stats';
 
 describe('Stats reducer', () => {
   it('should return the initial state', () => {
@@ -14,7 +14,7 @@ describe('Stats reducer', () => {
       {id: 2, label: "Losses", text: "0"},
       {id: 3, label: "Ratio", text: "100%"}
     ];
-    
+
     expect(reducer([], {
       type: types.UPDATE_STATS,
       summaryStats

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as types from '../../../app/scripts/constants/action-types';
-import reducer from '../../../app/scripts/reducers/match-breakdown';
+import { matchBreakdown as reducer } from '../../../app/scripts/reducers/match-breakdown';
 
 describe('Match Breakdown reducer', () => {
   it('should return the initial state', () => {

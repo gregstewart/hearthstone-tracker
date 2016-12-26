@@ -7,7 +7,7 @@ import { updateWinStreak } from './actions/win-streak';
 import { updateMatchBreakdown } from './actions/match-breakdown';
 import App from '../views/app.jsx';
 import React from 'react';
-import reducer from './reducers/index';
+import { reducers } from './reducers/index';
 
 const initialState = {
   matchBreakdown: [
@@ -22,7 +22,7 @@ const initialState = {
   winStreak: []
 };
 
-let store = createStore(reducer, initialState);
+let store = createStore(reducers, initialState);
 let rootElement = document.getElementById('main');
 const { Menu, app } = remote;
 

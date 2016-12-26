@@ -11,7 +11,7 @@ const extractData = (element) => {
     'against', getIn(element, getAgainst));
 };
 
-export default function (data) {
+export const winStreak = (data) => {
   return new Promise((resolve, reject) => {
     if(!data) {
       reject(new Error('Expected a result set'));
@@ -22,4 +22,4 @@ export default function (data) {
 
     resolve(map(extractData, take(5, reverse(data))));
   });
-}
+};

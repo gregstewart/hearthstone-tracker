@@ -1,6 +1,6 @@
 import * as types from '../constants/action-types';
 
-export default function (state = [], action) {
+export const winStreak = (state = [], action) => {
   if (action.type === types.UPDATE_WIN_STREAK) {
     return action.winStreak.map((streak) => {
       return streak;
@@ -8,4 +8,4 @@ export default function (state = [], action) {
   }
 
   return state;
-}
+};

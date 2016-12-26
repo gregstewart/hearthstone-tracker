@@ -2,7 +2,7 @@ import { mori } from 'datascript-mori';
 
 const { every, toClj, getIn, vector } = mori;
 
-export default function (item) {
+export const keyValueChecker = (item) => {
   const checkKeys = (doc) => {
     const element = toClj(doc);
     const keysToCheck = vector("startTime",
@@ -21,4 +21,4 @@ export default function (item) {
   };
 
   return typeof item !== 'undefined' && typeof item.doc !== 'undefined' && checkKeys(item.doc);
-}
+};

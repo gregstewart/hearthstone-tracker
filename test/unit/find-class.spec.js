@@ -1,6 +1,4 @@
-import { expect } from 'chai';
-
-import findClass from '../../src/find-class';
+import { findClass } from '../../src/find-class';
 
 describe('Find class', () => {
   it('returns the class for a given hero name', () => {

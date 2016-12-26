@@ -1,8 +1,7 @@
-import { expect } from 'chai';
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
 
-import importer from '../../../src/datascript/import';
+import { importer } from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
 
 import { result } from '../../fixtures/database-result';

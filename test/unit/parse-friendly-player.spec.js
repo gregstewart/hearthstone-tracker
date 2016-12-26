@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-import {parseFriendlyPlayer, parsePlayerById, extractPlayerName} from '../../src/parse-friendly-player';
+import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from '../../src/parse-friendly-player';
 
 describe('Parse player data', () => {
   describe('Friendly Player', () => {

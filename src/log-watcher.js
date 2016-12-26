@@ -2,7 +2,7 @@ import { mori } from 'datascript-mori';
 import { parseFriendlyPlayer, parsePlayerById, extractPlayerName } from './parse-friendly-player';
 import { resetData, setWinCondition, setMatchId, setForPlayerName, setAgainstPlayerName,
   setStartTime, setEndTime, setHeroValues } from './match-data-manipulation';
-import hasWon from './win-condition';
+import { winCondition as hasWon } from './win-condition';
 
 const { assoc, conj, first, get, getIn, toClj, toJs } = mori;
 
@@ -13,7 +13,7 @@ const fixStartTime = (dataStructure) => {
   return assoc(dataStructure, 'startTime', get(first(get(dataStructure, 'log')), 'id'));
 };
 
-export function dataLogger (logWatcher, db, winston) {
+export const dataLogger = (logWatcher, db, winston) => {
 
   logWatcher.on('game-start', () => {
     dataStructure = setMatchId(dataStructure);
@@ -58,4 +58,4 @@ export function dataLogger (logWatcher, db, winston) {
   });
 
   return logWatcher;
-}
+};
