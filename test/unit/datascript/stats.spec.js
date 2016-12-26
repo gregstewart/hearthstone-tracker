@@ -1,6 +1,8 @@
 import fs from 'fs';
+import sinon from 'sinon';
 
-// import { result } from '../../fixtures/database-result';
+import { startOfDay, endOfDay, startOfWeek, subMonths,
+  endOfWeek, startOfMonth, endOfMonth, format } from 'date-fns';
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
 const { get, nth, toJs } = mori;
@@ -10,7 +12,7 @@ import { scheme } from '../../../src/datascript/scheme';
 
 import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDetails } from '../../../src/datascript/stats';
 
-describe.only('UI Data - Datascript', () => {
+describe('UI Data - Datascript', () => {
   let db, dbWithData;
   beforeEach(() => {
     const result = JSON.parse(fs.readFileSync('./test/fixtures/data.json', 'utf-8'));
@@ -124,6 +126,115 @@ describe.only('UI Data - Datascript', () => {
           expect(get(nth(stats, 1), 'percentage')).to.equal('10.071942446043165%');
         });
       });
+    });
+  });
+
+  describe('today', () => {
+    let clock, startDate, endDate;
+    beforeEach(() => {
+      clock = sinon.useFakeTimers(1462397498157);
+      const now = new Date();
+      startDate = format(startOfDay(now), 'x');
+      endDate = format(endOfDay(now), 'x');
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('returns win loss summary as promise', (done) => {
+      const expected = [ { id: 1, label: 'Wins', text: '2' },
+       { id: 2, label: 'Losses', text: '1' },
+       { id: 3, label: 'Ratio', text: '66.66666666666666%' } ];
+
+      summaryStats(dbWithData, startDate, endDate).then((stats) => {
+        expect(expected).to.deep.equal(stats);
+        done();
+      }).catch((error) => {
+        expect(error).to.be.undefined;
+        done();
+      });
+    });
+
+    it('returns win loss summary as a mori hashmap', () => {
+      let stats = pluckStats(dbWithData, startDate, endDate);
+
+      expect(stats.wins).to.equal(2);
+      expect(stats.losses).to.equal(1);
+      expect(stats.ratio).to.equal('66.66666666666666%');
+    });
+  });
+
+  describe('this week', () => {
+    let clock, startDate, endDate;
+    beforeEach(() => {
+      clock = sinon.useFakeTimers(1462397498157);
+      const now = new Date();
+      startDate = format(startOfWeek(now), 'x');
+      endDate = format(endOfWeek(now), 'x');
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('returns win loss summary as promise', (done) => {
+      const expected = [ { id: 1, label: 'Wins', text: '8' },
+       { id: 2, label: 'Losses', text: '9' },
+       { id: 3, label: 'Ratio', text: '47.05882352941176%' } ];
+
+      summaryStats(dbWithData, startDate, endDate).then((stats) => {
+        expect(expected).to.deep.equal(stats);
+        done();
+      }).catch((error) => {
+        expect(error).to.be.undefined;
+        done();
+      });
+    });
+
+    it('returns win loss summary as a mori hashmap', () => {
+      let stats = pluckStats(dbWithData, startDate, endDate);
+
+      expect(stats.wins).to.equal(8);
+      expect(stats.losses).to.equal(9);
+      expect(stats.ratio).to.equal('47.05882352941176%');
+    });
+  });
+
+  describe('this month', () => {
+    let clock, startDate, endDate;
+    beforeEach(() => {
+      clock = sinon.useFakeTimers(1462397498157);
+      const now = new Date();
+      // take a month off as the data is the same as for a week
+      startDate = format(subMonths(startOfMonth(now), 1), 'x');
+      endDate = format(subMonths(endOfMonth(now),1 ), 'x');
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('returns win loss summary as promise', (done) => {
+      const expected = [ { id: 1, label: 'Wins', text: '68' },
+       { id: 2, label: 'Losses', text: '63' },
+       { id: 3, label: 'Ratio', text: '51.908396946564885%' } ];
+
+      summaryStats(dbWithData, startDate, endDate).then((stats) => {
+        expect(expected).to.deep.equal(stats);
+        done();
+      }).catch((error) => {
+        expect(error).to.be.undefined;
+        done();
+      });
+    });
+
+    it('returns win loss summary as a mori hashmap', () => {
+      let stats = pluckStats(dbWithData, startDate, endDate);
+
+      expect(stats.wins).to.equal(68);
+      expect(stats.losses).to.equal(63);
+      expect(stats.ratio).to.equal('51.908396946564885%');
     });
   });
 });

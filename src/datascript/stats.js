@@ -1,5 +1,6 @@
 import { formattedPercentage, transformSummaryStats } from '../ui-data/transformers';
 import { highestToLowest } from '../ui-data/sort';
+import { format } from 'date-fns';
 import { datascript, mori } from 'datascript-mori';
 const { core } = datascript;
 const { first, hashMap, last, map, parse, repeat, sort, vector } = mori;
@@ -10,13 +11,20 @@ const checkForDb = (db, reject) => {
   }
 };
 
-export function pluckStats (db) {
+export function pluckStats (db, ...dateRange) {
   const query = `[:find (count ?e) .
-                  :in $ ?a
-                  :where [?e ":hasWon" ?a]]`;
+                  :in $ ?a ?b ?c
+                  :where [?e ":hasWon" ?a]
+                         [?e ":time/start" ?id]
+                         [(> ?id ?b)]
+                         [(< ?id ?c)]]`;
 
-  const wins = core.q(parse(query), db, true);
-  const losses = core.q(parse(query), db, false);
+  const startDate = dateRange[0] ? dateRange[0] : format(new Date(+0), 'x');
+  const endDate = dateRange[1] ? dateRange[1] : format(new Date(), 'x');
+
+  // q, db, a, b, c
+  const wins = core.q(parse(query), db, true, startDate, endDate);
+  const losses = core.q(parse(query), db, false, startDate, endDate);
   const ratio = formattedPercentage(wins/(wins+losses));
 
   return {
@@ -25,11 +33,10 @@ export function pluckStats (db) {
 }
 
 export function summaryStats (db, ...dateRange) {
-
   let promise = new Promise((resolve, reject) => {
     checkForDb(db, reject);
 
-    resolve(transformSummaryStats(pluckStats(db)));
+    resolve(transformSummaryStats(pluckStats(db, ...dateRange)));
   });
 
   return promise;
