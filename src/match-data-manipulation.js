@@ -1,7 +1,7 @@
 import { mori } from 'datascript-mori';
 import { dataStructure, matchLog } from './data-structures';
 import { isMyHero, isHeroCard } from './is-my-hero';
-import findClass from './find-class';
+import { findClass } from './find-class';
 
 const { assoc, assocIn } = mori;
 

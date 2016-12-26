@@ -23,6 +23,6 @@ const CLASSES = {
   "Valeera Sanguinar": "Rogue"
 };
 
-export default function (name) {
+export const findClass = (name) => {
   return CLASSES[name];
-}
+};
