@@ -1,11 +1,10 @@
 import { summaryStats, gameBreakdownDetails } from './stats';
-import { summaryStats as summaryStatsDS } from '../datascript/stats';
-import { gameBreakdownDetails as gameBreakdownDetailsDS } from '../datascript/stats';
+import { summaryStats as summaryStatsDS, gameBreakdownDetails as gameBreakdownDetailsDS } from '../datascript/stats';
 import { winStreak as winStreakDS } from '../datascript/win-streak';
 import winston from 'winston';
 import winStreak from '../win-streak';
 import { mori, datascript } from 'datascript-mori';
-import importer from '../datascript/import';
+import { importer } from '../datascript/import';
 import { scheme } from '../datascript/scheme';
 
 const { map, toClj, toJs, updateIn, vector } = mori;

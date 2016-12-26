@@ -4,7 +4,7 @@ import { expect } from 'chai';
 const { core } = datascript;
 const { get, nth, toJs } = mori;
 
-import importer from '../../../src/datascript/import';
+import { importer } from '../../../src/datascript/import';
 import { scheme } from '../../../src/datascript/scheme';
 
 import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDetails } from '../../../src/datascript/stats';

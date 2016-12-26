@@ -6,7 +6,7 @@ const { filter, map } = mori;
 
 import keyValueChecker from './key-value-checker';
 
-export default function (db, data) {
+export const importer = (db, data) => {
   const filtered = filter(keyValueChecker, data.rows);
   const entities = entities_to_clj(map((item) => {
     return {
