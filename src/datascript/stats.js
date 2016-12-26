@@ -24,7 +24,7 @@ export function pluckStats (db) {
   };
 }
 
-export function summaryStats (db) {
+export function summaryStats (db, ...dateRange) {
 
   let promise = new Promise((resolve, reject) => {
     checkForDb(db, reject);
