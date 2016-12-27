@@ -7,6 +7,9 @@ This project tried to adheres to [Semantic Versioning](http://semver.org/).
 Features:
 
   - Show basic stats for today/this week/this month and for all time
+  - Compare to last season (#23 @gregstewart)
+  - Update to `electron 1.4.13`
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
 
 ### Added
 
