@@ -1,4 +1,4 @@
-import { summaryStats as data } from '../scripts/validators';
+import { summaryStatBlock as data } from '../scripts/validators';
 import React from 'react';
 import Stat from './stat.jsx';
 

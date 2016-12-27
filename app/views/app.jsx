@@ -18,6 +18,7 @@ function mapStateToProps (state) {
     summaryStats: state.summaryStats,
     winStreak: state.winStreak
   };
+  console.log(props)
   return props;
 }
 

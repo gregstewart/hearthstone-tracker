@@ -14,11 +14,28 @@ const initialState = {
     { status: 'wins', outcomes: [] },
     { status: 'losses', outcomes: [] }
   ],
-  summaryStats: [
-    {id: 1, label: "Wins", text: "0"},
-    {id: 2, label: "Losses", text: "0"},
-    {id: 3, label: "Ratio", text: "0%"}
-  ],
+  summaryStats: {
+    today: [
+      {id: 1, label: "Wins", text: "0"},
+      {id: 2, label: "Losses", text: "0"},
+      {id: 3, label: "Ratio", text: "0%"}
+    ],
+    thisWeek: [
+      {id: 1, label: "Wins", text: "0"},
+      {id: 2, label: "Losses", text: "0"},
+      {id: 3, label: "Ratio", text: "0%"}
+    ],
+    thisMonth: [
+      {id: 1, label: "Wins", text: "0"},
+      {id: 2, label: "Losses", text: "0"},
+      {id: 3, label: "Ratio", text: "0%"}
+    ],
+    allTime: [
+      {id: 1, label: "Wins", text: "0"},
+      {id: 2, label: "Losses", text: "0"},
+      {id: 3, label: "Ratio", text: "0%"}
+    ]
+  },
   winStreak: []
 };
 
