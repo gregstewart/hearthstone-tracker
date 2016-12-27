@@ -7,7 +7,6 @@ import MatchBreakdown from './match-breakdown.jsx';
 const Main = ({
   matchBreakdown, summaryStats, winStreak
 }) => (
-
   <div>
     <h1>Stats</h1>
     <div>
