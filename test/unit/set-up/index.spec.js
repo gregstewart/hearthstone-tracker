@@ -3,12 +3,7 @@ import { setUpDatabase, watchForDBChanges, fetchData } from '../../../src/set-up
 import { setUpRemoteDatabase, syncData } from '../../../src/set-up/remote-db';
 import { setUpLogWatcher, startLogWatcher } from '../../../src/set-up/log-watcher';
 import { result } from '../../fixtures/database-result';
-import chai from 'chai';
-import sinon from 'sinon';
 import sinonAsPromised from 'sinon-as-promised';
-
-chai.use(require('sinon-chai'));
-const expect = chai.expect;
 
 describe('Set up', () => {
   let sandbox;

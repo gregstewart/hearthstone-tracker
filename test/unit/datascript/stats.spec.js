@@ -1,5 +1,4 @@
 import fs from 'fs';
-import sinon from 'sinon';
 
 import { startOfDay, endOfDay, startOfWeek, subMonths, addDays,
   endOfWeek, startOfMonth, endOfMonth, format } from 'date-fns';
