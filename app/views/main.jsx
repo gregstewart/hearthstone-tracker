@@ -11,7 +11,7 @@ const divStyle = {
 
 const clearStyle = {
   clear: 'both'
-}
+};
 
 const Main = ({
   matchBreakdown, summaryStats, winStreak
