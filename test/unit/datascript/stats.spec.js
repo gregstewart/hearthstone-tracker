@@ -1,7 +1,7 @@
 import fs from 'fs';
 import sinon from 'sinon';
 
-import { startOfDay, endOfDay, startOfWeek, subMonths,
+import { startOfDay, endOfDay, startOfWeek, subMonths, addDays,
   endOfWeek, startOfMonth, endOfMonth, format } from 'date-fns';
 import { mori, datascript } from 'datascript-mori';
 const { core } = datascript;
@@ -162,6 +162,17 @@ describe('UI Data - Datascript', () => {
       expect(stats.wins).to.equal(2);
       expect(stats.losses).to.equal(1);
       expect(stats.ratio).to.equal('66.66666666666666%');
+    });
+
+    it('returns a valid result when no data is found', () => {
+      const now = new Date();
+      const startDate = format(addDays(startOfDay(now), 1), 'x');
+      const endDate = format(addDays(endOfDay(now), 1), 'x');
+      let stats = pluckStats(dbWithData, startDate, endDate);
+
+      expect(stats.wins).to.equal(0);
+      expect(stats.losses).to.equal(0);
+      expect(stats.ratio).to.equal('0%');
     });
   });
 
