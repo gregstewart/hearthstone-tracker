@@ -14,7 +14,7 @@ import { pluckStats, summaryStats, aggregateDetails, aggregate, gameBreakdownDet
 
 describe('UI Data - Datascript', () => {
   let db, dbWithData;
-  beforeEach(() => {
+  before(() => {
     const result = JSON.parse(fs.readFileSync('./test/fixtures/data.json', 'utf-8'));
     db = core.empty_db(scheme);
     dbWithData = importer(db, result);
