@@ -27,8 +27,12 @@ const Main = ({
       <Stats data={summaryStats.thisWeek} />
     </div>
     <div style={divStyle}>
-      <h2>This month</h2>
+      <h2>Current season</h2>
       <Stats data={summaryStats.thisMonth} />
+    </div>
+    <div style={divStyle}>
+      <h2>Last season</h2>
+      <Stats data={summaryStats.lastMonth} />
     </div>
     <div style={divStyle}>
       <h2>All time</h2>

@@ -49,22 +49,27 @@ describe('Main view component', () => {
 
     expect(item.props.children[3].type).to.equal('div');
     expect(item.props.children[3].props.children[0].type).to.equal('h2');
-    expect(item.props.children[3].props.children[0].props.children).to.equal('This month');
+    expect(item.props.children[3].props.children[0].props.children).to.equal('Current season');
     expect(item.props.children[3].props.children[1].props.data).to.deep.equal(summaryStatData.thisMonth);
 
     expect(item.props.children[4].type).to.equal('div');
     expect(item.props.children[4].props.children[0].type).to.equal('h2');
-    expect(item.props.children[4].props.children[0].props.children).to.equal('All time');
-    expect(item.props.children[4].props.children[1].props.data).to.deep.equal(summaryStatData.allTime);
+    expect(item.props.children[4].props.children[0].props.children).to.equal('Last season');
+    expect(item.props.children[4].props.children[1].props.data).to.deep.equal(summaryStatData.lastMonth);
 
-    expect(item.props.children[5].type).to.equal('h1');
-    expect(item.props.children[5].props.children).to.equal('Win Streak');
+    expect(item.props.children[5].type).to.equal('div');
+    expect(item.props.children[5].props.children[0].type).to.equal('h2');
+    expect(item.props.children[5].props.children[0].props.children).to.equal('All time');
+    expect(item.props.children[5].props.children[1].props.data).to.deep.equal(summaryStatData.allTime);
 
-    expect(item.props.children[6].props.data).to.deep.equal(winStreakData);
+    expect(item.props.children[6].type).to.equal('h1');
+    expect(item.props.children[6].props.children).to.equal('Win Streak');
 
-    expect(item.props.children[7].type).to.equal('h1');
-    expect(item.props.children[7].props.children).to.equal('Breakdown of matches');
+    expect(item.props.children[7].props.data).to.deep.equal(winStreakData);
 
-    expect(item.props.children[8].props.data).to.deep.equal(matchBreakdownData);
+    expect(item.props.children[8].type).to.equal('h1');
+    expect(item.props.children[8].props.children).to.equal('Breakdown of matches');
+
+    expect(item.props.children[9].props.data).to.deep.equal(matchBreakdownData);
   });
 });

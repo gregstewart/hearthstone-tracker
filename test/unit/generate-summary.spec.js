@@ -23,6 +23,7 @@ describe('Generate Summary', () => {
           today: [{ id: 1, label: "Wins", text: "0" }, { id: 2, label: "Losses", text: "0" }, { id: 3, label: "Ratio", text: "0%" }],
           thisWeek: [{ id: 1, label: "Wins", text: "0" }, { id: 2, label: "Losses", text: "0" }, { id: 3, label: "Ratio", text: "0%" }],
           thisMonth: [{ id: 1, label: "Wins", text: "0" }, { id: 2, label: "Losses", text: "0" }, { id: 3, label: "Ratio", text: "0%" }],
+          lastMonth: [{ id: 1, label: "Wins", text: "0" }, { id: 2, label: "Losses", text: "0" }, { id: 3, label: "Ratio", text: "0%" }],
           allTime: [ { id: 1, label: 'Wins', text: '5' },
               { id: 2, label: 'Losses', text: '2' },
               { id: 3, label: 'Ratio', text: '71.42857142857143%' } ]
@@ -56,6 +57,7 @@ describe('Generate Summary', () => {
           done();
         })
         .catch((err) => {
+          console.log(err);
           expect(err).to.be.undefined;
           done();
         });

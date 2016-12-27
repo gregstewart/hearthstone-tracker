@@ -30,6 +30,11 @@ const initialState = {
       {id: 2, label: "Losses", text: "0"},
       {id: 3, label: "Ratio", text: "0%"}
     ],
+    lastMonth: [
+      {id: 1, label: "Wins", text: "0"},
+      {id: 2, label: "Losses", text: "0"},
+      {id: 3, label: "Ratio", text: "0%"}
+    ],
     allTime: [
       {id: 1, label: "Wins", text: "0"},
       {id: 2, label: "Losses", text: "0"},
