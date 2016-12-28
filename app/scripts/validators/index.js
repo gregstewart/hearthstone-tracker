@@ -13,9 +13,8 @@ export const gameStatsByClass = PropTypes.shape({
 
 export const matchBreakdown = PropTypes.arrayOf(gameStatsByClass);
 
-export const panelItem = PropTypes.shape({
-  data: summaryStatBlock,
-  label: PropTypes.string
+export const statsPanel = PropTypes.shape({
+  data: summaryStats
 });
 
 export const summaryStatBlock = PropTypes.arrayOf(PropTypes.shape({

@@ -1,7 +1,7 @@
 import { matchBreakdown, summaryStats, winStreak } from '../scripts/validators';
 import React from 'react';
 import WinStreaks from './win-streaks.jsx';
-import {StatsPanel} from './stats-panel.jsx';
+import StatsPanel from './stats-panel.jsx';
 import MatchBreakdown from './match-breakdown.jsx';
 
 const clearStyle = {

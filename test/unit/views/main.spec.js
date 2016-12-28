@@ -2,7 +2,7 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
 import Main from '../../../app/views/main.jsx';
-import {StatsPanel} from '../../../app/views/stats-panel.jsx';
+import StatsPanel from '../../../app/views/stats-panel.jsx';
 
 describe('Main view component', () => {
   it('renders the component with the correct props', () => {

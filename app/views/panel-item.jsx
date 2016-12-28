@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Stats from './stats.jsx';
-import { panelItem } from '../scripts/validators';
+import { summaryStatBlock as data } from '../scripts/validators';
 
 const divStyle = {
   float: 'left',
   margin: '0 20px 0 0'
 };
 
-export const PanelItem = ({data, label}) => {
+const PanelItem = ({data, label}) => {
   return (
     <div style={divStyle}>
     <h2>{label}</h2>
@@ -15,4 +15,9 @@ export const PanelItem = ({data, label}) => {
   </div>);
 };
 
-PanelItem.propTypes = { panelItem };
+PanelItem.propTypes = {
+  data: data,
+  label: PropTypes.string
+};
+
+export default PanelItem;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
-import {StatsPanel} from '../../../app/views/stats-panel.jsx';
-import {PanelItem} from '../../../app/views/panel-item.jsx';
+import StatsPanel from '../../../app/views/stats-panel.jsx';
+import PanelItem from '../../../app/views/panel-item.jsx';
 import Stats from '../../../app/views/stats.jsx';
 
 describe('Stats panel view component', () => {

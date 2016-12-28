@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
-import {PanelItem} from '../../../app/views/panel-item.jsx';
+import PanelItem from '../../../app/views/panel-item.jsx';
 import Stats from '../../../app/views/stats.jsx';
 
 describe('Panel item view component', () => {

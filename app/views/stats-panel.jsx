@@ -1,5 +1,6 @@
 import React from 'react';
-import {PanelItem} from './panel-item.jsx';
+import PanelItem from './panel-item.jsx';
+import {statsPanel as data} from '../scripts/validators';
 
 const getLabel = (summaryStat) => {
   let label;
@@ -27,7 +28,7 @@ const getLabel = (summaryStat) => {
   return label;
 };
 
-export const StatsPanel = ({data}) => {
+const StatsPanel = ({data}) => {
   let panels = [];
   for (let key in data) {
     panels.push(<PanelItem data={data[key]} key={key.toString()} label={getLabel(key)} />);
@@ -38,3 +39,9 @@ export const StatsPanel = ({data}) => {
     </div>
   );
 };
+
+StatsPanel.propTypes = {
+  data
+};
+
+export default StatsPanel;
