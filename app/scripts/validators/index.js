@@ -13,12 +13,19 @@ export const gameStatsByClass = PropTypes.shape({
 
 export const matchBreakdown = PropTypes.arrayOf(gameStatsByClass);
 
-export const summaryStats = PropTypes.arrayOf(PropTypes.shape({
+export const summaryStatBlock = PropTypes.arrayOf(PropTypes.shape({
   id: PropTypes.number.isRequired,
   label: PropTypes.string,
   text: PropTypes.string,
   map: PropTypes.func
 }));
+
+export const summaryStats = PropTypes.shape({
+  today: summaryStatBlock,
+  thisWeek: summaryStatBlock,
+  thisMonth: summaryStatBlock,
+  allTime: summaryStatBlock
+});
 
 export const winStreak =  PropTypes.arrayOf(PropTypes.shape({
   label: PropTypes.string,

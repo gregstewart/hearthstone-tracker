@@ -9,11 +9,11 @@ describe('Stats reducer', () => {
   });
 
   it('handles updating stats', () => {
-    const summaryStats = [
+    const summaryStats = { allTime: [
       {id: 1, label: "Wins", text: "1"},
       {id: 2, label: "Losses", text: "0"},
       {id: 3, label: "Ratio", text: "100%"}
-    ];
+    ]};
 
     expect(reducer([], {
       type: types.UPDATE_STATS,

@@ -6,7 +6,7 @@ import * as types from '../../../app/scripts/constants/action-types';
 describe('Actions', () => {
   describe('stats', () => {
     it('creates an action to update the stats', () => {
-      const summaryStats = [{}, {}, {}];
+      const summaryStats = {allTime: [{}, {}, {}]};
       const expectedAction = {
         type: types.UPDATE_STATS,
         summaryStats

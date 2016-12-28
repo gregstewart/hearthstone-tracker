@@ -1,8 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
-This project adheres to [Semantic Versioning](http://semver.org/).
+This project tried to adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+Features:
+
+  - Show basic stats for today/this week/this month and for all time
+  - Compare to last season (#23 @gregstewart)
+  - Update to `electron 1.4.13`
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
 
 ### Added
 

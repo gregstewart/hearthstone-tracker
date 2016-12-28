@@ -2,7 +2,6 @@ import { dataLogger } from '../../src/log-watcher';
 import { goodParse, missingStartEventParse } from '../fixtures/data-parses';
 import LogWatcher from 'farseer';
 import PouchDB from 'pouchdb';
-import sinon from 'sinon';
 
 describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData, db;
