@@ -8,6 +8,11 @@ import { updateMatchBreakdown } from './actions/match-breakdown';
 import App from '../views/app.jsx';
 import React from 'react';
 import { reducers } from './reducers/index';
+const defaultStats = [
+  {id: 1, label: "Wins", text: "0"},
+  {id: 2, label: "Losses", text: "0"},
+  {id: 3, label: "Ratio", text: "0%"}
+];
 
 const initialState = {
   matchBreakdown: [
@@ -15,31 +20,11 @@ const initialState = {
     { status: 'losses', outcomes: [] }
   ],
   summaryStats: {
-    today: [
-      {id: 1, label: "Wins", text: "0"},
-      {id: 2, label: "Losses", text: "0"},
-      {id: 3, label: "Ratio", text: "0%"}
-    ],
-    thisWeek: [
-      {id: 1, label: "Wins", text: "0"},
-      {id: 2, label: "Losses", text: "0"},
-      {id: 3, label: "Ratio", text: "0%"}
-    ],
-    thisMonth: [
-      {id: 1, label: "Wins", text: "0"},
-      {id: 2, label: "Losses", text: "0"},
-      {id: 3, label: "Ratio", text: "0%"}
-    ],
-    lastMonth: [
-      {id: 1, label: "Wins", text: "0"},
-      {id: 2, label: "Losses", text: "0"},
-      {id: 3, label: "Ratio", text: "0%"}
-    ],
-    allTime: [
-      {id: 1, label: "Wins", text: "0"},
-      {id: 2, label: "Losses", text: "0"},
-      {id: 3, label: "Ratio", text: "0%"}
-    ]
+    today: defaultStats,
+    thisWeek: defaultStats,
+    thisMonth: defaultStats,
+    lastMonth: defaultStats,
+    allTime: defaultStats
   },
   winStreak: []
 };
