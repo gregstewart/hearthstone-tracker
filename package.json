@@ -1,6 +1,6 @@
 {
   "name": "hearthstone-tracker",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "An electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
