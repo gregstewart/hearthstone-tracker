@@ -13,6 +13,15 @@ Features:
 
 ### Added
 
+## [0.4.1] - (2016-11-04)
+
+Features:
+
+  - Show basic stats for today/this week/this month and for all time
+  - Compare to last season (#23 @gregstewart)
+  - Update to `electron 1.4.13`
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
+
 ## [0.4.0] - (2016-11-04)
 
 Features:
