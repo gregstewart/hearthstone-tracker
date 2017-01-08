@@ -21,6 +21,20 @@ After a shortish time you should see something like the below the firs time you 
 
 Launch `Hearthstone` and play a few games, the UI *should* update after each completed game.
 
+If you see an error similar to the below:
+
+```
+> hearthstone-tracker@0.4.0 start /Users/gregstewart/Projects/GitHub/hearthstone-tracker
+> electron .
+
+info: undefined undefined
+error:  Error: Module version mismatch. Expected 50, got 48. This generally implies that leveldown was built with a different version of node than that which is running now.  You may try fully removing and reinstalling PouchDB or leveldown to resolve.
+```
+
+Then run:
+
+`npm run rebuild:leveldb && npm start`
+
 To run the tests:
 
 `npm test`
