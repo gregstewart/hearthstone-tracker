@@ -4,13 +4,6 @@ This project tried to adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-Features:
-
-  - Show basic stats for today/this week/this month and for all time
-  - Compare to last season (#23 @gregstewart)
-  - Update to `electron 1.4.13`
-  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
-
 ### Added
 
 ## [0.4.1] - (2017-01-08)
@@ -20,7 +13,7 @@ Features:
   - Show basic stats for today/this week/this month and for all time
   - Compare to last season (#23 @gregstewart)
   - Update to `electron 1.4.13`
-  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/)
 
 ## [0.4.0] - (2016-11-04)
 
@@ -30,7 +23,7 @@ Features:
   - Use `babel-plugin-istanbul` instead of isparta (#144 @gregstewart)
   - All vulnerabilities address (#109 @gregstewart)
   - Update to `electron 1.4.5`
-  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/))
+  - Many packages upgraded thanks to [Greenkeeper](https://greenkeeper.io/)
 
 Bugfixes:
 
