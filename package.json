@@ -65,7 +65,7 @@
     "create-file": "1.0.1",
     "datascript-mori": "0.16.0",
     "date-fns": "1.27.2",
-    "debug": "2.6.0",
+    "debug": "2.6.2",
     "farseer": "4.0.0",
     "flipit": "2.0.3",
     "pouchdb": "6.1.2",
