@@ -81,6 +81,6 @@
     "instrument": false
   },
   "engines": {
-    "node": "6.5.0"
+    "node": "7.4.0"
   }
 }
