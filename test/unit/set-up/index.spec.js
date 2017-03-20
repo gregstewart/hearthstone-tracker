@@ -3,7 +3,6 @@ import { setUpDatabase, watchForDBChanges, fetchData } from '../../../src/set-up
 import { setUpRemoteDatabase, syncData } from '../../../src/set-up/remote-db';
 import { setUpLogWatcher, startLogWatcher } from '../../../src/set-up/log-watcher';
 import { result } from '../../fixtures/database-result';
-import sinonAsPromised from 'sinon-as-promised';
 
 describe('Set up', () => {
   let sandbox;
