@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-addons-test-utils';
+import { createRenderer } from 'react-test-renderer/shallow';
 
 import PanelItem from '../../../app/views/panel-item.jsx';
 import Stats from '../../../app/views/stats.jsx';
