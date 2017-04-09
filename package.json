@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "babel-preset-es2015": "6.24.0",
-    "babel-preset-react": "6.23.0",
+    "babel-preset-react": "6.24.1",
     "babel-register": "6.24.0",
     "bluebird": "3.5.0",
     "create-file": "1.0.1",
