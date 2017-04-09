@@ -11,6 +11,7 @@ const CLASSES = {
   "King Mukla": "Training",
   "Lady Liadrin": "Paladin",
   "Lorewalker Cho": "Training",
+  "Maiev Shadowsong": "Rogue",
   "Magni Bronzebeard": "Warrior",
   "Malfurion Stormrage": "Druid",
   "Medivh": "Mage",

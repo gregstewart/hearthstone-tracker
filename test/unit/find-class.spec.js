@@ -17,5 +17,6 @@ describe('Find class', () => {
     expect(findClass('Tyrande Whisperwind')).to.equal('Priest');
     expect(findClass('Gul\'dan')).to.equal('Warlock');
     expect(findClass('Malfurion Stormrage')).to.equal('Druid');
+    expect(findClass('Maiev Shadowsong')).to.equal('Rogue');
   });
 });
