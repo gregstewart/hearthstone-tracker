@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 export const gameStatsByClassElement = PropTypes.shape({
   class: PropTypes.string,
