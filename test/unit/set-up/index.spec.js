@@ -48,9 +48,6 @@ describe('Set up', () => {
     let db;
 
     beforeEach(() => {
-      db = {
-        allDocs: sandbox.stub()
-      };
       changes = sandbox.stub().returns({on: sandbox.stub().returns({on: sandbox.stub()})});
       PouchDB = sandbox.stub().returns({
         changes: changes,
