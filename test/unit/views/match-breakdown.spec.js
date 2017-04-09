@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-addons-test-utils';
+import { createRenderer } from 'react-test-renderer/shallow';
 import { expect } from 'chai';
 
 import MatchBreakdown from '../../../app/views/match-breakdown';
