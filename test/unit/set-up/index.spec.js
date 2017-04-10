@@ -48,14 +48,11 @@ describe('Set up', () => {
     let db;
 
     beforeEach(() => {
-      db = {
-        allDocs: sandbox.stub()
-      };
       changes = sandbox.stub().returns({on: sandbox.stub().returns({on: sandbox.stub()})});
       PouchDB = sandbox.stub().returns({
-        changes: changes
+        changes: changes,
+        allDocs: sandbox.stub().resolves(result)
       });
-      db.allDocs.resolves(result);
     });
 
     it('resolves the promise with a database object', (done) => {
@@ -82,9 +79,14 @@ describe('Set up', () => {
 
     it('fetches data from the storage when invoked', () => {
       let db = new PouchDB();
-      fetchData(db).then((data) => {
-        expect(data).to.deep.equal(result);
-      });
+      fetchData(db)
+        .then((data) => {
+          expect(data).to.deep.equal(result);
+        })
+        .catch((error) => {
+          expect(error).to.be.undefined;
+          done();
+        });
     });
   });
 
