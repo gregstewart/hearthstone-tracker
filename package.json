@@ -72,7 +72,7 @@
     "pouchdb": "6.1.2",
     "prop-types": "^15.5.4",
     "react": "15.5.3",
-    "react-dom": "15.5.3",
+    "react-dom": "15.5.4",
     "react-redux": "5.0.4",
     "redux": "3.6.0",
     "winston": "2.3.1",
