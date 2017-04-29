@@ -3,10 +3,10 @@
 [![Test Coverage](https://codeclimate.com/github/gregstewart/hearthstone-tracker/badges/coverage.svg)](https://codeclimate.com/github/gregstewart/hearthstone-tracker/coverage)
 [![Issue Count](https://codeclimate.com/github/gregstewart/hearthstone-tracker/badges/issue_count.svg)](https://codeclimate.com/github/gregstewart/hearthstone-tracker)
 [![An electron based Hearthstone tracker](https://img.shields.io/npm/v/hearthstone-tracker.svg)](https://www.npmjs.com/package/hearthstone-tracker)
+[![Greenkeeper badge](https://badges.greenkeeper.io/gregstewart/hearthstone-tracker.svg)](https://greenkeeper.io/)
 
 # hearthstone-tracker
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/gregstewart/hearthstone-tracker.svg)](https://greenkeeper.io/)
 An electron based Hearthstone tracker
 
 To get started:
