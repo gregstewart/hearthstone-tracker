@@ -4,6 +4,12 @@ This project tries to adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+## [0.4.2] - (2017-04-29)
+
+Features:
+
 * bump version of electron tasks (Greg Stewart)
 * Moved badge (Greg Stewart)
 * docs(readme): add Greenkeeper badge (greenkeeper[bot])
@@ -98,8 +104,6 @@ This project tries to adheres to [Semantic Versioning](http://semver.org/).
 * chore(package): update electron-rebuild to version 1.5.6 (greenkeeperio-bot)
 * chore(package): update eslint-plugin-react to version 6.9.0 (greenkeeperio-bot)
 * Fix typos in changelog (Greg Stewart)
-
-### Added
 
 ## [0.4.1] - (2017-01-08)
 
