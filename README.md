@@ -5,6 +5,8 @@
 [![An electron based Hearthstone tracker](https://img.shields.io/npm/v/hearthstone-tracker.svg)](https://www.npmjs.com/package/hearthstone-tracker)
 
 # hearthstone-tracker
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/gregstewart/hearthstone-tracker.svg)](https://greenkeeper.io/)
 An electron based Hearthstone tracker
 
 To get started:
