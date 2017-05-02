@@ -42,7 +42,7 @@
     "cross-env": "4.0.0",
     "devtron": "1.4.0",
     "electron": "1.6.6",
-    "electron-packager": "8.6.0",
+    "electron-packager": "8.7.0",
     "electron-rebuild": "1.5.7",
     "eslint": "3.19.0",
     "eslint-plugin-import": "2.2.0",
