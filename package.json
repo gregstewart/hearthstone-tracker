@@ -70,7 +70,7 @@
     "farseer": "4.0.0",
     "flipit": "2.0.3",
     "pouchdb": "6.2.0",
-    "prop-types": "^15.5.4",
+    "prop-types": "^15.5.9",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-redux": "5.0.4",
