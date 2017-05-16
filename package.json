@@ -41,7 +41,7 @@
     "codeclimate-test-reporter": "0.4.1",
     "cross-env": "5.0.0",
     "devtron": "1.4.0",
-    "electron": "1.6.7",
+    "electron": "1.6.8",
     "electron-packager": "8.7.0",
     "electron-rebuild": "1.5.11",
     "eslint": "3.19.0",
