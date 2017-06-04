@@ -44,7 +44,6 @@ describe('UI Data - Datascript', () => {
 
     it('returns an error when no result is passed in', (done) => {
       summaryStats().catch((error) => {
-        expect(error).to.be.defined;
         expect(error.message).to.equal('Expected a result set');
         done();
       });
