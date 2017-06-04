@@ -30,7 +30,6 @@ describe('UI data', () => {
 
   it('returns an error when no result is passed in', () => {
     summaryStats().catch((error) => {
-      expect(error).to.be.defined;
       expect(error.message).to.equal('Expected a result set');
     });
   });

@@ -45,7 +45,6 @@ describe('Win streak - DataScript', () => {
 
   it('returns an error when no result is passed in', (done) => {
     winStreak().catch((error) => {
-      expect(error).to.be.defined;
       expect(error.message).to.equal('Expected a result set');
       done();
     });
