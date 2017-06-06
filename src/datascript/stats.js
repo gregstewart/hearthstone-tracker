@@ -66,7 +66,7 @@ export function aggregateDetails (db, outcome) {
     return core.q(parse(query), db, outcome);
   };
 
-  const getCount = (db) => {
+  const getCount = (db, outcome) => {
     const query = `[:find (count ?e) .
                     :in $ ?a
                     :where [?e ":hasWon" ?a]]`;

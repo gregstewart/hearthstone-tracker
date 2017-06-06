@@ -58,14 +58,14 @@ app.on('ready', () => {
 
         changes.on('change', () => {
           return fetchData(db).then((result) => {
-            generateSummary(result, webContents, flipit);
+            generateSummary(result, webContents);
           });
         }).on('error', (error) => {
           winston.error(error);
         });
 
         fetchData(db).then((result) => {
-          generateSummary(result, webContents, flipit);
+          generateSummary(result, webContents);
           // Emitted when the window is closed.
           mainWindow.on('closed', () => {
             // Dereference the window object, usually you would store windows
@@ -79,7 +79,7 @@ app.on('ready', () => {
           ipcMain.on('reload-data', () => {
             winston.info('reload-data');
             return fetchData(db).then((result) => {
-              generateSummary(result, webContents, flipit);
+              generateSummary(result, webContents);
             });
           });
         });
