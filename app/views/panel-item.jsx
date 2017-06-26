@@ -11,9 +11,9 @@ const divStyle = {
 const PanelItem = ({data, label}) => {
   return (
     <div style={divStyle}>
-    <h2>{label}</h2>
-    <Stats data={data} />
-  </div>);
+      <h2>{label}</h2>
+      <Stats data={data} />
+    </div>);
 };
 
 PanelItem.propTypes = {
