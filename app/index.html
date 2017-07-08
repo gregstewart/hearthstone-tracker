@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Hearthstone Tracker</title>
+    <style>
+      .Theme--hearthstone {
+        background:
+          url(images/background-hearthstone-top.jpg) center -200px no-repeat,
+          url(images/backgrounds/background-hearthstone-repeat.jpg) center 1800px repeat-y #42331e;
+        color: rgba(255,255,255,.7)
+      }
+    </style>
   </head>
-  <body>
+  <body class="Theme--hearthstone">
     <div id="main"></div>
     <script>
       // install babel hooks in the renderer process
