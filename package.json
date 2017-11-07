@@ -51,7 +51,7 @@
     "mocha": "4.0.1",
     "mocha-junit-reporter": "1.15.0",
     "nsp": "2.8.1",
-    "nyc": "11.2.1",
+    "nyc": "11.3.0",
     "pre-push": "0.1.1",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "^16.0.0",
