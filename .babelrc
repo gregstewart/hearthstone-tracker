@@ -4,5 +4,5 @@
             "plugins": ["istanbul"]
         }
     },
-    "presets": ["es2015", "react"]
+    "presets": ["env", "react"]
 }
