@@ -83,6 +83,6 @@
     "instrument": false
   },
   "engines": {
-    "node": "7.4.0"
+    "node": "7.9.0"
   }
 }
