@@ -6,7 +6,7 @@ import LogWatcher from 'farseer';
 import PouchDB from 'pouchdb';
 import Promise from 'bluebird';
 import winston from 'winston';
-import winstonLoggly from 'winston-loggly';/* eslint no-unused-vars: 0 */
+import winstonLoggly from 'winston-loggly-bulk';/* eslint no-unused-vars: 0 */
 
 const setUpPromises = (flipit) => {
   const promises = [];
