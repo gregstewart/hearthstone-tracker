@@ -69,7 +69,7 @@
     "debug": "3.1.0",
     "farseer": "4.0.2",
     "flipit": "2.0.3",
-    "pouchdb": "6.4.0",
+    "pouchdb": "6.4.1",
     "prop-types": "^15.5.4",
     "react": "16.2.0",
     "react-dom": "16.2.0",
