@@ -4,13 +4,13 @@
   "description": "An electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
-    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone --platform=all --arch=all --electron-version=1.7.9 --out=builds/",
-    "build:release:mac": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.icns --platform=darwin --arch=x64 --electron-version=1.7.9 --out=builds/",
-    "build:release:win": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.ico --platform=win32 --arch=x64 --electron-version=1.7.9 --out=builds/",
+    "build:release": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone --platform=all --arch=all --electron-version=$npm_package_devDependencies_electron --out=builds/",
+    "build:release:mac": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.icns --platform=darwin --arch=x64 --electron-version=$npm_package_devDependencies_electron --out=builds/",
+    "build:release:win": "node_modules/.bin/electron-packager . HearthstoneTracker --icon=assets/hearthstone.ico --platform=win32 --arch=x64 --electron-version=$npm_package_devDependencies_electron --out=builds/",
     "changelog": "git log `git describe --tags --abbrev=0`..HEAD --pretty=format:' * %s (%an)' | grep -v 'Merge pull request'",
     "coverage": "./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/nyc --no-cache --reporter=lcov --reporter=text ./node_modules/.bin/_mocha test",
     "lint": "./node_modules/.bin/eslint -c .eslintrc ./**/*.js ./**/*.jsx",
-    "rebuild:leveldb": "cd node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=1.7.9 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
+    "rebuild:leveldb": "cd node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=$npm_package_devDependencies_electron --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "security:check": "node_modules/.bin/nsp check",
     "start": "electron .",
     "test": "NODE_ENV=test mocha"
