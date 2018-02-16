@@ -44,7 +44,7 @@
     "electron": "1.7.11",
     "electron-packager": "11.0.1",
     "electron-rebuild": "1.7.3",
-    "eslint": "4.16.0",
+    "eslint": "4.18.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-react": "7.6.1",
     "memdown": "1.4.1",
