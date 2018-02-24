@@ -73,7 +73,7 @@
     "prop-types": "^15.5.4",
     "react": "16.2.0",
     "react-dom": "16.2.0",
-    "react-redux": "5.0.6",
+    "react-redux": "5.0.7",
     "redux": "3.7.2",
     "winston": "2.4.0",
     "winston-loggly-bulk": "^2.0.1"
