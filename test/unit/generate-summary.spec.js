@@ -5,7 +5,7 @@ import debug from 'debug';
 describe('Generate Summary', () => {
   let wC, sandbox;
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     wC = {
       send: sandbox.spy()
     };

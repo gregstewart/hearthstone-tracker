@@ -6,7 +6,7 @@ import PouchDB from 'pouchdb';
 describe('Parse HS log file', () => {
   let logWatcher, sandbox, logData, db;
   before(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     const options = {
       logFile: './test/fixtures/Player.log',
       configFile: './test/fixtures/log.config'
