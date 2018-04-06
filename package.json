@@ -75,7 +75,7 @@
     "react-dom": "16.3.1",
     "react-redux": "5.0.7",
     "redux": "3.7.2",
-    "winston": "2.4.1",
+    "winston": "3.0.0-rc4",
     "winston-loggly-bulk": "^2.0.1"
   },
   "nyc": {
