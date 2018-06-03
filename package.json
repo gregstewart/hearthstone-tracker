@@ -1,6 +1,6 @@
 {
   "name": "hearthstone-tracker",
-  "version": "0.4.2",
+  "version": "0.5.1",
   "description": "An electron based Hearthstone tracker",
   "main": "bootstrap-babel.js",
   "scripts": {
@@ -50,7 +50,7 @@
     "mocha": "5.1.1",
     "mocha-junit-reporter": "1.17.0",
     "nsp": "3.2.1",
-    "nyc": "11.6.0",
+    "nyc": "12.0.1",
     "pouchdb-adapter-memory": "^6.4.3",
     "pre-push": "0.1.1",
     "react-addons-test-utils": "15.6.2",
