@@ -51,7 +51,7 @@
     "mocha-junit-reporter": "1.17.0",
     "nsp": "3.2.1",
     "nyc": "12.0.2",
-    "pouchdb-adapter-memory": "^6.4.3",
+    "pouchdb-adapter-memory": "^7.0.0",
     "pre-push": "0.1.1",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "^16.4.1",
