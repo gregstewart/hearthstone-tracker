@@ -65,7 +65,7 @@
     "bluebird": "3.5.1",
     "create-file": "1.0.1",
     "datascript-mori": "0.17.0",
-    "date-fns": "2.0.0-alpha.1",
+    "date-fns": "2.6.0",
     "debug": "3.1.0",
     "farseer": "4.0.5",
     "flipit": "2.0.3",
