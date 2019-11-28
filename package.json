@@ -62,7 +62,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "6.24.1",
     "babel-register": "6.26.0",
-    "bluebird": "3.5.1",
+    "bluebird": "3.7.2",
     "create-file": "1.0.1",
     "datascript-mori": "0.17.0",
     "date-fns": "2.0.0-alpha.1",
