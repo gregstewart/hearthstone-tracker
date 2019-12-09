@@ -45,7 +45,7 @@
     "electron-packager": "12.1.0",
     "electron-rebuild": "1.7.3",
     "eslint": "5.0.0",
-    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-import": "2.19.1",
     "eslint-plugin-react": "7.9.1",
     "mocha": "5.2.0",
     "mocha-junit-reporter": "1.17.0",
